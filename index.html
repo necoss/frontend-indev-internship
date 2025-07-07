@@ -3,9 +3,100 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="./src/styles/css/main.css">
+
+	<!-- FAVICON -->
+	 <link rel="shortcut icon" href="./src/assets/img/logo.png" type="image/x-icon">
+
+	<!-- FONTS -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
+
+	<title>Louvre - Welcome to the Louvre!</title>
 </head>
 <body>
-	
+	<header>
+		<nav class="header-navigation">
+			<a href="./index.html" class="navigation-logo"><img src="./src/assets/img/logo.png" alt="Logo img"> LOUVRE</a>
+
+			<ul class='navigation-list'>
+				<li><a href="#">Visiting</a></li>
+				<li><a href="#">Explore</a></li>
+				<li><a href="#">Video</a></li>
+				<li><a href="#">Gallery</a></li>
+				<li><a href="#">Tickets</a></li>
+				<li><a href="#">Contacts</a></li>
+			</ul>
+
+			<div class="navigation-burger-menu">
+				<ul class="navigation-burger-menu__list">
+					<li><a href="#">Visiting <img src="./src/assets/img/arrow.png" alt="Arrow"></a></li>
+					<li><a href="#">Explore <img src="./src/assets/img/arrow.png" alt="Arrow"></a></li>
+					<li><a href="#">Video <img src="./src/assets/img/arrow.png" alt="Arrow"></a></li>
+					<li><a href="#">Gallery <img src="./src/assets/img/arrow.png" alt="Arrow"></a></li>
+					<li><a href="#">Tickets <img src="./src/assets/img/arrow.png" alt="Arrow"></a></li>
+					<li><a href="#">Contacts <img src="./src/assets/img/arrow.png" alt="Arrow"></a></li>
+				</ul>
+			</div>
+
+		</nav>
+	</header>
+
+	<main>
+		<section class="hero-section">
+			<h1 class="hero__title">Welcome to the louvre</h1>
+			<p class="hero__subtitle">From the castle to the museum</p>
+
+			<div class="hero_slider">
+				<img src="./src/assets/img/hero-mona-lisa.png" alt="Mona Lisa Hero">
+				<div class="hero_slider__controls"></div>
+			</div>
+		</section>
+
+		<section class="virtual-tour">
+			<h2 class="virtual-tour__title">Virtual tour</h2>
+
+			<div class="virtual-tour__item">
+				<img class='virtual-tour__item__img' src="./src/assets/img/virtual-tour/pic1.jpg" alt="Virtual_Tour_Picture_1">
+				<h3 class="virtual-tour__item__title">Royal palace</h3>
+				<p class="virtual-tour__item__info">360° Virtual Tour <br> Google Street Panorama View</p>
+			</div>
+
+			<div class="virtual-tour__item">
+				<img class='virtual-tour__item__img' src="./src/assets/img/virtual-tour/pic2.jpg" alt="Virtual_Tour_Picture_2">
+				<h3 class="virtual-tour__item__title">Demon Wing</h3>
+				<p class="virtual-tour__item__info">360° Virtual Tour <br> Google Street Panorama View</p>
+			</div>
+
+			<div class="virtual-tour__item">
+				<img class='virtual-tour__item__img' src="./src/assets/img/virtual-tour/pic3.jpg" alt="Virtual_Tour_Picture_3">
+				<h3 class="virtual-tour__item__title">Colonnade Perrault</h3>
+				<p class="virtual-tour__item__info">360° Virtual Tour <br> Google Street Panorama View</p>
+			</div>
+
+			<div class="virtual-tour__item">
+				<img class='virtual-tour__item__img' src="./src/assets/img/virtual-tour/pic4.jpg" alt="Virtual_Tour_Picture_4">
+				<h3 class="virtual-tour__item__title">Greek hall</h3>
+				<p class="virtual-tour__item__info">360° Virtual Tour <br> Google Street Panorama View</p>
+			</div>
+			
+			<div class="virtual-tour__item">
+				<img class='virtual-tour__item__img' src="./src/assets/img/virtual-tour/pic5.jpg" alt="Virtual_Tour_Picture_5">
+				<h3 class="virtual-tour__item__title">Mona Lisa</h3>
+				<p class="virtual-tour__item__info">360° Virtual Tour <br> Google Street Panorama View</p>
+			</div>
+
+			<div class="virtual-tour__item">
+				<img class='virtual-tour__item__img' src="./src/assets/img/virtual-tour/pic6.jpg" alt="Virtual_Tour_Picture_6">
+				<h3 class="virtual-tour__item__title">Night Palace</h3>
+				<p class="virtual-tour__item__info">360° Virtual Tour <br> Google Street Panorama View</p>
+			</div>
+		</section>
+		
+	</main>
+
 </body>
 </html>
