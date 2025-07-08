@@ -1,21 +1,12 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
+@import './mixins.scss';
 
-@mixin flex-center-between {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+// * {
+//   padding: 0;
+//   margin: 0;
+//   box-sizing: border-box;
+// }
 
-@mixin flex-center-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
+//! вынести основные моменты
 :root {
   --color-bg-dark: #030303;
   --color-dark-red: #710707;
@@ -27,11 +18,12 @@
   --link-active-color: #7e6c51;
 
   --button-hover-color: #9d8665;
+
+  font-family: Roboto, sans-serif;
 }
 
 .container {
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-inline: 20px;
 }
 
 ul {
@@ -45,7 +37,7 @@ a {
 // Mobile devices (420px)
 
 header {
-  background: var(--color-bg-dark);
+  background-color: var(--color-bg-dark);
   .header-navigation {
     @include flex-center-between();
     padding: 35px 0px;
@@ -57,7 +49,6 @@ header {
       font-size: 16px;
       font-weight: 400;
       letter-spacing: 5px;
-      text-transform: uppercase;
 
       img {
         width: 29px;
@@ -75,7 +66,7 @@ header {
         display: none;
         a {
           color: var(--color-font-white);
-          font-family: Roboto;
+          font-family: Roboto, sans-serif;
           font-size: 20px;
           font-weight: 300;
           letter-spacing: 2px;
@@ -100,7 +91,6 @@ header {
       line-height: 40px;
       font-weight: 400;
       letter-spacing: 5px;
-      text-transform: uppercase;
     }
 
     .hero__subtitle {
@@ -136,7 +126,6 @@ header {
           font-style: normal;
           font-weight: 400;
           line-height: 40px;
-          text-transform: uppercase;
         }
 
         .hero_slider__controls__pagination {
@@ -149,7 +138,7 @@ header {
 }
 
 main {
-  // GENERAL VARIABLES
+  //? GENERAL VARIABLES
   .hr_divider_long {
     width: 380px;
     height: 3px;
@@ -166,27 +155,26 @@ main {
     border: 0;
     margin: 10px 0;
   }
-  // -----------------
+
+  .title_primary {
+    color: var(--color-font-gold);
+    font-family: Forum, sans-serif;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: 5px;
+  }
+
+  //? -----------------
 
   .virtual-tour {
     padding-top: 40px;
 
-    .virtual-tour__article {
-      .virtual-tour__article__title {
-        color: var(--color-font-gold);
-        font-family: Forum, sans-serif;
-        font-size: 28px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 40px;
-        letter-spacing: 5px;
-        text-transform: uppercase;
-      }
-    }
-
     .virtual-tour__item {
       max-width: 280px;
       margin: 0 auto;
+      padding-top: 40px;
 
       .virtual-tour__item__img {
         width: 280px;
@@ -201,7 +189,6 @@ main {
         font-weight: 400;
         line-height: normal;
         letter-spacing: 5px;
-        text-transform: uppercase;
         padding-top: 25px;
       }
 
@@ -221,19 +208,6 @@ main {
     padding: 40px 0;
     margin-top: 40px;
 
-    .explore_article {
-      .explore_article__title {
-        color: var(--color-font-white);
-        font-family: Forum, sans-serif;
-        font-size: 28px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 40px;
-        letter-spacing: 5px;
-        text-transform: uppercase;
-      }
-    }
-
     .explore_picture_reveal {
       margin-top: 40px;
 
@@ -244,19 +218,8 @@ main {
     }
   }
 
-  .video_jouney {
+  .video_journey {
     margin: 40px 0;
-
-    .video_journey_title {
-      color: var(--color-font-gold);
-      font-family: Forum, sans-serif;
-      font-size: 28px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 40px;
-      letter-spacing: 5px;
-      text-transform: uppercase;
-    }
 
     .video_journey__video {
       padding-top: 20px;
@@ -274,7 +237,7 @@ main {
         @include flex-center-between();
       }
       .video_journey__video_slider__controls {
-        text-align: center;
+        @include flex-center-center();
         padding-top: 40px;
       }
     }
@@ -285,24 +248,14 @@ main {
     padding-top: 40px;
     // clip-path: inset(0% 0% 16% 0%);
 
-    .gallery__title {
-      color: var(--color-font-white);
-      font-family: Forum;
-      font-size: 28px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 40px; /* 142.857% */
-      letter-spacing: 5px;
-      text-transform: uppercase;
-    }
-
     .gallery__items {
       display: flex;
       justify-content: space-between;
-      padding-top: 40px;
+      margin-top: 40px;
+      //! try to change to inner box shadow
       mask-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, #000 10%);
-      overflow: hidden;
-      height: 757px;
+      max-height: 760px;
+      overflow-y: scroll;
 
       .gallery__items__column {
         display: flex;
@@ -324,21 +277,10 @@ main {
   }
 
   .tickets {
-    margin:40px 0;
-
-    .tickets_article__title {
-      color: var(--color-font-gold);
-      font-family: Forum, sans-serif;
-      font-size: 28px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 40px;
-      letter-spacing: 5px;
-      text-transform: uppercase;
-    }
+    margin: 40px 0;
 
     .tickets_order {
-			text-align: center;
+      text-align: center;
       .tickets_order__image {
         width: 100%;
         height: 160px;
@@ -421,7 +363,53 @@ main {
         letter-spacing: 2px;
         border-radius: 2px;
         background: var(--color-bg-dark);
-				padding: 16px 48px;
+        padding: 16px 48px;
+      }
+    }
+  }
+
+  .contacts {
+    padding-bottom: 40px;
+
+    .contacts_parallax_image {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    .contacts_article {
+      margin-top: 40px;
+    }
+
+    .contacts_place_name {
+      color: var(--color-font-black);
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .contacts_info {
+      color: var(--color-font-black);
+      font-size: 16px;
+      font-weight: 300;
+
+      .contacts_info__address {
+        margin-top: 40px;
+      }
+
+      .contacts_info__phone {
+        margin-top: 15px;
+      }
+
+      .contacts_info__mail {
+        margin-top: 15px;
+      }
+    }
+
+    .contacts_map {
+      img {
+        margin-top: 40px;
+        width: 100%;
+        height: 248px;
       }
     }
   }
