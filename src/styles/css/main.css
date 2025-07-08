@@ -138,6 +138,21 @@ header .hero-section .hero_slider .hero_slider__controls .hero_slider__controls_
   margin-right: 25px;
 }
 
+main .hr_divider_long {
+  width: 380px;
+  height: 3px;
+  background-color: var(--color-dark-red);
+  border: 0;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+main .hr_divider_short {
+  width: 150px;
+  height: 2px;
+  background-color: var(--color-dark-red);
+  border: 0;
+  margin: 10px 0;
+}
 main .virtual-tour {
   padding-top: 40px;
 }
@@ -151,15 +166,7 @@ main .virtual-tour .virtual-tour__article .virtual-tour__article__title {
   letter-spacing: 5px;
   text-transform: uppercase;
 }
-main .virtual-tour .virtual-tour__article .virtual-tour__article__divider {
-  width: 380px;
-  height: 3px;
-  background-color: var(--color-dark-red);
-  border: 0;
-  margin-top: 20px;
-}
 main .virtual-tour .virtual-tour__item {
-  padding-top: 40px;
   max-width: 280px;
   margin: 0 auto;
 }
@@ -178,13 +185,6 @@ main .virtual-tour .virtual-tour__item .virtual-tour__item__title {
   text-transform: uppercase;
   padding-top: 25px;
 }
-main .virtual-tour .virtual-tour__item .virtual-tour__item__divider {
-  width: 150px;
-  height: 2px;
-  background-color: var(--color-dark-red);
-  border: 0;
-  margin-top: 20px;
-}
 main .virtual-tour .virtual-tour__item .virtual-tour__item__info {
   color: var(--color-font-black);
   font-family: Roboto, sans-serif;
@@ -192,5 +192,26 @@ main .virtual-tour .virtual-tour__item .virtual-tour__item__info {
   font-style: normal;
   font-weight: 200;
   line-height: 30px;
-  padding-top: 10px;
+}
+main .explore {
+  background: var(--color-bg-dark);
+  padding: 40px 0;
+  margin-top: 40px;
+}
+main .explore .explore_article .explore_article__title {
+  color: var(--color-font-white);
+  font-family: Forum, sans-serif;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+main .explore .explore_picture_reveal {
+  margin-top: 40px;
+}
+main .explore .explore_picture_reveal img {
+  width: 380px;
+  height: 368px;
 }

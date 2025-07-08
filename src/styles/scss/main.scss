@@ -148,6 +148,25 @@ header {
 }
 
 main {
+  // GENERAL VARIABLES
+  .hr_divider_long {
+    width: 380px;
+    height: 3px;
+    background-color: var(--color-dark-red);
+    border: 0;
+    margin-top: 20px;
+		margin-bottom: 40px;
+  }
+
+  .hr_divider_short {
+    width: 150px;
+    height: 2px;
+    background-color: var(--color-dark-red);
+    border: 0;
+    margin: 10px 0;
+  }
+  // -----------------
+
   .virtual-tour {
     padding-top: 40px;
 
@@ -162,18 +181,9 @@ main {
         letter-spacing: 5px;
         text-transform: uppercase;
       }
-
-      .virtual-tour__article__divider {
-        width: 380px;
-        height: 3px;
-        background-color: var(--color-dark-red);
-        border: 0;
-        margin-top: 20px;
-      }
     }
 
-    .virtual-tour__item {
-      padding-top: 40px;
+    .virtual-tour__item {	
       max-width: 280px;
       margin: 0 auto;
 
@@ -194,14 +204,6 @@ main {
         padding-top: 25px;
       }
 
-      .virtual-tour__item__divider {
-        width: 150px;
-        height: 2px;
-        background-color: var(--color-dark-red);
-        border: 0;
-        margin-top: 20px;
-      }
-
       .virtual-tour__item__info {
         color: var(--color-font-black);
         font-family: Roboto, sans-serif;
@@ -209,9 +211,35 @@ main {
         font-style: normal;
         font-weight: 200;
         line-height: 30px;
-        padding-top: 10px;
       }
     }
-    // display: none;
+  }
+
+  .explore {
+    background: var(--color-bg-dark);
+    padding: 40px 0;
+		margin-top: 40px;
+
+    .explore_article {
+      .explore_article__title {
+        color: var(--color-font-white);
+        font-family: Forum, sans-serif;
+        font-size: 28px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 40px;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+      }
+    }
+
+    .explore_picture_reveal {
+      margin-top: 40px;
+
+      img {
+        width: 380px;
+        height: 368px;
+      }
+    }
   }
 }
