@@ -1,102 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	<!-- CSS -->
-	<link rel="stylesheet" href="./src/styles/css/main.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="./src/styles/css/main.css" />
 
-	<!-- FAVICON -->
-	 <link rel="shortcut icon" href="./src/assets/img/logo.png" type="image/x-icon">
+    <!-- FAVICON -->
+    <link rel="shortcut icon" href="./src/assets/img/logo.png" type="image/x-icon" />
 
-	<!-- FONTS -->
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Forum&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
 
-	<title>Louvre - Welcome to the Louvre!</title>
-</head>
-<body>
-	<header>
-		<nav class="header-navigation">
-			<a href="./index.html" class="navigation-logo"><img src="./src/assets/img/logo.png" alt="Logo img"> LOUVRE</a>
+    <title>Louvre - Welcome to the Louvre!</title>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav class="header-navigation">
+          <a href="./index.html" class="navigation-logo"><img src="./src/assets/img/logo.png" alt="Logo img" /> LOUVRE</a>
 
-			<ul class='navigation-list'>
-				<li><a href="#">Visiting</a></li>
-				<li><a href="#">Explore</a></li>
-				<li><a href="#">Video</a></li>
-				<li><a href="#">Gallery</a></li>
-				<li><a href="#">Tickets</a></li>
-				<li><a href="#">Contacts</a></li>
-			</ul>
+          <ul class="navigation-list">
+            <li><a href="#">Visiting</a></li>
+            <li><a href="#">Explore</a></li>
+            <li><a href="#">Video</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">Tickets</a></li>
+            <li><a href="#">Contacts</a></li>
+          </ul>
 
-			<div class="navigation-burger-menu">
-				<ul class="navigation-burger-menu__list">
-					<li><a href="#">Visiting <img src="./src/assets/img/arrow.png" alt="Arrow"></a></li>
-					<li><a href="#">Explore <img src="./src/assets/img/arrow.png" alt="Arrow"></a></li>
-					<li><a href="#">Video <img src="./src/assets/img/arrow.png" alt="Arrow"></a></li>
-					<li><a href="#">Gallery <img src="./src/assets/img/arrow.png" alt="Arrow"></a></li>
-					<li><a href="#">Tickets <img src="./src/assets/img/arrow.png" alt="Arrow"></a></li>
-					<li><a href="#">Contacts <img src="./src/assets/img/arrow.png" alt="Arrow"></a></li>
-				</ul>
-			</div>
+          <div class="navigation-burger-menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="18" viewBox="0 0 32 18" fill="none">
+              <rect width="32" height="2" fill="white" />
+              <rect y="8" width="32" height="2" fill="white" />
+              <rect y="16" width="32" height="2" fill="white" />
+            </svg>
 
-		</nav>
-	</header>
+            <ul class="navigation-burger-menu__list">
+              <li>
+                <a href="#">Visiting<img src="./src/assets/img/arrow.png" alt="Arrow" /></a>
+              </li>
+              <li>
+                <a href="#">Explore<img src="./src/assets/img/arrow.png" alt="Arrow" /></a>
+              </li>
+              <li>
+                <a href="#">Video<img src="./src/assets/img/arrow.png" alt="Arrow" /></a>
+              </li>
+              <li>
+                <a href="#">Gallery<img src="./src/assets/img/arrow.png" alt="Arrow" /></a>
+              </li>
+              <li>
+                <a href="#">Tickets<img src="./src/assets/img/arrow.png" alt="Arrow" /></a>
+              </li>
+              <li>
+                <a href="#">Contacts<img src="./src/assets/img/arrow.png" alt="Arrow" /></a>
+              </li>
+            </ul>
+          </div>
+        </nav>
 
-	<main>
-		<section class="hero-section">
-			<h1 class="hero__title">Welcome to the louvre</h1>
-			<p class="hero__subtitle">From the castle to the museum</p>
+        <section class="hero-section">
+          <h1 class="hero__title">
+            Welcome <br />
+            to the louvre
+          </h1>
+          <p class="hero__subtitle">From the castle to the museum</p>
 
-			<div class="hero_slider">
-				<img src="./src/assets/img/hero-mona-lisa.png" alt="Mona Lisa Hero">
-				<div class="hero_slider__controls"></div>
-			</div>
-		</section>
+          <div class="hero_slider">
+            <img class="hero_slider__image" src="./src/assets/img/hero-mona-lisa-cleaned.png" alt="Mona Lisa Hero" />
 
-		<section class="virtual-tour">
-			<h2 class="virtual-tour__title">Virtual tour</h2>
+            <div class="hero_slider__controls">
+              <div class="hero_slider__controls__slide_num">
+                <p class=""><span class="hero_slider__controls__slide__current">01</span> | <span class="hero_slider__controls__slide__all">05</span></p>
+              </div>
 
-			<div class="virtual-tour__item">
-				<img class='virtual-tour__item__img' src="./src/assets/img/virtual-tour/pic1.jpg" alt="Virtual_Tour_Picture_1">
-				<h3 class="virtual-tour__item__title">Royal palace</h3>
-				<p class="virtual-tour__item__info">360° Virtual Tour <br> Google Street Panorama View</p>
-			</div>
+              <div class="hero_slider__controls__pagination">
+                <svg xmlns="http://www.w3.org/2000/svg" width="75" height="7" viewBox="0 0 75 7" fill="none">
+                  <path d="M0 7V0H7V7H0Z" fill="#D2B183" />
+                  <path d="M17 7V0H24V7H17Z" fill="white" />
+                  <path d="M34 7V0H41V7H34Z" fill="white" />
+                  <path d="M51 7V0H58V7H51Z" fill="white" />
+                  <path d="M68 7V0H75V7H68Z" fill="white" />
+                </svg>
+              </div>
 
-			<div class="virtual-tour__item">
-				<img class='virtual-tour__item__img' src="./src/assets/img/virtual-tour/pic2.jpg" alt="Virtual_Tour_Picture_2">
-				<h3 class="virtual-tour__item__title">Demon Wing</h3>
-				<p class="virtual-tour__item__info">360° Virtual Tour <br> Google Street Panorama View</p>
-			</div>
+              <div class="hero_slider__controls__controls">
+                <svg xmlns="http://www.w3.org/2000/svg" width="55" height="8" viewBox="0 0 55 8" fill="none">
+                  <path
+                    d="M49.659 -4.15048e-07C51.3584 1.68661 53.1387 2.91738 55 3.69231L55 4.30769C53.1387 5.10541 51.3584 6.33618 49.659 8L48.2428 8C49.052 6.5641 49.8343 5.47009 50.5896 4.71795L35 4.71795L35 3.28205L50.5896 3.28205C49.8343 2.52991 49.052 1.4359 48.2428 -5.25098e-07L49.659 -4.15048e-07Z"
+                    fill="white"
+                  />
+                  <path d="M5.34104 8C3.64162 6.31339 1.86127 5.08262 0 4.30769V3.69231C1.86127 2.89459 3.64162 1.66382 5.34104 0H6.75723C5.94798 1.4359 5.1657 2.52991 4.4104 3.28205H20V4.71795H4.4104C5.1657 5.47009 5.94798 6.5641 6.75723 8H5.34104Z" fill="white" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </header>
 
-			<div class="virtual-tour__item">
-				<img class='virtual-tour__item__img' src="./src/assets/img/virtual-tour/pic3.jpg" alt="Virtual_Tour_Picture_3">
-				<h3 class="virtual-tour__item__title">Colonnade Perrault</h3>
-				<p class="virtual-tour__item__info">360° Virtual Tour <br> Google Street Panorama View</p>
-			</div>
+    <main>
+      <div class="container">
+        <section class="virtual-tour">
+          <article class="virtual-tour__article">
+            <h2 class="virtual-tour__article__title">Virtual tour</h2>
+						<hr class='virtual-tour__article__divider'>
+          </article>
 
-			<div class="virtual-tour__item">
-				<img class='virtual-tour__item__img' src="./src/assets/img/virtual-tour/pic4.jpg" alt="Virtual_Tour_Picture_4">
-				<h3 class="virtual-tour__item__title">Greek hall</h3>
-				<p class="virtual-tour__item__info">360° Virtual Tour <br> Google Street Panorama View</p>
-			</div>
-			
-			<div class="virtual-tour__item">
-				<img class='virtual-tour__item__img' src="./src/assets/img/virtual-tour/pic5.jpg" alt="Virtual_Tour_Picture_5">
-				<h3 class="virtual-tour__item__title">Mona Lisa</h3>
-				<p class="virtual-tour__item__info">360° Virtual Tour <br> Google Street Panorama View</p>
-			</div>
+          <div class="virtual-tour__item">
+            <img class="virtual-tour__item__img" src="./src/assets/img/virtual-tour/pic1.jpg" alt="Virtual_Tour_Picture_1" />
+            <h3 class="virtual-tour__item__title">Royal palace</h3>
+						<hr class="virtual-tour__item__divider">
+            <p class="virtual-tour__item__info">
+              360° Virtual Tour <br />
+              Google Street Panorama View
+            </p>
+          </div>
 
-			<div class="virtual-tour__item">
-				<img class='virtual-tour__item__img' src="./src/assets/img/virtual-tour/pic6.jpg" alt="Virtual_Tour_Picture_6">
-				<h3 class="virtual-tour__item__title">Night Palace</h3>
-				<p class="virtual-tour__item__info">360° Virtual Tour <br> Google Street Panorama View</p>
-			</div>
-		</section>
-		
-	</main>
+          <div class="virtual-tour__item">
+            <img class="virtual-tour__item__img" src="./src/assets/img/virtual-tour/pic2.jpg" alt="Virtual_Tour_Picture_2" />
+            <h3 class="virtual-tour__item__title">Demon Wing</h3>
+						<hr class="virtual-tour__item__divider">
+            <p class="virtual-tour__item__info">
+              360° Virtual Tour <br />
+              Google Street Panorama View
+            </p>
+          </div>
 
-</body>
+          <div class="virtual-tour__item">
+            <img class="virtual-tour__item__img" src="./src/assets/img/virtual-tour/pic3.jpg" alt="Virtual_Tour_Picture_3" />
+            <h3 class="virtual-tour__item__title">Colonnade Perrault</h3>
+						<hr class="virtual-tour__item__divider">
+            <p class="virtual-tour__item__info">
+              360° Virtual Tour <br />
+              Google Street Panorama View
+            </p>
+          </div>
+
+          <div class="virtual-tour__item">
+            <img class="virtual-tour__item__img" src="./src/assets/img/virtual-tour/pic4.jpg" alt="Virtual_Tour_Picture_4" />
+            <h3 class="virtual-tour__item__title">Greek hall</h3>
+						<hr class="virtual-tour__item__divider">
+            <p class="virtual-tour__item__info">
+              360° Virtual Tour <br />
+              Google Street Panorama View
+            </p>
+          </div>
+
+          <div class="virtual-tour__item">
+            <img class="virtual-tour__item__img" src="./src/assets/img/virtual-tour/pic5.jpg" alt="Virtual_Tour_Picture_5" />
+            <h3 class="virtual-tour__item__title">Mona Lisa</h3>
+						<hr class="virtual-tour__item__divider">
+            <p class="virtual-tour__item__info">
+              360° Virtual Tour <br />
+              Google Street Panorama View
+            </p>
+          </div>
+
+          <div class="virtual-tour__item">
+            <img class="virtual-tour__item__img" src="./src/assets/img/virtual-tour/pic6.jpg" alt="Virtual_Tour_Picture_6" />
+            <h3 class="virtual-tour__item__title">Night Palace</h3>
+						<hr class="virtual-tour__item__divider">
+            <p class="virtual-tour__item__info">
+              360° Virtual Tour <br />
+              Google Street Panorama View
+            </p>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
 </html>
