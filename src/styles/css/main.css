@@ -111,7 +111,7 @@ header .header-navigation .navigation-list {
 }
 header .header-navigation .navigation_burger_menu {
   width: 32px;
-  height: 18px;
+  height: 25px;
   position: absolute;
   right: 0;
   top: 45%;
@@ -119,7 +119,8 @@ header .header-navigation .navigation_burger_menu {
 header .header-navigation .navigation_burger_menu #navigation_burger_menu__toggle {
   opacity: 0;
   width: 32px;
-  height: 18px;
+  height: 100%;
+  margin-top: -10px;
 }
 header .header-navigation .navigation_burger_menu #navigation_burger_menu__toggle:checked + .navigation_burger_menu__btn > span {
   -webkit-transform: rotate(45deg);
@@ -140,14 +141,17 @@ header .header-navigation .navigation_burger_menu #navigation_burger_menu__toggl
 }
 header .header-navigation .navigation_burger_menu .navigation_burger_menu__btn {
   position: absolute;
+  top: 0px;
   right: 0px;
   width: 32px;
-  height: 18px;
+  height: 100%;
   cursor: pointer;
   z-index: 1;
+  margin-top: -10px;
 }
 header .header-navigation .navigation_burger_menu .navigation_burger_menu__btn > span, header .header-navigation .navigation_burger_menu .navigation_burger_menu__btn > span::before, header .header-navigation .navigation_burger_menu .navigation_burger_menu__btn > span::after {
   position: absolute;
+  top: 10px;
   width: 32px;
   height: 2px;
   background-color: var(--color-font-white);

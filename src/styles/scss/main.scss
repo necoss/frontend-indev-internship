@@ -1,11 +1,5 @@
 @import './mixins.scss';
 
-// * {
-//   padding: 0;
-//   margin: 0;
-//   box-sizing: border-box;
-// }
-
 //! вынести основные моменты
 :root {
   --color-bg-dark: #030303;
@@ -105,7 +99,7 @@ header {
 
     .navigation_burger_menu {
       width: 32px;
-      height: 18px;
+      height: 25px;
       position: absolute;
       right: 0;
       top: 45%;
@@ -113,7 +107,8 @@ header {
       #navigation_burger_menu__toggle {
         opacity: 0;
         width: 32px;
-        height: 18px;
+        height: 100%;
+        margin-top: -10px;
 
         &:checked + .navigation_burger_menu__btn > span {
           transform: rotate(45deg);
@@ -136,16 +131,19 @@ header {
 
       .navigation_burger_menu__btn {
         position: absolute;
+        top: 0px;
         right: 0px;
         width: 32px;
-        height: 18px;
+        height: 100%;
         cursor: pointer;
         z-index: 1;
+        margin-top: -10px;
 
         & > span,
         & > span::before,
         & > span::after {
           position: absolute;
+          top: 10px;
           width: 32px;
           height: 2px;
           background-color: var(--color-font-white);
