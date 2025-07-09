@@ -20,10 +20,10 @@
   --button-hover-color: #9d8665;
 
   font-family: Roboto, sans-serif;
+  font-size: 16px;
 }
 
 //? GENERAL VARIABLES
-
 .container {
   padding-inline: 20px;
 }
@@ -57,7 +57,6 @@
   @include flex-center-center();
   color: var(--color-font-white);
   font-family: Forum, sans-serif;
-  font-size: 16px;
   font-weight: 400;
   letter-spacing: 5px;
 
@@ -77,27 +76,85 @@ header {
   .header-navigation {
     @include flex-center-between();
     padding: 35px 0px;
-
-    .navigation-logo {
-    }
+    position: relative;
 
     .navigation-list {
       display: none;
     }
 
-    .navigation-burger-menu {
-      .navigation-burger-menu__list {
-        display: none;
-        a {
-          color: var(--color-font-white);
-          font-family: Roboto, sans-serif;
-          font-size: 20px;
-          font-weight: 300;
-          letter-spacing: 2px;
-          min-width: 110px;
+    .navigation_burger_menu {
+      width: 32px;
+      height: 18px;
 
-          img {
-            // margin-left: 20px;
+      #navigation_burger_menu__toggle {
+        opacity: 0;
+        width: 32px;
+        height: 18px;
+
+        &:checked + .navigation_burger_menu__btn > span {
+          transform: rotate(45deg);
+        }
+
+        &:checked + .navigation_burger_menu__btn > span::before {
+          top: 0;
+          transform: rotate(0deg);
+        }
+
+        &:checked + .navigation_burger_menu__btn > span::after {
+          top: 0;
+          transform: rotate(90deg);
+        }
+
+        &:checked ~ .navigation_burger_menu__list {
+          right: 0;
+        }
+      }
+
+      .navigation_burger_menu__btn {
+        position: absolute;
+        right: 0px;
+        width: 32px;
+        height: 18px;
+        cursor: pointer;
+        z-index: 1;
+
+        & > span,
+        & > span::before,
+        & > span::after {
+          position: absolute;
+          width: 32px;
+          height: 2px;
+          background-color: var(--color-font-white);
+          transition-duration: 0.25s;
+        }
+
+        & > span::before {
+          content: '';
+          top: -8px;
+        }
+
+        & > span::after {
+          content: '';
+          top: 8px;
+        }
+      }
+
+      .navigation_burger_menu__list {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100%;
+        padding: 35px 55px;
+        background-color: var(--color-bg-dark);
+        transition-duration: 0.25s;
+
+        .navigation_burger_menu__item {
+          color: var(--color-font-white);
+          transition-duration: 0.25s;
+
+          &:hover {
+            color: var(--button-hover-color);
           }
         }
       }
@@ -119,9 +176,7 @@ header {
 
     .hero__subtitle {
       color: var(--color-font-white);
-      font-family: Roboto, sans-serif;
       text-align: center;
-      font-size: 16px;
       font-weight: 300;
       letter-spacing: 2px;
       padding-top: 25px;
@@ -143,8 +198,6 @@ header {
 
         .hero_slider__controls__slide_num p {
           color: var(--color-font-white);
-          font-family: Roboto, sans-serif;
-          font-size: 16px;
           font-weight: 400;
           line-height: 40px;
         }
@@ -183,8 +236,6 @@ main {
 
       .virtual-tour__item__info {
         color: var(--color-font-black);
-        font-family: Roboto, sans-serif;
-        font-size: 16px;
         font-weight: 200;
         line-height: 30px;
       }
@@ -278,8 +329,6 @@ main {
       .tickets_order__amount {
         color: var(--color-font-black);
         text-align: center;
-        font-family: Roboto, sans-serif;
-        font-size: 16px;
         font-weight: 700;
         padding-top: 40px;
       }
@@ -292,8 +341,6 @@ main {
         .tickets_order__plan_name {
           text-align: left;
           color: var(--color-font-black);
-          font-family: Roboto, sans-serif;
-          font-size: 16px;
           font-weight: 300;
         }
 
@@ -306,7 +353,6 @@ main {
           .tickets_order__counter__button {
             color: var(--color-font-black);
             text-align: center;
-            font-family: Roboto, sans-serif;
             font-size: 32px;
             font-weight: 400;
             border: none;
@@ -316,7 +362,6 @@ main {
           .tickets_order__counter__value {
             color: var(--color-font-black);
             text-align: center;
-            font-family: Roboto, sans-serif;
             font-size: 22px;
             font-weight: 300;
           }
@@ -326,8 +371,6 @@ main {
       .tickets_order__order_price {
         color: var(--color-font-black);
         text-align: center;
-        font-family: Roboto, sans-serif;
-        font-size: 16px;
         font-weight: 700;
         padding: 40px 0;
       }
@@ -335,8 +378,6 @@ main {
       .tickets_order__order_button {
         color: var(--color-font-white);
         text-align: center;
-        font-family: Roboto, sans-serif;
-        font-size: 16px;
         font-weight: 300;
         letter-spacing: 2px;
         border-radius: 2px;
@@ -361,13 +402,11 @@ main {
 
     .contacts_place_name {
       color: var(--color-font-black);
-      font-size: 16px;
       font-weight: 500;
     }
 
     .contacts_info {
       color: var(--color-font-black);
-      font-size: 16px;
       font-weight: 300;
 
       .contacts_info__address {
@@ -413,7 +452,6 @@ footer {
 
       li a {
         color: var(--color-font-white);
-        font-size: 16px;
         font-weight: 200;
         letter-spacing: 2px;
       }
@@ -444,9 +482,8 @@ footer {
   .footer_credits {
     @include flex-center-between();
     color: var(--color-font-white);
-    font-size: 16px;
     font-weight: 200;
-    line-height: 22px; 
+    line-height: 22px;
     letter-spacing: 2px;
   }
 }
