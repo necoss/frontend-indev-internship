@@ -24,6 +24,10 @@
 }
 
 //? GENERAL VARIABLES
+body:has(#navigation_burger_menu__toggle:checked) {
+  overflow: hidden;
+}
+
 .overflow_y_hidden {
   overflow: hidden;
 }
