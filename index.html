@@ -6,6 +6,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="./src/styles/css/main.css" />
+    <link rel="stylesheet" href="./src/styles/css/reset.css" />
 
     <!-- FAVICON -->
     <link rel="shortcut icon" href="./src/assets/img/logo.png" type="image/x-icon" />
@@ -21,7 +22,7 @@
     <header>
       <div class="container">
         <nav class="header-navigation">
-          <a href="/index.html" class="navigation-logo"><img src="./src/assets/img/logo.png" alt="Logo img" /> LOUVRE</a>
+          <a href="/index.html" class="navigation-logo logo_primary"><img src="./src/assets/img/logo.png" alt="Logo img" /> LOUVRE</a>
 
           <ul class="navigation-list">
             <li><a href="#">Visiting</a></li>
@@ -32,31 +33,30 @@
             <li><a href="#">Contacts</a></li>
           </ul>
 
-          <div class="navigation-burger-menu">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="18" viewBox="0 0 32 18" fill="none">
-              <rect width="32" height="2" fill="white" />
-              <rect y="8" width="32" height="2" fill="white" />
-              <rect y="16" width="32" height="2" fill="white" />
-            </svg>
+          <div class="navigation_burger_menu">
+            <input id="navigation_burger_menu__toggle" type="checkbox" />
+            <label class="navigation_burger_menu__btn" for="navigation_burger_menu__toggle">
+              <span></span>
+            </label>
 
-            <ul class="navigation-burger-menu__list">
+            <ul class="navigation_burger_menu__list">
               <li>
-                <a href="#">Visiting<img src="./src/assets/img/arrow.png" alt="To Visiting Arrow" /></a>
+                <a class="navigation_burger_menu__item" href="#">Visiting<img src="./src/assets/img/arrow.png" alt="To Visiting Arrow" /></a>
               </li>
               <li>
-                <a href="#">Explore<img src="./src/assets/img/arrow.png" alt="To Explore Arrow" /></a>
+                <a class="navigation_burger_menu__item" href="#">Explore<img src="./src/assets/img/arrow.png" alt="To Explore Arrow" /></a>
               </li>
               <li>
-                <a href="#">Video<img src="./src/assets/img/arrow.png" alt="To Video Arrow" /></a>
+                <a class="navigation_burger_menu__item" href="#">Video<img src="./src/assets/img/arrow.png" alt="To Video Arrow" /></a>
               </li>
               <li>
-                <a href="#">Gallery<img src="./src/assets/img/arrow.png" alt="To Gallery Arrow" /></a>
+                <a class="navigation_burger_menu__item" href="#">Gallery<img src="./src/assets/img/arrow.png" alt="To Gallery Arrow" /></a>
               </li>
               <li>
-                <a href="#">Tickets<img src="./src/assets/img/arrow.png" alt="To Tickets Arrow" /></a>
+                <a class="navigation_burger_menu__item" href="#">Tickets<img src="./src/assets/img/arrow.png" alt="To Tickets Arrow" /></a>
               </li>
               <li>
-                <a href="#">Contacts<img src="./src/assets/img/arrow.png" alt="To Contacts Arrow" /></a>
+                <a class="navigation_burger_menu__item" href="#">Contacts<img src="./src/assets/img/arrow.png" alt="To Contacts Arrow" /></a>
               </li>
             </ul>
           </div>
@@ -64,10 +64,10 @@
 
         <section class="hero-section">
           <h1 class="hero__title">
-            Welcome <br />
-            to the louvre
+            WELCOME <br />
+            TO THE LOUVRE
           </h1>
-          <p class="hero__subtitle">From the castle to the museum</p>
+          <h2 class="hero__subtitle">From the castle to the museum</h2>
 
           <div class="hero_slider">
             <img class="hero_slider__image" src="./src/assets/img/hero-mona-lisa-cleaned.png" alt="Mona Lisa Hero" />
@@ -104,15 +104,16 @@
 
     <main>
       <div class="container">
+        <!-- !write using flex-column and wrap || gap (or grid) grid generators -->
         <section class="virtual-tour">
           <article class="virtual-tour__article">
-            <h2 class="virtual-tour__article__title">Virtual tour</h2>
+            <h2 class="virtual-tour__article__title title_primary">VIRTUAL TOUR</h2>
             <hr class="hr_divider_long" />
           </article>
 
           <div class="virtual-tour__item">
             <img class="virtual-tour__item__img" src="./src/assets/img/virtual-tour/pic1.jpg" alt="Virtual_Tour_Picture_1" />
-            <h3 class="virtual-tour__item__title">Royal palace</h3>
+            <h3 class="virtual-tour__item__title">ROYAL PALACE</h3>
             <hr class="hr_divider_short" />
             <p class="virtual-tour__item__info">
               360° Virtual Tour <br />
@@ -122,7 +123,7 @@
 
           <div class="virtual-tour__item">
             <img class="virtual-tour__item__img" src="./src/assets/img/virtual-tour/pic2.jpg" alt="Virtual_Tour_Picture_2" />
-            <h3 class="virtual-tour__item__title">Demon Wing</h3>
+            <h3 class="virtual-tour__item__title">DEMON WING</h3>
             <hr class="hr_divider_short" />
             <p class="virtual-tour__item__info">
               360° Virtual Tour <br />
@@ -132,7 +133,7 @@
 
           <div class="virtual-tour__item">
             <img class="virtual-tour__item__img" src="./src/assets/img/virtual-tour/pic3.jpg" alt="Virtual_Tour_Picture_3" />
-            <h3 class="virtual-tour__item__title">Colonnade Perrault</h3>
+            <h3 class="virtual-tour__item__title">COLONNADE PERRAULT</h3>
             <hr class="hr_divider_short" />
             <p class="virtual-tour__item__info">
               360° Virtual Tour <br />
@@ -142,7 +143,7 @@
 
           <div class="virtual-tour__item">
             <img class="virtual-tour__item__img" src="./src/assets/img/virtual-tour/pic4.jpg" alt="Virtual_Tour_Picture_4" />
-            <h3 class="virtual-tour__item__title">Greek hall</h3>
+            <h3 class="virtual-tour__item__title">GREEK HALL</h3>
             <hr class="hr_divider_short" />
             <p class="virtual-tour__item__info">
               360° Virtual Tour <br />
@@ -152,7 +153,7 @@
 
           <div class="virtual-tour__item">
             <img class="virtual-tour__item__img" src="./src/assets/img/virtual-tour/pic5.jpg" alt="Virtual_Tour_Picture_5" />
-            <h3 class="virtual-tour__item__title">Mona Lisa</h3>
+            <h3 class="virtual-tour__item__title">MONA LISA</h3>
             <hr class="hr_divider_short" />
             <p class="virtual-tour__item__info">
               360° Virtual Tour <br />
@@ -162,7 +163,7 @@
 
           <div class="virtual-tour__item">
             <img class="virtual-tour__item__img" src="./src/assets/img/virtual-tour/pic6.jpg" alt="Virtual_Tour_Picture_6" />
-            <h3 class="virtual-tour__item__title">Night Palace</h3>
+            <h3 class="virtual-tour__item__title">NIGHT PALACE</h3>
             <hr class="hr_divider_short" />
             <p class="virtual-tour__item__info">
               360° Virtual Tour <br />
@@ -175,19 +176,20 @@
       <section class="explore">
         <div class="container">
           <article class="explore_article">
-            <h4 class="explore_article__title">Picture explore</h4>
+            <h4 class="explore_article__title title_primary">PICTURE EXPLORE</h4>
             <hr class="hr_divider_long" />
           </article>
 
           <div class="explore_picture_reveal">
+            <!-- ! possible copypaste -->
             <img src="./src/assets/img/picture-explore/before-after.png" alt="Before and after picture" />
           </div>
         </div>
       </section>
 
-      <section class="video_jouney">
+      <section class="video_journey">
         <div class="container">
-          <h5 class="video_journey_title">Video journey</h5>
+          <h5 class="video_journey_title title_primary">VIDEO JOURNEY</h5>
 
           <div class="video_journey__video">
             <img src="./src/assets/img/video-journey-preview/main-video-preview.png" alt="Video preview" />
@@ -195,8 +197,8 @@
 
           <div class="video_journey__video_slider">
             <div class="video_journey__video_slider__preview">
-              <iframe width="180" height="101" src="https://www.youtube.com/embed/lQG3NcJ9vT8?si=0l0LZbQDVf2gdoFe" frameborder="0" allowfullscreen></iframe>
-              <iframe width="180" height="101" src="https://www.youtube.com/embed/zwoYIi5RXjY?si=D1cckt9B8OMaNB8z" frameborder="0" allowfullscreen></iframe>
+              <iframe width="180" height="101" src="2https://www.youtube.com/embed/lQG3NcJ9vT8?si=0l0LZbQDVf2gdoFe" frameborder="0" allowfullscreen></iframe>
+              <iframe width="180" height="101" src="2https://www.youtube.com/embed/zwoYIi5RXjY?si=D1cckt9B8OMaNB8z" frameborder="0" allowfullscreen></iframe>
             </div>
 
             <div class="video_journey__video_slider__controls">
@@ -226,19 +228,22 @@
 
       <section class="gallery">
         <div class="container">
-          <h6 class="gallery__title">Art Gallery</h6>
+          <h6 class="gallery__title title_primary">ART GALLERY</h6>
 
           <div class="gallery__items">
             <div class="gallery__items__column">
               <img src="./src/assets/img/art-gallery/pic3.png" alt="Picture 3" />
               <img src="./src/assets/img/art-gallery/pic1.png" alt="Picture 1" />
               <img src="./src/assets/img/art-gallery/pic7.png" alt="Picture 7" />
+              <img src="./src/assets/img/art-gallery/pic8.png" alt="Picture 8" />
+              <img src="./src/assets/img/art-gallery/pic10.png" alt="Picture 10" />
             </div>
 
             <div class="gallery__items__column">
               <img src="./src/assets/img/art-gallery/pic4.png" alt="Picture 4" />
               <img src="./src/assets/img/art-gallery/pic6.png" alt="Picture 6" />
               <img src="./src/assets/img/art-gallery/pic5.png" alt="Picture 5" />
+              <img src="./src/assets/img/art-gallery/pic9.png" alt="Picture 9" />
               <img src="./src/assets/img/art-gallery/pic2.png" alt="Picture 2" />
             </div>
           </div>
@@ -248,7 +253,7 @@
       <section class="tickets">
         <div class="container">
           <article class="tickets_article">
-            <h6 class="tickets_article__title">BUY TICKETS</h6>
+            <h6 class="tickets_article__title title_primary">BUY TICKETS</h6>
             <hr class="hr_divider_long" />
           </article>
 
@@ -281,6 +286,69 @@
           </div>
         </div>
       </section>
+
+      <!-- ! Setup for future model window with order details-->
+      <div class="tickets_modal"></div>
+
+      <section class="contacts">
+        <img src="./src/assets/img/contacts/wide-pic.png" alt="Contacts Parallax Image" class="contacts_parallax_image" />
+
+        <div class="container">
+          <article class="contacts_article">
+            <h6 class="contacts_article__title title_primary">CONTACTS</h6>
+            <hr class="hr_divider_long" />
+          </article>
+
+          <h6 class="contacts_place_name">
+            Palais Royal <br />
+            Musee du Louvre
+          </h6>
+
+          <div class="contacts_info">
+            <p class="contacts_info__address">address: 75001 Paris, France</p>
+            <p class="contacts_info__phone">phone: +33(0) 1 40 20 50 50</p>
+            <p class="contacts_info__mail">mail: info@louvre.fr</p>
+          </div>
+
+          <div class="contacts_map">
+            <img src="./src/assets/img/contacts/map-preview.png" alt="Map with location of Louvre" />
+          </div>
+        </div>
+      </section>
     </main>
+
+    <footer>
+      <div class="container">
+        <a href="/index.html" class="footer-logo logo_primary"><img src="./src/assets/img/logo.png" alt="Logo img" /> LOUVRE</a>
+
+        <nav class="footer_navigation">
+          <ul>
+            <li><a href="#">Visiting</a></li>
+            <li><a href="#">Explore</a></li>
+            <li><a href="#">Video</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">Tickets</a></li>
+            <li><a href="#">Contacts</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer_socials">
+          <a href="#" class="footer_socials__icon"><img src="/src/assets/img/socials_icons/youtube_icon.svg" alt="Youtube icon" /></a>
+          <a href="#" class="footer_socials__icon"><img src="/src/assets/img/socials_icons/inst_icon.svg" alt="Instagram icon" /></a>
+          <a href="#" class="footer_socials__icon"><img src="/src/assets/img/socials_icons/facebook_icon.svg" alt="Facebook icon" /></a>
+          <a href="#" class="footer_socials__icon"><img src="/src/assets/img/socials_icons/twitter_icon.png" alt="Twitter icon" /></a>
+          <a href="#" class="footer_socials__icon"><img src="/src/assets/img/socials_icons/pinterest_icon.svg" alt="Pinterest icon" /></a>
+        </div>
+      </div>
+
+      <hr class="footer_divider" />
+
+      <div class="container">
+        <div class="footer_credits">
+          <p class="footer_credits__year">© 2025</p>
+          <p class="footer_credits__username">github: necoss</p>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
