@@ -123,7 +123,6 @@
 
     <main>
       <div class="container">
-        <!-- !write using flex-column and wrap || gap (or grid) grid generators -->
         <section class="virtual-tour">
           <article class="virtual-tour__article">
             <h2 class="virtual-tour__article__title title_primary">VIRTUAL TOUR</h2>
@@ -131,7 +130,6 @@
           </article>
 
           <div class="virtual_tour__places">
-
             <div class="virtual-tour__item">
               <img class="virtual-tour__item__img" src="./src/assets/img/virtual-tour/pic1.jpg" alt="Virtual_Tour_Picture_1" />
               <h3 class="virtual-tour__item__title">ROYAL PALACE</h3>
@@ -310,7 +308,31 @@
       </section>
 
       <!-- ! Setup for future model window with order details-->
-      <div class="tickets_modal"></div>
+      <div class="tickets_modal">
+
+        <div class="tickets_modal__logo">
+          <img class="tickets_modal__logo__image" src="./src/assets/img/logo_colored.png" />
+          <h6 class="tickets_modal__logo__title title_primary">BOOKING TICKETS</h6>
+        </div>
+
+        <h6 class="tickets_modal__title">Tour to Louvre</h6>
+        <hr class="hr_divider_long tickets_modal__divider" />
+
+        <form action="#" class="tickets_model__form">
+          <input class='tickets_modal_input tickets_modal_input__date' type="text" placeholder="Date" onfocus="(this.type='date')" />
+          <input class='tickets_modal_input tickets_modal_input__time' type="text" placeholder="Time" onfocus="(this.type='time')" />
+          <input class='tickets_modal_input tickets_modal_input__name' type="text" placeholder="Name" />
+          <input class='tickets_modal_input tickets_modal_input__email' type="email" placeholder="E-mail" />
+          <input class='tickets_modal_input tickets_modal_input__phone' type="tel" placeholder="Phone" />
+          
+          <select name="Ticket Type" id="" placeholder="1we12e" style="appearance: none">
+            <option value="default" disabled selected>Ticket Type</option>
+            <option value="firstType">1st type</option>
+            <option value="secondType">2nd type</option>
+          </select>
+        </form>
+
+      </div>
 
       <section class="contacts">
         <img src="./src/assets/img/contacts/wide-pic.png" alt="Contacts Parallax Image" class="contacts_parallax_image" />
@@ -327,6 +349,7 @@
           </h6>
 
           <div class="contacts_info">
+            <!-- ! rewrite with additional tags -->
             <p class="contacts_info__address">address: 75001 Paris, France</p>
             <p class="contacts_info__phone">phone: +33(0) 1 40 20 50 50</p>
             <p class="contacts_info__mail">mail: info@louvre.fr</p>
