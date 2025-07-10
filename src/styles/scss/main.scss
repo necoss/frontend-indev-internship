@@ -20,8 +20,23 @@
 }
 
 //? GENERAL VARIABLES
-body:has(#navigation_burger_menu__toggle:checked),
-body:has(#modal-btn:checked) {
+.counter_wrapper {
+  @include flex-center-between();
+  border: 3px solid var(--color-font-black);
+
+  .counter_button {
+    font-weight: 400;
+    border: none;
+    text-align: center;
+  }
+
+  .counter_value {
+    color: var(--color-font-black);
+    text-align: center;
+  }
+}
+
+body:has(#navigation_burger_menu__toggle:checked) {
   overflow: hidden;
 }
 
@@ -89,7 +104,7 @@ body:has(#modal-btn:checked) {
 // Mobile devices (420px)
 
 header {
-  display: none;
+  // display: none;
   background-color: var(--color-bg-dark);
 
   .header-navigation {
@@ -265,7 +280,7 @@ header {
 
 main {
   .virtual-tour {
-    display: none;
+    // display: none;
     padding-top: 40px;
     flex-wrap: wrap;
 
@@ -302,7 +317,7 @@ main {
   }
 
   .explore {
-    display: none;
+    // display: none;
     background: var(--color-bg-dark);
     padding: 40px 0;
     margin-top: 40px;
@@ -318,7 +333,7 @@ main {
   }
 
   .video_journey {
-    display: none;
+    // display: none;
     margin: 40px 0;
 
     .video_journey__video {
@@ -344,7 +359,7 @@ main {
   }
 
   .gallery {
-    display: none;
+    // display: none;
     background: var(--color-bg-dark);
     padding-top: 40px;
     // clip-path: inset(0% 0% 16% 0%);
@@ -408,23 +423,16 @@ main {
         }
 
         .tickets_order__counter {
-          @include flex-center-between();
-          border: 3px solid var(--color-font-black);
           padding: 6px 15px;
           margin-top: 15px;
 
           .tickets_order__counter__button {
             color: var(--color-font-black);
-            text-align: center;
             font-size: 32px;
-            font-weight: 400;
-            border: none;
             background: transparent;
           }
 
           .tickets_order__counter__value {
-            color: var(--color-font-black);
-            text-align: center;
             font-size: 22px;
             font-weight: 300;
           }
@@ -452,10 +460,16 @@ main {
   }
 
   .tickets_modal {
-    padding: 80px 30px 0 30px;
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 80px 30px 50px 30px;
     width: 100vw;
     min-height: 100vh;
     background: #e4e4e4;
+    max-height: calc(100vh - 210px);
+    overflow-y: auto;
 
     .tickets_modal__logo {
       .tickets_modal__logo__image {
@@ -479,7 +493,7 @@ main {
       width: 100%;
     }
 
-    .tickets_model__form {
+    .tickets_modal__form {
       @include flex-center-center();
       flex-direction: column;
       gap: 20px;
@@ -493,25 +507,133 @@ main {
         background-repeat: no-repeat;
         background-size: 15px;
         background-position: 15px 13px;
+
+        &::placeholder {
+          color: var(--color-font-black);
+          font-size: 18px;
+          font-weight: 400;
+        }
+
+        &:focus {
+          outline: 1px solid var(--color-dark-red);
+        }
       }
 
       select {
+        padding-inline: 15px;
+        font-size: 18px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
         border: 1px solid var(--color-font-black);
         width: 100%;
         height: 45px;
-        padding-left: 45px;
-        background-image: url(../../assets/img/modal_icons/ballot.svg);
-        background-repeat: no-repeat;
-        background-size: 15px;
-        background-position: 15px 13px;
+        // padding-top: 13px;
+        // padding-left: 45px;
+        transition: 0.4s;
+        border-radius: 0;
+
+        &:focus {
+          border: 1px solid var(--color-dark-red);
+        }
+
+        &::-ms-expand {
+          display: none;
+        }
+
+        &::picker-icon {
+          content: '';
+          background: url(../../assets/img/modal_icons/open_arrow.svg);
+          background-repeat: no-repeat;
+          background-size: 17px;
+          margin: 0;
+          width: 17px;
+          height: 17px;
+        }
+
+        &:open::picker-icon {
+          rotate: 180deg;
+        }
+
+        option {
+          display: flex;
+          justify-content: flex-start;
+          gap: 20px;
+          background: transparent;
+          padding: 12px 43px;
+          transition: 0.4s;
+          border: 1px solid var(--color-bg-dark);
+
+          &:not(option:last-of-type) {
+            border-bottom: none;
+          }
+
+          &:hover,
+          &:focus {
+            background: #e7e7e7;
+          }
+
+          &:checked {
+            font-weight: bold;
+          }
+
+          &::checkmark {
+            display: none;
+          }
+        }
+      }
+
+      ::picker(select) {
+        opacity: 0;
+        transition: all 0.4s allow-discrete;
+      }
+
+      ::picker(select):popover-open {
+        opacity: 1;
+      }
+
+      select,
+      ::picker(select) {
+        appearance: base-select;
+      }
+
+      ::picker(select) {
+        border: none;
       }
 
       .tickets_modal_input__date {
         background-image: url(../../assets/img/modal_icons/date.png);
+        position: relative;
+
+        &::-webkit-calendar-picker-indicator {
+          opacity: 0;
+        }
+
+        &:before {
+          content: 'i';
+          position: absolute;
+          right: 15px;
+          top: 50%;
+          transform: translateY(-50%);
+        }
       }
 
       .tickets_modal_input__time {
         background-image: url(../../assets/img/modal_icons/time.svg);
+        position: relative;
+
+        &[type='time']::-webkit-calendar-picker-indicator {
+          background: none;
+        }
+
+        &:before {
+          content: 'c';
+          position: absolute;
+          right: 15px;
+          top: 50%;
+          transform: translateY(-50%);
+        }
       }
       .tickets_modal_input__name {
         background-image: url(../../assets/img/modal_icons/name.svg);
@@ -524,6 +646,301 @@ main {
         background-position: 15px 8px;
       }
     }
+
+    .tickets_modal__entry {
+      border: 1px solid var(--color-bg-dark);
+      margin-top: 20px;
+      padding: 10px 15px 18px 15px;
+
+      .tickets_modal__entry__title {
+        font-size: 18px;
+        line-height: normal;
+        letter-spacing: normal;
+      }
+
+      .tickets_modal__entry__divider {
+        width: 100%;
+        margin-top: 5px;
+        margin-bottom: 17px;
+      }
+
+      .tickets_modal__plan {
+        @include flex-center-between();
+
+        &:not(.tickets_modal__counter:first-child) {
+          margin-top: 25px;
+        }
+
+        .tickets_modal__plan_name {
+          color: var(--color-font-black);
+          font-size: 18px;
+          font-weight: 400;
+        }
+
+        .tickets_modal__counter {
+          min-width: 105px;
+          height: 25px;
+
+          .tickets_modal__counter__button {
+            padding-inline: 12px;
+            color: var(--color-font-white);
+            background: var(--color-bg-dark);
+          }
+        }
+      }
+    }
+
+    .tickets_modal__overview {
+      margin-top: 50px;
+      border: 1px solid var(--color-bg-dark);
+      padding: 25px 15px;
+      position: relative;
+
+      .tickets_modal__overview_name {
+        color: var(--color-font-black);
+        font-size: 32px;
+        font-weight: 500;
+        line-height: 30px;
+      }
+
+      .tickets_modal__overview_img {
+        position: absolute;
+        top: 25px;
+        right: 15px;
+        width: 120px;
+        height: 96px;
+      }
+
+      .tickets_modal__overview_info {
+        .overview_info__tour_name {
+          color: var(--color-dark-red);
+          font-size: 22px;
+          font-weight: 500;
+        }
+
+        .overview_info__item {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+
+          &:first-of-type {
+            margin-top: 10px;
+          }
+
+          p {
+            color: var(--color-font-black);
+            font-size: 18px;
+            font-weight: 300;
+          }
+        }
+      }
+
+      .overview__order_details {
+        margin-top: 25px;
+
+        .overview__order_details__items {
+          .overview_order_details__item {
+            @include flex-center-between();
+
+            .overview_order_details__item__name,
+            .overview_order_details__item__value {
+              text-align: center;
+              color: var(--color-font-black);
+              font-size: 22px;
+              font-weight: 400;
+
+              .overview_order_details__item__qty {
+                margin-right: 10px;
+                background-color: var(--color-bg-dark);
+                padding-inline: 11px;
+                color: #a4a4a3;
+                font-size: 18px;
+                font-weight: 400;
+                border-radius: 5px;
+              }
+            }
+          }
+        }
+
+        .overview__order_details__divider {
+          width: 100%;
+          margin-block: 10px;
+        }
+
+        .overview_order_details__total {
+          @include flex-center-between();
+          color: var(--color-font-black);
+          font-size: 32px;
+          font-weight: 400;
+
+          p:last-child {
+            font-weight: 500;
+          }
+        }
+      }
+
+      .overview_card_mockup {
+        position: relative;
+        width: 100%;
+        height: 210px;
+        background-color: #bcbcbc;
+        border-radius: 4px;
+        padding: 15px 20px;
+
+        .overview_card_mockup__card_types_img {
+          position: absolute;
+          width: 56px;
+          height: 65px;
+          top: 33px;
+          right: 20px;
+        }
+
+        .mockup__card_number {
+          width: 215px;
+        }
+
+        .overview_card_mockup__date {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          gap: 15px;
+
+          .mockup__card_date {
+            width: 100px;
+          }
+        }
+
+        .overview_card_mockup__title {
+          color: var(--color-bg-dark);
+          font-size: 11px;
+          font-weight: 400;
+
+          &:not(.overview_card_mockup__title:first-of-type) {
+            margin-top: 10px;
+          }
+        }
+
+        .mockup__card_input {
+          @include flex-center-center();
+          background-color: var(--color-font-white);
+          padding: 10px;
+          height: 35px;
+
+          &:focus {
+            outline: 1px solid var(--color-dark-red);
+          }
+
+          &::-webkit-inner-spin-button,
+          &::-webkit-outer-spin-button {
+            opacity: 1;
+          }
+
+          &:invalid {
+            animation: error 0.3s forwards;
+            color: #e74c3c;
+            border-color: #e74c3c;
+          }
+
+          @keyframes error {
+            25% {
+              transform: translateX(5px);
+            }
+
+            50% {
+              transform: translateX(-5px);
+            }
+
+            75% {
+              transform: translateX(5px);
+            }
+
+            90% {
+              transform: translateX(-5px);
+            }
+
+            100% {
+              transform: translateX(0);
+            }
+          }
+        }
+
+        .mockup__card_name {
+          width: 100%;
+        }
+      }
+
+      .overview_card_mockup_front {
+        margin-top: 15px;
+      }
+
+      .overview_card_mockup_back {
+        position: relative;
+        margin-top: 25px;
+        padding: 0;
+        padding-top: 25px;
+
+        .mockup_rectangle {
+          width: 100%;
+          height: 45px;
+          background-color: var(--color-bg-dark);
+        }
+
+        .overview_wrapper {
+          position: absolute;
+          right: 20px;
+          bottom: 20px;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          align-items: center;
+
+          .overview_card_mockup__cvc_title {
+            font-size: 13px;
+          }
+
+          .mockup__card_cvc {
+            width: 75px;
+          }
+
+          .overview_card_mockup__cvc_description {
+            color: #161615;
+            font-size: 9px;
+            font-weight: 400;
+            max-width: 48px;
+            margin-top: 5px;
+          }
+        }
+      }
+
+      .overview__button_wrapper {
+        display: flex;
+        justify-content: flex-end;
+
+        .overview__submit {
+          background: var(--color-dark-red);
+          margin-top: 51px;
+          padding: 11px 87px;
+          color: var(--color-font-white);
+          font-size: 20px;
+          font-weight: 400;
+        }
+      }
+    }
+
+    .tickets_modal__close_modal {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+
+      svg {
+        width: 25px;
+        height: 25px;
+      }
+    }
+  }
+  
+  .tickets_modal_open {
+    display: block;
   }
 
   .contacts {
