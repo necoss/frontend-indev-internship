@@ -1,13 +1,9 @@
 @import './mixins.scss';
 
-// * {
-//   padding: 0;
-//   margin: 0;
-//   box-sizing: border-box;
-// }
-
 //! вынести основные моменты
 :root {
+  --index: 1vw + 1vh;
+
   --color-bg-dark: #030303;
   --color-dark-red: #710707;
   --color-font-gold: #9d8665;
@@ -24,6 +20,11 @@
 }
 
 //? GENERAL VARIABLES
+body:has(#navigation_burger_menu__toggle:checked),
+body:has(#modal-btn:checked) {
+  overflow: hidden;
+}
+
 .overflow_y_hidden {
   overflow: hidden;
 }
@@ -88,6 +89,7 @@
 // Mobile devices (420px)
 
 header {
+  display: none;
   background-color: var(--color-bg-dark);
 
   .header-navigation {
@@ -101,7 +103,7 @@ header {
 
     .navigation_burger_menu {
       width: 32px;
-      height: 18px;
+      height: 25px;
       position: absolute;
       right: 0;
       top: 45%;
@@ -109,7 +111,8 @@ header {
       #navigation_burger_menu__toggle {
         opacity: 0;
         width: 32px;
-        height: 18px;
+        height: 100%;
+        margin-top: -10px;
 
         &:checked + .navigation_burger_menu__btn > span {
           transform: rotate(45deg);
@@ -132,16 +135,19 @@ header {
 
       .navigation_burger_menu__btn {
         position: absolute;
+        top: 0px;
         right: 0px;
         width: 32px;
-        height: 18px;
+        height: 100%;
         cursor: pointer;
         z-index: 1;
+        margin-top: -10px;
 
         & > span,
         & > span::before,
         & > span::after {
           position: absolute;
+          top: 10px;
           width: 32px;
           height: 2px;
           background-color: var(--color-font-white);
@@ -259,36 +265,44 @@ header {
 
 main {
   .virtual-tour {
+    display: none;
     padding-top: 40px;
+    flex-wrap: wrap;
 
-    .virtual-tour__item {
-      max-width: 280px;
-      margin: 0 auto;
-      padding-top: 40px;
+    .virtual_tour__places {
+      @include flex-center-center();
+      flex-wrap: wrap;
+      gap: calc(var(--index) * 2);
 
-      .virtual-tour__item__img {
-        width: 280px;
-        height: 180px;
-      }
+      .virtual-tour__item {
+        max-width: 280px;
+        padding-top: 40px;
 
-      .virtual-tour__item__title {
-        color: var(--color-font-black);
-        font-family: Forum, sans-serif;
-        font-size: 18px;
-        font-weight: 400;
-        letter-spacing: 5px;
-        padding-top: 25px;
-      }
+        .virtual-tour__item__img {
+          width: 100%;
+          height: 180px;
+        }
 
-      .virtual-tour__item__info {
-        color: var(--color-font-black);
-        font-weight: 200;
-        line-height: 30px;
+        .virtual-tour__item__title {
+          color: var(--color-font-black);
+          font-family: Forum, sans-serif;
+          font-size: 18px;
+          font-weight: 400;
+          letter-spacing: 5px;
+          padding-top: 25px;
+        }
+
+        .virtual-tour__item__info {
+          color: var(--color-font-black);
+          font-weight: 200;
+          line-height: 30px;
+        }
       }
     }
   }
 
   .explore {
+    display: none;
     background: var(--color-bg-dark);
     padding: 40px 0;
     margin-top: 40px;
@@ -304,6 +318,7 @@ main {
   }
 
   .video_journey {
+    display: none;
     margin: 40px 0;
 
     .video_journey__video {
@@ -329,6 +344,7 @@ main {
   }
 
   .gallery {
+    display: none;
     background: var(--color-bg-dark);
     padding-top: 40px;
     // clip-path: inset(0% 0% 16% 0%);
@@ -363,6 +379,7 @@ main {
 
   .tickets {
     margin: 40px 0;
+    position: relative;
 
     .tickets_order {
       text-align: center;
@@ -429,6 +446,82 @@ main {
         border-radius: 2px;
         background: var(--color-bg-dark);
         padding: 16px 48px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .tickets_modal {
+    padding: 80px 30px 0 30px;
+    width: 100vw;
+    min-height: 100vh;
+    background: #e4e4e4;
+
+    .tickets_modal__logo {
+      .tickets_modal__logo__image {
+        width: 85px;
+        height: 41px;
+      }
+
+      .tickets_modal__logo__title {
+        font-size: 32px;
+      }
+    }
+
+    .tickets_modal__title {
+      color: var(--color-dark-red);
+      font-size: 18px;
+      font-weight: 400;
+    }
+
+    .tickets_modal__divider {
+      margin-top: 10px;
+      width: 100%;
+    }
+
+    .tickets_model__form {
+      @include flex-center-center();
+      flex-direction: column;
+      gap: 20px;
+
+      .tickets_modal_input {
+        border: 1px solid var(--color-font-black);
+        width: 100%;
+        height: 45px;
+        padding-left: 45px;
+
+        background-repeat: no-repeat;
+        background-size: 15px;
+        background-position: 15px 13px;
+      }
+
+      select {
+        border: 1px solid var(--color-font-black);
+        width: 100%;
+        height: 45px;
+        padding-left: 45px;
+        background-image: url(../../assets/img/modal_icons/ballot.svg);
+        background-repeat: no-repeat;
+        background-size: 15px;
+        background-position: 15px 13px;
+      }
+
+      .tickets_modal_input__date {
+        background-image: url(../../assets/img/modal_icons/date.png);
+      }
+
+      .tickets_modal_input__time {
+        background-image: url(../../assets/img/modal_icons/time.svg);
+      }
+      .tickets_modal_input__name {
+        background-image: url(../../assets/img/modal_icons/name.svg);
+      }
+      .tickets_modal_input__email {
+        background-image: url(../../assets/img/modal_icons/email.svg);
+      }
+      .tickets_modal_input__phone {
+        background-image: url(../../assets/img/modal_icons/tel.svg);
+        background-position: 15px 8px;
       }
     }
   }

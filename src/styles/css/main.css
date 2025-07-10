@@ -1,4 +1,5 @@
 :root {
+  --index: 1vw + 1vh;
   --color-bg-dark: #030303;
   --color-dark-red: #710707;
   --color-font-gold: #9d8665;
@@ -9,6 +10,11 @@
   --button-hover-color: #9d8665;
   font-family: Roboto, sans-serif;
   font-size: 16px;
+}
+
+body:has(#navigation_burger_menu__toggle:checked),
+body:has(#modal-btn:checked) {
+  overflow: hidden;
 }
 
 .overflow_y_hidden {
@@ -87,6 +93,7 @@
 }
 
 header {
+  display: none;
   background-color: var(--color-bg-dark);
 }
 header .header-navigation {
@@ -107,7 +114,7 @@ header .header-navigation .navigation-list {
 }
 header .header-navigation .navigation_burger_menu {
   width: 32px;
-  height: 18px;
+  height: 25px;
   position: absolute;
   right: 0;
   top: 45%;
@@ -115,7 +122,8 @@ header .header-navigation .navigation_burger_menu {
 header .header-navigation .navigation_burger_menu #navigation_burger_menu__toggle {
   opacity: 0;
   width: 32px;
-  height: 18px;
+  height: 100%;
+  margin-top: -10px;
 }
 header .header-navigation .navigation_burger_menu #navigation_burger_menu__toggle:checked + .navigation_burger_menu__btn > span {
   -webkit-transform: rotate(45deg);
@@ -136,14 +144,17 @@ header .header-navigation .navigation_burger_menu #navigation_burger_menu__toggl
 }
 header .header-navigation .navigation_burger_menu .navigation_burger_menu__btn {
   position: absolute;
+  top: 0px;
   right: 0px;
   width: 32px;
-  height: 18px;
+  height: 100%;
   cursor: pointer;
   z-index: 1;
+  margin-top: -10px;
 }
 header .header-navigation .navigation_burger_menu .navigation_burger_menu__btn > span, header .header-navigation .navigation_burger_menu .navigation_burger_menu__btn > span::before, header .header-navigation .navigation_burger_menu .navigation_burger_menu__btn > span::after {
   position: absolute;
+  top: 10px;
   width: 32px;
   height: 2px;
   background-color: var(--color-font-white);
@@ -263,18 +274,34 @@ header .hero-section .hero_slider .hero_slider__controls .hero_slider__controls_
 }
 
 main .virtual-tour {
+  display: none;
   padding-top: 40px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
-main .virtual-tour .virtual-tour__item {
+main .virtual-tour .virtual_tour__places {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: calc(var(--index) * 2);
+}
+main .virtual-tour .virtual_tour__places .virtual-tour__item {
   max-width: 280px;
-  margin: 0 auto;
   padding-top: 40px;
 }
-main .virtual-tour .virtual-tour__item .virtual-tour__item__img {
-  width: 280px;
+main .virtual-tour .virtual_tour__places .virtual-tour__item .virtual-tour__item__img {
+  width: 100%;
   height: 180px;
 }
-main .virtual-tour .virtual-tour__item .virtual-tour__item__title {
+main .virtual-tour .virtual_tour__places .virtual-tour__item .virtual-tour__item__title {
   color: var(--color-font-black);
   font-family: Forum, sans-serif;
   font-size: 18px;
@@ -282,12 +309,13 @@ main .virtual-tour .virtual-tour__item .virtual-tour__item__title {
   letter-spacing: 5px;
   padding-top: 25px;
 }
-main .virtual-tour .virtual-tour__item .virtual-tour__item__info {
+main .virtual-tour .virtual_tour__places .virtual-tour__item .virtual-tour__item__info {
   color: var(--color-font-black);
   font-weight: 200;
   line-height: 30px;
 }
 main .explore {
+  display: none;
   background: var(--color-bg-dark);
   padding: 40px 0;
   margin-top: 40px;
@@ -300,6 +328,7 @@ main .explore .explore_picture_reveal img {
   height: 368px;
 }
 main .video_journey {
+  display: none;
   margin: 40px 0;
 }
 main .video_journey .video_journey__video {
@@ -336,6 +365,7 @@ main .video_journey .video_journey__video_slider .video_journey__video_slider__c
   padding-top: 40px;
 }
 main .gallery {
+  display: none;
   background: var(--color-bg-dark);
   padding-top: 40px;
 }
@@ -374,6 +404,7 @@ main .gallery .gallery__items .gallery__items__column img:not(:first-child) {
 }
 main .tickets {
   margin: 40px 0;
+  position: relative;
 }
 main .tickets .tickets_order {
   text-align: center;
@@ -442,6 +473,80 @@ main .tickets .tickets_order .tickets_order__order_button {
   border-radius: 2px;
   background: var(--color-bg-dark);
   padding: 16px 48px;
+  cursor: pointer;
+}
+main .tickets_modal {
+  padding: 80px 30px 0 30px;
+  width: 100vw;
+  min-height: 100vh;
+  background: #e4e4e4;
+}
+main .tickets_modal .tickets_modal__logo .tickets_modal__logo__image {
+  width: 85px;
+  height: 41px;
+}
+main .tickets_modal .tickets_modal__logo .tickets_modal__logo__title {
+  font-size: 32px;
+}
+main .tickets_modal .tickets_modal__title {
+  color: var(--color-dark-red);
+  font-size: 18px;
+  font-weight: 400;
+}
+main .tickets_modal .tickets_modal__divider {
+  margin-top: 10px;
+  width: 100%;
+}
+main .tickets_modal .tickets_model__form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 20px;
+}
+main .tickets_modal .tickets_model__form .tickets_modal_input {
+  border: 1px solid var(--color-font-black);
+  width: 100%;
+  height: 45px;
+  padding-left: 45px;
+  background-repeat: no-repeat;
+  background-size: 15px;
+  background-position: 15px 13px;
+}
+main .tickets_modal .tickets_model__form select {
+  border: 1px solid var(--color-font-black);
+  width: 100%;
+  height: 45px;
+  padding-left: 45px;
+  background-image: url(../../assets/img/modal_icons/ballot.svg);
+  background-repeat: no-repeat;
+  background-size: 15px;
+  background-position: 15px 13px;
+}
+main .tickets_modal .tickets_model__form .tickets_modal_input__date {
+  background-image: url(../../assets/img/modal_icons/date.png);
+}
+main .tickets_modal .tickets_model__form .tickets_modal_input__time {
+  background-image: url(../../assets/img/modal_icons/time.svg);
+}
+main .tickets_modal .tickets_model__form .tickets_modal_input__name {
+  background-image: url(../../assets/img/modal_icons/name.svg);
+}
+main .tickets_modal .tickets_model__form .tickets_modal_input__email {
+  background-image: url(../../assets/img/modal_icons/email.svg);
+}
+main .tickets_modal .tickets_model__form .tickets_modal_input__phone {
+  background-image: url(../../assets/img/modal_icons/tel.svg);
+  background-position: 15px 8px;
 }
 main .contacts {
   padding-bottom: 40px;
