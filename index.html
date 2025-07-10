@@ -19,6 +19,7 @@
     <!-- SCRIPTS -->
     <!-- <script src="./src/js/modalPreventScrolling.js" defer></script> -->
      <script src="./src/js/openModal.js" defer></script>
+     <script src='./src/js/changeInputType.js' defer></script>
 
     <title>Louvre - Welcome to the Louvre!</title>
   </head>
@@ -319,8 +320,8 @@
         <hr class="hr_divider_long tickets_modal__divider" />
 
         <form action="#" class="tickets_modal__form">
-          <input class="tickets_modal_input tickets_modal_input__date" type="text" placeholder="Date" onfocus="(this.type='date')" />
-          <input class="tickets_modal_input tickets_modal_input__time" type="text" placeholder="Time" onfocus="(this.type='time')" />
+          <input class="tickets_modal_input tickets_modal_input__date dynamic_type" type="text" placeholder="Date" id='type_date'/>
+          <input class="tickets_modal_input tickets_modal_input__time dynamic_type" type="text" placeholder="Time" id='type_time'/>
           <input class="tickets_modal_input tickets_modal_input__name" type="text" placeholder="Name" />
           <input class="tickets_modal_input tickets_modal_input__email" type="email" placeholder="E-mail" />
           <input class="tickets_modal_input tickets_modal_input__phone" type="tel" placeholder="Phone" />
