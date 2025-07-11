@@ -99,6 +99,10 @@ body:has(#navigation_burger_menu__toggle:checked) {
   }
 }
 
+select {
+  border-radius: 0;
+}
+
 //? -----------------
 
 // Mobile devices (420px)
@@ -532,7 +536,6 @@ main {
         // padding-top: 13px;
         // padding-left: 45px;
         transition: 0.4s;
-        border-radius: 0;
 
         &:focus {
           border: 1px solid var(--color-dark-red);
@@ -575,7 +578,7 @@ main {
           }
 
           &:checked {
-            font-weight: bold;
+            font-weight: 700;
           }
 
           &::checkmark {
@@ -650,12 +653,12 @@ main {
     .tickets_modal__entry {
       border: 1px solid var(--color-bg-dark);
       margin-top: 20px;
-      padding: 10px 15px 18px 15px;
+      padding: 10px 15px 18px;
 
       .tickets_modal__entry__title {
         font-size: 18px;
-        line-height: normal;
-        letter-spacing: normal;
+        line-height: 19px;
+        letter-spacing: 0;
       }
 
       .tickets_modal__entry__divider {
@@ -840,28 +843,6 @@ main {
             color: #e74c3c;
             border-color: #e74c3c;
           }
-
-          @keyframes error {
-            25% {
-              transform: translateX(5px);
-            }
-
-            50% {
-              transform: translateX(-5px);
-            }
-
-            75% {
-              transform: translateX(5px);
-            }
-
-            90% {
-              transform: translateX(-5px);
-            }
-
-            100% {
-              transform: translateX(0);
-            }
-          }
         }
 
         .mockup__card_name {
@@ -938,7 +919,7 @@ main {
       }
     }
   }
-  
+
   .tickets_modal_open {
     display: block;
   }
@@ -1032,5 +1013,28 @@ footer {
     font-weight: 200;
     line-height: 22px;
     letter-spacing: 2px;
+  }
+}
+
+// Animations
+@keyframes error {
+  25% {
+    transform: translateX(5px);
+  }
+
+  50% {
+    transform: translateX(-5px);
+  }
+
+  75% {
+    transform: translateX(5px);
+  }
+
+  90% {
+    transform: translateX(-5px);
+  }
+
+  100% {
+    transform: translateX(0);
   }
 }

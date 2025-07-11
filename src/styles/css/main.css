@@ -113,6 +113,10 @@ body:has(#navigation_burger_menu__toggle:checked) {
   padding: 12px;
 }
 
+select {
+  border-radius: 0;
+}
+
 header {
   background-color: var(--color-bg-dark);
 }
@@ -575,7 +579,6 @@ main .tickets_modal .tickets_modal__form select {
   height: 45px;
   -webkit-transition: 0.4s;
   transition: 0.4s;
-  border-radius: 0;
 }
 main .tickets_modal .tickets_modal__form select:focus {
   border: 1px solid var(--color-dark-red);
@@ -616,7 +619,7 @@ main .tickets_modal .tickets_modal__form select option:hover, main .tickets_moda
   background: #e7e7e7;
 }
 main .tickets_modal .tickets_modal__form select option:checked {
-  font-weight: bold;
+  font-weight: 700;
 }
 main .tickets_modal .tickets_modal__form select option::checkmark {
   display: none;
@@ -681,12 +684,12 @@ main .tickets_modal .tickets_modal__form .tickets_modal_input__phone {
 main .tickets_modal .tickets_modal__entry {
   border: 1px solid var(--color-bg-dark);
   margin-top: 20px;
-  padding: 10px 15px 18px 15px;
+  padding: 10px 15px 18px;
 }
 main .tickets_modal .tickets_modal__entry .tickets_modal__entry__title {
   font-size: 18px;
-  line-height: normal;
-  letter-spacing: normal;
+  line-height: 19px;
+  letter-spacing: 0;
 }
 main .tickets_modal .tickets_modal__entry .tickets_modal__entry__divider {
   width: 100%;
@@ -881,50 +884,6 @@ main .tickets_modal .tickets_modal__overview .overview_card_mockup .mockup__card
   color: #e74c3c;
   border-color: #e74c3c;
 }
-@-webkit-keyframes error {
-  25% {
-    -webkit-transform: translateX(5px);
-            transform: translateX(5px);
-  }
-  50% {
-    -webkit-transform: translateX(-5px);
-            transform: translateX(-5px);
-  }
-  75% {
-    -webkit-transform: translateX(5px);
-            transform: translateX(5px);
-  }
-  90% {
-    -webkit-transform: translateX(-5px);
-            transform: translateX(-5px);
-  }
-  100% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-}
-@keyframes error {
-  25% {
-    -webkit-transform: translateX(5px);
-            transform: translateX(5px);
-  }
-  50% {
-    -webkit-transform: translateX(-5px);
-            transform: translateX(-5px);
-  }
-  75% {
-    -webkit-transform: translateX(5px);
-            transform: translateX(5px);
-  }
-  90% {
-    -webkit-transform: translateX(-5px);
-            transform: translateX(-5px);
-  }
-  100% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-}
 main .tickets_modal .tickets_modal__overview .overview_card_mockup .mockup__card_name {
   width: 100%;
 }
@@ -1111,4 +1070,50 @@ footer .footer_credits {
   font-weight: 200;
   line-height: 22px;
   letter-spacing: 2px;
+}
+
+@-webkit-keyframes error {
+  25% {
+    -webkit-transform: translateX(5px);
+            transform: translateX(5px);
+  }
+  50% {
+    -webkit-transform: translateX(-5px);
+            transform: translateX(-5px);
+  }
+  75% {
+    -webkit-transform: translateX(5px);
+            transform: translateX(5px);
+  }
+  90% {
+    -webkit-transform: translateX(-5px);
+            transform: translateX(-5px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes error {
+  25% {
+    -webkit-transform: translateX(5px);
+            transform: translateX(5px);
+  }
+  50% {
+    -webkit-transform: translateX(-5px);
+            transform: translateX(-5px);
+  }
+  75% {
+    -webkit-transform: translateX(5px);
+            transform: translateX(5px);
+  }
+  90% {
+    -webkit-transform: translateX(-5px);
+            transform: translateX(-5px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
 }

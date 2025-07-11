@@ -1,8 +1,8 @@
-const modalWindow = document.getElementById('tickets_modal')
-const openModalWindow = () => {
-	modalWindow.classList.add('tickets_modal_open')
-}
+const modalBookingWindow = document.getElementById('tickets_modal')
+const modalButtons = document.querySelectorAll('.toggle_modal')
 
-const closeModalWindow = () => {
-	modalWindow.classList.remove('tickets_modal_open')
-}
+modalButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    modalBookingWindow.classList.toggle('tickets_modal_open')
+  })
+})
