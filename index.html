@@ -268,6 +268,14 @@
               <img src="./src/assets/img/art-gallery/pic9.png" alt="Picture 9" />
               <img src="./src/assets/img/art-gallery/pic2.png" alt="Picture 2" />
             </div>
+
+            <div class="gallery__items__column">
+              <img src="./src/assets/img/art-gallery/pic2.png" alt="Picture 2" />
+              <img src="./src/assets/img/art-gallery/pic4.png" alt="Picture 4" />
+              <img src="./src/assets/img/art-gallery/pic5.png" alt="Picture 5" />
+              <img src="./src/assets/img/art-gallery/pic6.png" alt="Picture 6" />
+              <img src="./src/assets/img/art-gallery/pic9.png" alt="Picture 9" />
+            </div>
           </div>
         </div>
       </section>
@@ -281,35 +289,37 @@
 
           <div class="tickets_order">
             <img class="tickets_order__image" src="./src/assets/img/buy-tickets/prevew-pic-1.png" alt="Preview Tickets Image" />
-            <p class="tickets_order__amount">Amount</p>
 
-            <div class="tickets_order__plan">
-              <p class="tickets_order__plan_name">Basic 18+</p>
+            <div class="tickets_order__wrapper">
+              <p class="tickets_order__amount">Amount</p>
 
-              <div class="tickets_order__counter counter_wrapper">
-                <button class="tickets_order__counter__button counter_button">–</button>
-                <p class="tickets_order__counter__value counter_value">1</p>
-                <button class="tickets_order__counter__button counter_button">+</button>
+              <div class="tickets_order__plan">
+                <p class="tickets_order__plan_name">Basic 18+</p>
+
+                <div class="tickets_order__counter counter_wrapper">
+                  <button class="tickets_order__counter__button counter_button">–</button>
+                  <p class="tickets_order__counter__value counter_value">1</p>
+                  <button class="tickets_order__counter__button counter_button">+</button>
+                </div>
               </div>
-            </div>
 
-            <div class="tickets_order__plan">
-              <p class="tickets_order__plan_name">Senior 65+</p>
+              <div class="tickets_order__plan">
+                <p class="tickets_order__plan_name">Senior 65+</p>
 
-              <div class="tickets_order__counter counter_wrapper">
-                <button class="tickets_order__counter__button counter_button">–</button>
-                <p class="tickets_order__counter__value counter_value">1</p>
-                <button class="tickets_order__counter__button counter_button">+</button>
+                <div class="tickets_order__counter counter_wrapper">
+                  <button class="tickets_order__counter__button counter_button">–</button>
+                  <p class="tickets_order__counter__value counter_value">1</p>
+                  <button class="tickets_order__counter__button counter_button">+</button>
+                </div>
               </div>
-            </div>
 
-            <p class="tickets_order__order_price">Total € <span>220</span></p>
-            <button class="tickets_order__order_button toggle_modal">Buy Now</button>
+              <p class="tickets_order__order_price">Total € <span>220</span></p>
+              <button class="tickets_order__order_button toggle_modal">Buy Now</button>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- ! Setup for future model window with order details-->
       <div class="tickets_modal" id="tickets_modal">
         <div class="tickets_modal__logo">
           <img class="tickets_modal__logo__image" src="./src/assets/img/logo_colored.png" alt="Logo colored" />
@@ -326,7 +336,7 @@
           <input class="tickets_modal_input tickets_modal_input__email" type="email" placeholder="E-mail" />
           <input class="tickets_modal_input tickets_modal_input__phone" type="tel" placeholder="Phone" />
 
-          <!-- ! How to make default value without creating another option -->
+          <!-- ! Recreate this for js  -->
           <select name="Ticket Type" id="">
             <option value="default" disabled selected>Ticket Type</option>
             <option value="firstType">Permanent exhibition</option>
@@ -427,7 +437,7 @@
               <div class="overview_wrapper">
                 <p class="overview_card_mockup__title overview_card_mockup__cvc_title">CVC/CVV</p>
 
-                <input class="mockup__card_cvc mockup__card_input validation_check" type="text" name="numbers" maxlength="3" pattern="\d+" required/>
+                <input class="mockup__card_cvc mockup__card_input validation_check" type="text" name="numbers" maxlength="3" pattern="\d+" required />
 
                 <p class="overview_card_mockup__cvc_description">The last 3 or 4 digits on back of the card</p>
               </div>
@@ -476,26 +486,28 @@
     </main>
 
     <footer>
-      <div class="container">
+      <div class="container footer_container">
         <a href="/index.html" class="footer-logo logo_primary"><img src="./src/assets/img/logo.png" alt="Logo img" /> LOUVRE</a>
 
-        <nav class="footer_navigation">
-          <ul>
-            <li><a href="#">Visiting</a></li>
-            <li><a href="#">Explore</a></li>
-            <li><a href="#">Video</a></li>
-            <li><a href="#">Gallery</a></li>
-            <li><a href="#">Tickets</a></li>
-            <li><a href="#">Contacts</a></li>
-          </ul>
-        </nav>
+        <div class="footer_wrapper">
+          <nav class="footer_navigation">
+            <ul>
+              <li><a href="#">Visiting</a></li>
+              <li><a href="#">Explore</a></li>
+              <li><a href="#">Video</a></li>
+              <li><a href="#">Gallery</a></li>
+              <li><a href="#">Tickets</a></li>
+              <li><a href="#">Contacts</a></li>
+            </ul>
+          </nav>
 
-        <div class="footer_socials socials">
-          <a href="#" class="footer_socials__icon socials__icon"><img src="./src/assets/img/socials_icons/youtube_icon.svg" alt="Youtube icon" /></a>
-          <a href="#" class="footer_socials__icon socials__icon"><img src="./src/assets/img/socials_icons/inst_icon.svg" alt="Instagram icon" /></a>
-          <a href="#" class="footer_socials__icon socials__icon"><img src="./src/assets/img/socials_icons/facebook_icon.svg" alt="Facebook icon" /></a>
-          <a href="#" class="footer_socials__icon socials__icon"><img src="./src/assets/img/socials_icons/twitter_icon.png" alt="Twitter icon" /></a>
-          <a href="#" class="footer_socials__icon socials__icon"><img src="./src/assets/img/socials_icons/pinterest_icon.svg" alt="Pinterest icon" /></a>
+          <div class="footer_socials socials">
+            <a href="#" class="footer_socials__icon socials__icon"><img src="./src/assets/img/socials_icons/youtube_icon.svg" alt="Youtube icon" /></a>
+            <a href="#" class="footer_socials__icon socials__icon"><img src="./src/assets/img/socials_icons/inst_icon.svg" alt="Instagram icon" /></a>
+            <a href="#" class="footer_socials__icon socials__icon"><img src="./src/assets/img/socials_icons/facebook_icon.svg" alt="Facebook icon" /></a>
+            <a href="#" class="footer_socials__icon socials__icon"><img src="./src/assets/img/socials_icons/twitter_icon.png" alt="Twitter icon" /></a>
+            <a href="#" class="footer_socials__icon socials__icon"><img src="./src/assets/img/socials_icons/pinterest_icon.svg" alt="Pinterest icon" /></a>
+          </div>
         </div>
       </div>
 
@@ -504,6 +516,7 @@
       <div class="container">
         <div class="footer_credits">
           <p class="footer_credits__year">© 2025</p>
+          <p class="footer_credits__slogan">InDev Internship</p>
           <a href="https://github.com/necoss/" class="footer_credits__username" target="_blank">github: necoss</a>
         </div>
       </div>
