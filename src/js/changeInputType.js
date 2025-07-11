@@ -1,6 +1,6 @@
-const dynamicInput = document.querySelectorAll('.dynamic_type')
+const dynamicInputs = document.querySelectorAll('.dynamic_type')
 
-dynamicInput.forEach((el) => {
+dynamicInputs.forEach((el) => {
   el.addEventListener('focus', () => {
     if (el.id === 'type_date') {
       el.type = 'date'

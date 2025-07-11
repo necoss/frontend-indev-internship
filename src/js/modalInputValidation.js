@@ -1,6 +1,6 @@
-const inputValidation = document.querySelectorAll('.validation_check')
+const validationInputs = document.querySelectorAll('.validation_check')
 
-inputValidation.forEach((el) => {
+validationInputs.forEach((el) => {
 	el.addEventListener('invalid', () => {
 		el.setCustomValidity('Required Field')
 	})
