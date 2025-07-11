@@ -77,6 +77,11 @@ body:has(#navigation_burger_menu__toggle:checked) {
     line-height: 60px;
     letter-spacing: 5px;
   }
+
+  @media only screen and (min-width: 1024px) {
+    font-size: 50px;
+    line-height: 75px;
+  }
 }
 
 .logo_primary {
@@ -122,8 +127,6 @@ select {
 
 //? -----------------
 
-// Mobile devices (420px)
-
 header {
   // display: none;
   background-color: var(--color-bg-dark);
@@ -132,9 +135,6 @@ header {
     @include flex-center-between();
     padding: 35px 0px;
     position: relative;
-
-    .navigation-logo {
-    }
 
     .navigation-list {
       display: none;
@@ -146,6 +146,7 @@ header {
       position: absolute;
       right: 0;
       top: 45%;
+      z-index: 100;
 
       #navigation_burger_menu__toggle {
         opacity: 0;
@@ -169,6 +170,10 @@ header {
 
         &:checked ~ .navigation_burger_menu__list {
           right: 0;
+
+          @media only screen and (min-width: 1024px) {
+            left: 0;
+          }
         }
       }
 
@@ -214,6 +219,11 @@ header {
         background-color: var(--color-bg-dark);
         transition-duration: 0.25s;
 
+        @media only screen and (min-width: 1024px) {
+          left: -100%;
+          width: 400px;
+        }
+
         li {
           &:not(:first-child) {
             margin-top: 25px;
@@ -240,6 +250,10 @@ header {
           @include flex-center-between();
           margin-top: 35px;
           gap: 12px;
+
+          @media only screen and (min-width: 1024px) {
+            display: none;
+          }
 
           img {
             width: 100%;
@@ -272,11 +286,21 @@ header {
         }
 
         .navigation_burger_menu__divider {
+          @media only screen and (min-width: 1024px) {
+            display: none;
+          }
+
           width: 100%;
           height: 2px;
           background-color: rgba(255, 255, 255, 0.5);
           border: 0;
           margin-block: 20px 25px;
+        }
+
+        .navigation_burger_menu__socials {
+          @media only screen and (min-width: 1024px) {
+            display: none;
+          }
         }
       }
     }
@@ -284,32 +308,72 @@ header {
 
   .hero-section {
     padding-top: 5px;
+    height: 700px;
 
-    .hero__title {
-      color: var(--color-font-white);
-      text-align: center;
-      font-family: Forum, sans-serif;
-      font-size: 28px;
-      line-height: 40px;
-      font-weight: 400;
-      letter-spacing: 5px;
-
-      @media only screen and (min-width: 768px) {
-        font-size: 40px;
-        line-height: 60px;
-        letter-spacing: 5px;
-      }
+    @media only screen and (min-width: 768px) {
+      height: 1100px;
     }
 
-    .hero__subtitle {
-      color: var(--color-font-white);
-      text-align: center;
-      font-weight: 300;
-      letter-spacing: 2px;
-      padding-top: 25px;
+    @media only screen and (min-width: 1024px) {
+      position: relative;
+      height: 600px;
+    }
 
-      @media only screen and (min-width: 768px) {
-        font-size: 20px;
+    .hero_section__article {
+      @media only screen and (min-width: 1024px) {
+        position: absolute;
+        top: 50px;
+        text-align: left;
+        z-index: 5;
+      }
+
+      .hero__title {
+        color: var(--color-font-white);
+        text-align: center;
+        font-family: Forum, sans-serif;
+        font-size: 28px;
+        line-height: 40px;
+        font-weight: 400;
+        letter-spacing: 5px;
+
+        @media only screen and (min-width: 768px) {
+          font-size: 40px;
+          line-height: 60px;
+          letter-spacing: 5px;
+        }
+
+        @media only screen and (min-width: 1024px) {
+          text-align: left;
+          line-height: 90px;
+        }
+      }
+
+      .hero__subtitle {
+        color: var(--color-font-white);
+        text-align: center;
+        font-weight: 300;
+        letter-spacing: 2px;
+        padding-top: 25px;
+
+        @media only screen and (min-width: 768px) {
+          font-size: 20px;
+          margin-bottom: 70px;
+        }
+      }
+
+      .hero__button {
+        display: none;
+
+        @media only screen and (min-width: 1024px) {
+          display: inline;
+          color: var(--color-font-white);
+          font-size: 20px;
+          font-weight: 300;
+          letter-spacing: 2px;
+          border-radius: 10px;
+          background: var(--color-dark-red);
+          padding: 20px 45px;
+        }
       }
     }
 
@@ -322,11 +386,26 @@ header {
         width: 100%;
         aspect-ratio: 4 / 3;
         max-width: 1000px;
+
+        @media only screen and (min-width: 1024px) {
+          mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, #000 20%);
+          width: 700px;
+          position: absolute;
+          right: 0;
+          top: 0;
+          object-fit: cover;
+        }
       }
 
       .hero_slider__controls {
         @include flex-center-center();
         padding-top: 20px;
+
+        @media only screen and (min-width: 1024px) {
+          position: absolute;
+          right: 24%;
+          bottom: 20px;
+        }
 
         .hero_slider__controls__slide_num p {
           color: var(--color-font-white);
@@ -355,11 +434,19 @@ main {
       // gap: calc(var(--index) * 2);
       gap: 56px;
 
+      @media only screen and (min-width: 1024px) {
+        gap: 108px;
+      }
+
       .virtual-tour__item {
         max-width: 280px;
 
         @media only screen and (min-width: 768px) {
           padding-top: 0;
+        }
+
+        @media only screen and (min-width: 1024px) {
+          max-width: 330px;
         }
 
         .virtual-tour__item__img {
@@ -377,8 +464,13 @@ main {
           padding-top: 25px;
 
           @media only screen and (min-width: 768px) {
-            font-size: 22px;
+            font-size: 28px;
             letter-spacing: 3px;
+          }
+
+          @media only screen and (min-width: 1024px) {
+            font-size: 24px;
+            text-wrap: nowrap;
           }
         }
 
@@ -389,6 +481,10 @@ main {
 
           @media only screen and (min-width: 768px) {
             font-size: 18px;
+          }
+
+          @media only screen and (min-width: 1024px) {
+            font-size: 20px;
           }
         }
       }
@@ -401,14 +497,40 @@ main {
     padding: 40px 0;
     margin-top: 40px;
 
+    @media only screen and (min-width: 1024px) {
+      margin-top: 60px;
+      padding: 60px 0;
+    }
+
     .explore_article__title {
       @media only screen and (min-width: 768px) {
         color: white;
       }
     }
 
+    .explore_article__info {
+      display: none;
+      color: var(--color-font-white);
+      font-size: 20px;
+      font-weight: 300;
+      line-height: 35px;
+
+      @media only screen and (min-width: 1024px) {
+        display: inline-block;
+        margin-top: 20px;
+      }
+    }
+
     .explore_picture_reveal {
       margin-top: 40px;
+
+      @media only screen and (min-width: 768px) {
+        @include flex-center-center();
+      }
+
+      @media only screen and (min-width: 1024px) {
+        @include flex-center-center();
+      }
 
       img {
         width: 100%;
@@ -421,6 +543,10 @@ main {
   .video_journey {
     // display: none;
     margin: 40px 0;
+
+    @media only screen and (min-width: 1024px) {
+      margin: 60px 0;
+    }
 
     .video_journey__video {
       padding-top: 20px;
@@ -451,6 +577,14 @@ main {
             height: 200px;
           }
         }
+
+        .video_journey__large_screens {
+          display: none;
+
+          @media only screen and (min-width: 1024px) {
+            display: block;
+          }
+        }
       }
       .video_journey__video_slider__controls {
         @include flex-center-center();
@@ -463,7 +597,10 @@ main {
     // display: none;
     background: var(--color-bg-dark);
     padding-top: 40px;
-    // clip-path: inset(0% 0% 16% 0%);
+
+    @media only screen and (min-width: 1024px) {
+      padding-top: 60px;
+    }
 
     .gallery__title {
       @media only screen and (min-width: 768px) {
@@ -491,11 +628,16 @@ main {
 
         &:last-child {
           display: none;
+
+          @media only screen and (min-width: 1024px) {
+            display: flex;
+            padding-top: 50px;
+          }
         }
 
         img {
           width: 100%;
-          aspect-ratio: 4 / 5;
+          // aspect-ratio: 4 / 5;
 
           &:not(:first-child) {
             padding-top: 0;
@@ -508,6 +650,10 @@ main {
   .tickets {
     margin: 40px 0;
     position: relative;
+
+    @media only screen and (min-width: 1024px) {
+      margin: 60px 0;
+    }
 
     .tickets_order {
       @media only screen and (min-width: 768px) {
@@ -526,13 +672,18 @@ main {
         @media only screen and (min-width: 768px) {
           aspect-ratio: 22 / 17;
           height: auto;
-          max-width: 444px;
+          width: 444px;
+        }
+
+        @media only screen and (min-width: 1024px) {
+          width: 700px;
+          height: 461px;
         }
       }
 
       .tickets_order__wrapper {
         text-align: center;
-        
+
         @media only screen and (min-width: 768px) {
           display: flex;
           flex-direction: column;
@@ -637,6 +788,22 @@ main {
     max-height: calc(100vh - 210px);
     overflow-y: auto;
 
+    @media only screen and (min-width: 1024px) {
+      // display: flex;
+    }
+
+    .h {
+      @media only screen and (min-width: 1024px) {
+        width: 400px;
+      }
+    }
+
+    .fucking_wrapper {
+      @media only screen and (min-width: 1024px) {
+        display: flex;
+      }
+    }
+
     .tickets_modal__logo {
       .tickets_modal__logo__image {
         width: 85px;
@@ -672,6 +839,10 @@ main {
       @include flex-center-center();
       flex-direction: column;
       gap: 20px;
+
+      @media only screen and (min-width: 1024px) {
+        margin-top: 60px;
+      }
 
       @media only screen and (min-width: 768px) {
         align-items: flex-start;
@@ -800,6 +971,10 @@ main {
         @media only screen and (min-width: 768px) {
           max-width: 350px;
         }
+
+        @media only screen and (min-width: 1024px) {
+          width: 48%;
+        }
       }
 
       .tickets_modal_input__time {
@@ -823,6 +998,10 @@ main {
           position: absolute;
           top: 0;
           right: 0;
+        }
+
+        @media only screen and (min-width: 1024px) {
+          width: 48%;
         }
       }
       .tickets_modal_input__name {
@@ -885,6 +1064,13 @@ main {
       border: 1px solid var(--color-bg-dark);
       padding: 25px 15px;
       position: relative;
+
+      @media only screen and (min-width: 1024px) {
+        margin-top: 0;
+        margin-left: 40px;
+        width: 530px;
+        height: 728px;
+      }
 
       .tickets_modal__overview_name {
         color: var(--color-font-black);
@@ -1050,6 +1236,10 @@ main {
           top: 15px;
           z-index: 10;
         }
+
+        @media only screen and (min-width: 1024px) {
+          left: 0;
+        }
       }
 
       .overview_card_mockup_back {
@@ -1063,6 +1253,11 @@ main {
           bottom: 150px;
           right: 110px;
           background-color: #939393;
+        }
+
+        @media only screen and (min-width: 1024px) {
+          right: 15px;
+          bottom: 110px;
         }
 
         .mockup_rectangle {
@@ -1104,6 +1299,10 @@ main {
 
         @media only screen and (min-width: 768px) {
           margin-top: 90px;
+        }
+
+        @media only screen and (min-width: 1024px) {
+          margin-top: 20px;
         }
 
         .overview__submit {
@@ -1150,6 +1349,14 @@ main {
       margin-top: 40px;
     }
 
+    .contacts_map_and_info_wrapper {
+      @media only screen and (min-width: 1024px) {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+      }
+    }
+
     .contacts_place_name {
       color: var(--color-font-black);
       font-weight: 500;
@@ -1186,6 +1393,12 @@ main {
         width: 100%;
         max-width: 960px;
         aspect-ratio: 57 / 37;
+
+        @media only screen and (min-width: 1024px) {
+          width: 694px;
+          height: 454px;
+          margin-top: 0;
+        }
       }
     }
   }
@@ -1217,6 +1430,13 @@ footer {
       margin-top: -30px;
     }
 
+    @media only screen and (min-width: 1024px) {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      gap: 70px;
+    }
+
     .footer_navigation {
       margin-top: 40px;
 
@@ -1232,6 +1452,10 @@ footer {
           grid-template-rows: repeat(3, 1fr);
           grid-column-gap: 184px;
           grid-row-gap: 25px;
+        }
+
+        @media only screen and (min-width: 1024px) {
+          grid-column-gap: 100px;
         }
 
         li a {
