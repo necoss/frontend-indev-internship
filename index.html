@@ -17,8 +17,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Forum&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
 
     <!-- SCRIPTS -->
-     <script src="./src/js/openModal.js" defer></script>
-     <script src='./src/js/changeInputType.js' defer></script>
+    <script src="./src/js/openModal.js" defer></script>
+    <script src="./src/js/changeInputType.js" defer></script>
+    <script src="./src/js/modalInputValidation.js" defer></script>
 
     <title>Louvre - Welcome to the Louvre!</title>
   </head>
@@ -303,15 +304,15 @@
             </div>
 
             <p class="tickets_order__order_price">Total € <span>220</span></p>
-            <button class="tickets_order__order_button toggle_modal" id='open_modal'>Buy Now</button>
+            <button class="tickets_order__order_button toggle_modal" id="open_modal">Buy Now</button>
           </div>
         </div>
       </section>
 
       <!-- ! Setup for future model window with order details-->
-      <div class="tickets_modal" id='tickets_modal'>
+      <div class="tickets_modal" id="tickets_modal">
         <div class="tickets_modal__logo">
-          <img class="tickets_modal__logo__image" src="./src/assets/img/logo_colored.png" alt='Logo colored'/>
+          <img class="tickets_modal__logo__image" src="./src/assets/img/logo_colored.png" alt="Logo colored" />
           <h6 class="tickets_modal__logo__title title_primary">BOOKING TICKETS</h6>
         </div>
 
@@ -319,8 +320,8 @@
         <hr class="hr_divider_long tickets_modal__divider" />
 
         <form action="#" class="tickets_modal__form">
-          <input class="tickets_modal_input tickets_modal_input__date dynamic_type" type="text" placeholder="Date" id='type_date'/>
-          <input class="tickets_modal_input tickets_modal_input__time dynamic_type" type="text" placeholder="Time" id='type_time'/>
+          <input class="tickets_modal_input tickets_modal_input__date dynamic_type" type="text" placeholder="Date" id="type_date" />
+          <input class="tickets_modal_input tickets_modal_input__time dynamic_type" type="text" placeholder="Time" id="type_time" />
           <input class="tickets_modal_input tickets_modal_input__name" type="text" placeholder="Name" />
           <input class="tickets_modal_input tickets_modal_input__email" type="email" placeholder="E-mail" />
           <input class="tickets_modal_input tickets_modal_input__phone" type="tel" placeholder="Phone" />
@@ -408,16 +409,16 @@
               <img class="overview_card_mockup__card_types_img" src="./src/assets/img/modal_icons/card_types.png" alt="Visa and mastercard types image" />
 
               <p class="overview_card_mockup__title">Card number</p>
-              <input class="mockup__card_number mockup__card_input" type="text" oninvalid="this.setCustomValidity('Enter Your Card Number')" oninput="this.setCustomValidity('')" name="numbers" required maxlength="16" pattern="\d+" />
+              <input class="mockup__card_number mockup__card_input validation_check" type="text" name="numbers" maxlength="16" pattern="\d+" required />
 
               <p class="overview_card_mockup__title">Expiration date</p>
               <div class="overview_card_mockup__date">
-                <input class="mockup__card_date mockup__card_input" type="text" ame="numbers" required maxlength="2" pattern="\d+" oninvalid="this.setCustomValidity('Enter Expire Month')" oninput="this.setCustomValidity('')" />
-                <input class="mockup__card_date mockup__card_input" type="text" ame="numbers" required maxlength="4" pattern="\d+" oninvalid="this.setCustomValidity('Enter Expire Year')" oninput="this.setCustomValidity('')" />
+                <input class="mockup__card_date mockup__card_input validation_check" type="text" ame="numbers" maxlength="2" pattern="\d+" required />
+                <input class="mockup__card_date mockup__card_input validation_check" type="text" ame="numbers" maxlength="4" pattern="\d+" required />
               </div>
 
               <p class="overview_card_mockup__title">Cardholder name</p>
-              <input class="mockup__card_name mockup__card_input" type="text" required oninvalid="this.setCustomValidity('Enter Cardholders Name')" oninput="this.setCustomValidity('')" />
+              <input class="mockup__card_name mockup__card_input validation_check" type="text" required />
             </div>
 
             <div class="overview_card_mockup_back overview_card_mockup">
@@ -426,19 +427,19 @@
               <div class="overview_wrapper">
                 <p class="overview_card_mockup__title overview_card_mockup__cvc_title">CVC/CVV</p>
 
-                <input class="mockup__card_cvc mockup__card_input" type="text" name="numbers" required maxlength="3" pattern="\d+" oninvalid="this.setCustomValidity('Enter Your CVC/CVV')" oninput="this.setCustomValidity('')" />
+                <input class="mockup__card_cvc mockup__card_input validation_check" type="text" name="numbers" maxlength="3" pattern="\d+" required/>
 
                 <p class="overview_card_mockup__cvc_description">The last 3 or 4 digits on back of the card</p>
               </div>
             </div>
 
-            <div class='overview__button_wrapper'>
+            <div class="overview__button_wrapper">
               <button class="overview__submit">Book</button>
             </div>
           </form>
         </div>
 
-        <button class="tickets_modal__close_modal toggle_modal" id='close_modal'>
+        <button class="tickets_modal__close_modal toggle_modal" id="close_modal">
           <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27" fill="none">
             <path d="M1 1.03418L26 26.0627" stroke="#030303" />
             <path d="M26 1.03418L1 26.0627" stroke="#030303" />
