@@ -113,3 +113,7 @@ ul,
 ol {
   list-style: none;
 }
+
+hr {
+  border: 0;
+}
