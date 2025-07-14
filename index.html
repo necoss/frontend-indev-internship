@@ -199,7 +199,7 @@
       </div>
 
       <section class="explore">
-        <div class="container">
+        <div class="container explore_container">
           <article class="explore_article">
             <h4 class="explore_article__title title_primary">PICTURE EXPLORE</h4>
             <hr class="hr_divider_long" />
@@ -297,6 +297,25 @@
 
           <div class="tickets_order">
             <img class="tickets_order__image" src="./src/assets/img/buy-tickets/prevew-pic-1.png" alt="Preview Tickets Image" />
+
+            <fieldset class="tickets_order__ticket_type">
+              <h6 class="tickets_order__ticket_type__title">Ticket Type</h6>
+
+              <div class="tickets_order__ticket_type__options">
+                <input type="radio" name="permanent_type" id="opt1" />
+                <label for="opt1">Permanent exhibition</label>
+              </div>
+
+              <div class="tickets_order__ticket_type__options">
+                <input type="radio" name="permanent_type" id="opt2" />
+                <label for="opt2">Temporary exhibition</label>
+              </div>
+
+              <div class="tickets_order__ticket_type__options">
+                <input type="radio" name="permanent_type" id="opt3" />
+                <label for="opt3">Combined Admission</label>
+              </div>
+            </fieldset>
 
             <div class="tickets_order__wrapper">
               <p class="tickets_order__amount">Amount</p>
@@ -486,7 +505,6 @@
               </h6>
 
               <div class="contacts_info">
-                <!-- ! rewrite with additional tags -->
                 <p class="contacts_info__address">address: 75001 Paris, France</p>
                 <p class="contacts_info__phone">phone: +33(0) 1 40 20 50 50</p>
                 <p class="contacts_info__mail">mail: info@louvre.fr</p>
