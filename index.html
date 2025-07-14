@@ -84,11 +84,14 @@
         </nav>
 
         <section class="hero-section">
-          <h1 class="hero__title">
-            WELCOME <br />
-            TO THE LOUVRE
-          </h1>
-          <h2 class="hero__subtitle">From the castle to the museum</h2>
+          <article class="hero_section__article">
+            <h1 class="hero__title">
+              WELCOME <br />
+              TO THE LOUVRE
+            </h1>
+            <h2 class="hero__subtitle">From the castle to the museum</h2>
+            <a href="#" class="hero__button">Discover the Louvre</a>
+          </article>
 
           <div class="hero_slider">
             <img class="hero_slider__image" src="./src/assets/img/hero-mona-lisa-cleaned.png" alt="Mona Lisa Hero" />
@@ -200,6 +203,10 @@
           <article class="explore_article">
             <h4 class="explore_article__title title_primary">PICTURE EXPLORE</h4>
             <hr class="hr_divider_long" />
+            <p class="explore_article__info">
+              Las Meninas is a 1656 painting by Diego Velázquez, the leading artist of the Spanish Golden Age. <br />
+              It was cleaned in 1984 to remove a <span style="color: #caaa7d">"yellow veil"</span> of dust that had gathered since the previous restoration in the 19th century.
+            </p>
           </article>
 
           <div class="explore_picture_reveal">
@@ -221,6 +228,7 @@
             <div class="video_journey__video_slider__preview">
               <iframe width="180" height="101" src="2https://www.youtube.com/embed/lQG3NcJ9vT8?si=0l0LZbQDVf2gdoFe" frameborder="0" allowfullscreen></iframe>
               <iframe width="180" height="101" src="2https://www.youtube.com/embed/zwoYIi5RXjY?si=D1cckt9B8OMaNB8z" frameborder="0" allowfullscreen></iframe>
+              <iframe class="video_journey__large_screens" width="180" height="101" src="2https://www.youtube.com/embed/zwoYIi5RXjY?si=D1cckt9B8OMaNB8z" frameborder="0" allowfullscreen></iframe>
             </div>
 
             <div class="video_journey__video_slider__controls">
@@ -268,6 +276,14 @@
               <img src="./src/assets/img/art-gallery/pic9.png" alt="Picture 9" />
               <img src="./src/assets/img/art-gallery/pic2.png" alt="Picture 2" />
             </div>
+
+            <div class="gallery__items__column">
+              <img src="./src/assets/img/art-gallery/pic2.png" alt="Picture 2" />
+              <img src="./src/assets/img/art-gallery/pic4.png" alt="Picture 4" />
+              <img src="./src/assets/img/art-gallery/pic5.png" alt="Picture 5" />
+              <img src="./src/assets/img/art-gallery/pic6.png" alt="Picture 6" />
+              <img src="./src/assets/img/art-gallery/pic9.png" alt="Picture 9" />
+            </div>
           </div>
         </div>
       </section>
@@ -281,165 +297,171 @@
 
           <div class="tickets_order">
             <img class="tickets_order__image" src="./src/assets/img/buy-tickets/prevew-pic-1.png" alt="Preview Tickets Image" />
-            <p class="tickets_order__amount">Amount</p>
 
-            <div class="tickets_order__plan">
-              <p class="tickets_order__plan_name">Basic 18+</p>
+            <div class="tickets_order__wrapper">
+              <p class="tickets_order__amount">Amount</p>
 
-              <div class="tickets_order__counter counter_wrapper">
-                <button class="tickets_order__counter__button counter_button">–</button>
-                <p class="tickets_order__counter__value counter_value">1</p>
-                <button class="tickets_order__counter__button counter_button">+</button>
+              <div class="tickets_order__plan">
+                <p class="tickets_order__plan_name">Basic 18+</p>
+
+                <div class="tickets_order__counter counter_wrapper">
+                  <button class="tickets_order__counter__button counter_button">–</button>
+                  <p class="tickets_order__counter__value counter_value">1</p>
+                  <button class="tickets_order__counter__button counter_button">+</button>
+                </div>
               </div>
-            </div>
 
-            <div class="tickets_order__plan">
-              <p class="tickets_order__plan_name">Senior 65+</p>
+              <div class="tickets_order__plan">
+                <p class="tickets_order__plan_name">Senior 65+</p>
 
-              <div class="tickets_order__counter counter_wrapper">
-                <button class="tickets_order__counter__button counter_button">–</button>
-                <p class="tickets_order__counter__value counter_value">1</p>
-                <button class="tickets_order__counter__button counter_button">+</button>
+                <div class="tickets_order__counter counter_wrapper">
+                  <button class="tickets_order__counter__button counter_button">–</button>
+                  <p class="tickets_order__counter__value counter_value">1</p>
+                  <button class="tickets_order__counter__button counter_button">+</button>
+                </div>
               </div>
-            </div>
 
-            <p class="tickets_order__order_price">Total € <span>220</span></p>
-            <button class="tickets_order__order_button toggle_modal" id="open_modal">Buy Now</button>
+              <p class="tickets_order__order_price">Total € <span>220</span></p>
+              <button class="tickets_order__order_button toggle_modal">Buy Now</button>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- ! Setup for future model window with order details-->
       <div class="tickets_modal" id="tickets_modal">
-        <div class="tickets_modal__logo">
-          <img class="tickets_modal__logo__image" src="./src/assets/img/logo_colored.png" alt="Logo colored" />
-          <h6 class="tickets_modal__logo__title title_primary">BOOKING TICKETS</h6>
-        </div>
-
-        <h6 class="tickets_modal__title">Tour to Louvre</h6>
-        <hr class="hr_divider_long tickets_modal__divider" />
-
-        <form action="#" class="tickets_modal__form">
-          <input class="tickets_modal_input tickets_modal_input__date dynamic_type" type="text" placeholder="Date" id="type_date" />
-          <input class="tickets_modal_input tickets_modal_input__time dynamic_type" type="text" placeholder="Time" id="type_time" />
-          <input class="tickets_modal_input tickets_modal_input__name" type="text" placeholder="Name" />
-          <input class="tickets_modal_input tickets_modal_input__email" type="email" placeholder="E-mail" />
-          <input class="tickets_modal_input tickets_modal_input__phone" type="tel" placeholder="Phone" />
-
-          <!-- ! How to make default value without creating another option -->
-          <select name="Ticket Type" id="">
-            <option value="default" disabled selected>Ticket Type</option>
-            <option value="firstType">Permanent exhibition</option>
-            <option value="secondType">Temporary exhibition</option>
-            <option value="thirdType">Combined Admission</option>
-          </select>
-        </form>
-
-        <div class="tickets_modal__entry">
-          <h6 class="tickets_modal__entry__title title_primary">Entry ticket</h6>
-          <hr class="hr_divider_long tickets_modal__entry__divider" />
-
-          <div class="tickets_modal__plans">
-            <div class="tickets_modal__plan">
-              <h6 class="tickets_modal__plan_name">Basic 18+ (20 €)</h6>
-              <div class="tickets_modal__counter counter_wrapper">
-                <button class="tickets_modal__counter__button counter_button">–</button>
-                <p class="tickets_modal__counter__value counter_value">2</p>
-                <button class="tickets_modal__counter__button counter_button">+</button>
-              </div>
+        <div class="fucking_wrapper">
+          <div class="h">
+            <div class="tickets_modal__logo">
+              <img class="tickets_modal__logo__image" src="./src/assets/img/logo_colored.png" alt="Logo colored" />
+              <h6 class="tickets_modal__logo__title title_primary">BOOKING TICKETS</h6>
             </div>
 
-            <div class="tickets_modal__plan">
-              <h6 class="tickets_modal__plan_name">Senior 65+ (10 €)</h6>
-              <div class="tickets_modal__counter counter_wrapper">
-                <button class="tickets_modal__counter__button counter_button">–</button>
-                <p class="tickets_modal__counter__value counter_value">2</p>
-                <button class="tickets_modal__counter__button counter_button">+</button>
+            <h6 class="tickets_modal__title">Tour to Louvre</h6>
+            <hr class="hr_divider_long tickets_modal__divider" />
+
+            <form action="#" class="tickets_modal__form">
+              <input class="tickets_modal_input tickets_modal_input__date dynamic_type" type="text" placeholder="Date" id="type_date" />
+              <input class="tickets_modal_input tickets_modal_input__time dynamic_type" type="text" placeholder="Time" id="type_time" />
+              <input class="tickets_modal_input tickets_modal_input__name" type="text" placeholder="Name" />
+              <input class="tickets_modal_input tickets_modal_input__email" type="email" placeholder="E-mail" />
+              <input class="tickets_modal_input tickets_modal_input__phone" type="tel" placeholder="Phone" />
+
+              <!-- ! Recreate this for js  -->
+              <select name="Ticket Type" id="">
+                <option value="default" disabled selected>Ticket Type</option>
+                <option value="firstType">Permanent exhibition</option>
+                <option value="secondType">Temporary exhibition</option>
+                <option value="thirdType">Combined Admission</option>
+              </select>
+            </form>
+
+            <div class="tickets_modal__entry">
+              <h6 class="tickets_modal__entry__title title_primary">Entry ticket</h6>
+              <hr class="hr_divider_long tickets_modal__entry__divider" />
+
+              <div class="tickets_modal__plans">
+                <div class="tickets_modal__plan">
+                  <h6 class="tickets_modal__plan_name">Basic 18+ (20 €)</h6>
+                  <div class="tickets_modal__counter counter_wrapper">
+                    <button class="tickets_modal__counter__button counter_button">–</button>
+                    <p class="tickets_modal__counter__value counter_value">2</p>
+                    <button class="tickets_modal__counter__button counter_button">+</button>
+                  </div>
+                </div>
+
+                <div class="tickets_modal__plan">
+                  <h6 class="tickets_modal__plan_name">Senior 65+ (10 €)</h6>
+                  <div class="tickets_modal__counter counter_wrapper">
+                    <button class="tickets_modal__counter__button counter_button">–</button>
+                    <p class="tickets_modal__counter__value counter_value">2</p>
+                    <button class="tickets_modal__counter__button counter_button">+</button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <div class="tickets_modal__overview">
-          <h6 class="tickets_modal__overview_name">Overview</h6>
-          <img class="tickets_modal__overview_img" src="./src/assets/img/modal_icons/overview_preview_img.png" alt="Preview image of selected tour" />
+          <div class="tickets_modal__overview">
+            <h6 class="tickets_modal__overview_name">Overview</h6>
+            <img class="tickets_modal__overview_img" src="./src/assets/img/modal_icons/overview_preview_img.png" alt="Preview image of selected tour" />
 
-          <article class="tickets_modal__overview_info">
-            <h6 class="overview_info__tour_name">Tour to Louvre</h6>
+            <article class="tickets_modal__overview_info">
+              <h6 class="overview_info__tour_name">Tour to Louvre</h6>
 
-            <div class="overview_info__date overview_info__item">
-              <img src="./src/assets/img/modal_icons/date.png" alt="Date icon" />
-              <p>Friday, August 19</p>
-            </div>
-
-            <div class="overview_info__time overview_info__item">
-              <img src="./src/assets/img/modal_icons/time.svg" alt="Time icon" />
-              <p>16 : 30</p>
-            </div>
-
-            <div class="overview_info__type overview_info__item">
-              <img src="./src/assets/img/modal_icons/tick_ticket_type.svg" alt="Ticket type icon" />
-              <p>Temporary exhibition</p>
-            </div>
-          </article>
-
-          <div class="overview__order_details">
-            <div class="overview__order_details__items">
-              <div class="overview_order_details__item">
-                <p class="overview_order_details__item__name"><span class="overview_order_details__item__qty">2</span> Basic (20 €)</p>
-                <p class="overview_order_details__item__value">40 €</p>
+              <div class="overview_info__date overview_info__item">
+                <img src="./src/assets/img/modal_icons/date.png" alt="Date icon" />
+                <p>Friday, August 19</p>
               </div>
 
-              <div class="overview_order_details__item">
-                <p class="overview_order_details__item__name"><span class="overview_order_details__item__qty">2</span> Senior (10 €)</p>
-                <p class="overview_order_details__item__value">20 €</p>
+              <div class="overview_info__time overview_info__item">
+                <img src="./src/assets/img/modal_icons/time.svg" alt="Time icon" />
+                <p>16 : 30</p>
+              </div>
+
+              <div class="overview_info__type overview_info__item">
+                <img src="./src/assets/img/modal_icons/tick_ticket_type.svg" alt="Ticket type icon" />
+                <p>Temporary exhibition</p>
+              </div>
+            </article>
+
+            <div class="overview__order_details">
+              <div class="overview__order_details__items">
+                <div class="overview_order_details__item">
+                  <p class="overview_order_details__item__name"><span class="overview_order_details__item__qty">2</span> Basic (20 €)</p>
+                  <p class="overview_order_details__item__value">40 €</p>
+                </div>
+
+                <div class="overview_order_details__item">
+                  <p class="overview_order_details__item__name"><span class="overview_order_details__item__qty">2</span> Senior (10 €)</p>
+                  <p class="overview_order_details__item__value">20 €</p>
+                </div>
+              </div>
+
+              <hr class="hr_divider_long overview__order_details__divider" />
+
+              <div class="overview_order_details__total">
+                <p>Total:</p>
+                <p>60 €</p>
               </div>
             </div>
 
-            <hr class="hr_divider_long overview__order_details__divider" />
+            <form>
+              <div class="overview_card_mockup_front overview_card_mockup">
+                <img class="overview_card_mockup__card_types_img" src="./src/assets/img/modal_icons/card_types.png" alt="Visa and mastercard types image" />
 
-            <div class="overview_order_details__total">
-              <p>Total:</p>
-              <p>60 €</p>
-            </div>
+                <p class="overview_card_mockup__title">Card number</p>
+                <input class="mockup__card_number mockup__card_input validation_check" type="text" name="numbers" maxlength="16" pattern="\d+" required />
+
+                <p class="overview_card_mockup__title">Expiration date</p>
+                <div class="overview_card_mockup__date">
+                  <input class="mockup__card_date mockup__card_input validation_check" type="text" ame="numbers" maxlength="2" pattern="\d+" required />
+                  <input class="mockup__card_date mockup__card_input validation_check" type="text" ame="numbers" maxlength="4" pattern="\d+" required />
+                </div>
+
+                <p class="overview_card_mockup__title">Cardholder name</p>
+                <input class="mockup__card_name mockup__card_input validation_check" type="text" required />
+              </div>
+
+              <div class="overview_card_mockup_back overview_card_mockup">
+                <div class="mockup_rectangle"></div>
+
+                <div class="overview_wrapper">
+                  <p class="overview_card_mockup__title overview_card_mockup__cvc_title">CVC/CVV</p>
+
+                  <input class="mockup__card_cvc mockup__card_input validation_check" type="text" name="numbers" maxlength="3" pattern="\d+" required />
+
+                  <p class="overview_card_mockup__cvc_description">The last 3 or 4 digits on back of the card</p>
+                </div>
+              </div>
+
+              <div class="overview__button_wrapper">
+                <button class="overview__submit">Book</button>
+              </div>
+            </form>
           </div>
-
-          <form>
-            <div class="overview_card_mockup_front overview_card_mockup">
-              <img class="overview_card_mockup__card_types_img" src="./src/assets/img/modal_icons/card_types.png" alt="Visa and mastercard types image" />
-
-              <p class="overview_card_mockup__title">Card number</p>
-              <input class="mockup__card_number mockup__card_input validation_check" type="text" name="numbers" maxlength="16" pattern="\d+" required />
-
-              <p class="overview_card_mockup__title">Expiration date</p>
-              <div class="overview_card_mockup__date">
-                <input class="mockup__card_date mockup__card_input validation_check" type="text" ame="numbers" maxlength="2" pattern="\d+" required />
-                <input class="mockup__card_date mockup__card_input validation_check" type="text" ame="numbers" maxlength="4" pattern="\d+" required />
-              </div>
-
-              <p class="overview_card_mockup__title">Cardholder name</p>
-              <input class="mockup__card_name mockup__card_input validation_check" type="text" required />
-            </div>
-
-            <div class="overview_card_mockup_back overview_card_mockup">
-              <div class="mockup_rectangle"></div>
-
-              <div class="overview_wrapper">
-                <p class="overview_card_mockup__title overview_card_mockup__cvc_title">CVC/CVV</p>
-
-                <input class="mockup__card_cvc mockup__card_input validation_check" type="text" name="numbers" maxlength="3" pattern="\d+" required/>
-
-                <p class="overview_card_mockup__cvc_description">The last 3 or 4 digits on back of the card</p>
-              </div>
-            </div>
-
-            <div class="overview__button_wrapper">
-              <button class="overview__submit">Book</button>
-            </div>
-          </form>
         </div>
 
-        <button class="tickets_modal__close_modal toggle_modal" id="close_modal">
+        <button class="tickets_modal__close_modal toggle_modal">
           <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27" fill="none">
             <path d="M1 1.03418L26 26.0627" stroke="#030303" />
             <path d="M26 1.03418L1 26.0627" stroke="#030303" />
@@ -456,46 +478,52 @@
             <hr class="hr_divider_long" />
           </article>
 
-          <h6 class="contacts_place_name">
-            Palais Royal <br />
-            Musee du Louvre
-          </h6>
+          <div class="contacts_map_and_info_wrapper">
+            <div class="contacts_info__wrapper">
+              <h6 class="contacts_place_name">
+                Palais Royal <br />
+                Musee du Louvre
+              </h6>
 
-          <div class="contacts_info">
-            <!-- ! rewrite with additional tags -->
-            <p class="contacts_info__address">address: 75001 Paris, France</p>
-            <p class="contacts_info__phone">phone: +33(0) 1 40 20 50 50</p>
-            <p class="contacts_info__mail">mail: info@louvre.fr</p>
-          </div>
+              <div class="contacts_info">
+                <!-- ! rewrite with additional tags -->
+                <p class="contacts_info__address">address: 75001 Paris, France</p>
+                <p class="contacts_info__phone">phone: +33(0) 1 40 20 50 50</p>
+                <p class="contacts_info__mail">mail: info@louvre.fr</p>
+              </div>
+            </div>
 
-          <div class="contacts_map">
-            <img src="./src/assets/img/contacts/map-preview.png" alt="Map with location of Louvre" />
+            <div class="contacts_map">
+              <img src="./src/assets/img/contacts/map-preview.png" alt="Map with location of Louvre" />
+            </div>
           </div>
         </div>
       </section>
     </main>
 
     <footer>
-      <div class="container">
+      <div class="container footer_container">
         <a href="/index.html" class="footer-logo logo_primary"><img src="./src/assets/img/logo.png" alt="Logo img" /> LOUVRE</a>
 
-        <nav class="footer_navigation">
-          <ul>
-            <li><a href="#">Visiting</a></li>
-            <li><a href="#">Explore</a></li>
-            <li><a href="#">Video</a></li>
-            <li><a href="#">Gallery</a></li>
-            <li><a href="#">Tickets</a></li>
-            <li><a href="#">Contacts</a></li>
-          </ul>
-        </nav>
+        <div class="footer_wrapper">
+          <nav class="footer_navigation">
+            <ul>
+              <li><a href="#">Visiting</a></li>
+              <li><a href="#">Explore</a></li>
+              <li><a href="#">Video</a></li>
+              <li><a href="#">Gallery</a></li>
+              <li><a href="#">Tickets</a></li>
+              <li><a href="#">Contacts</a></li>
+            </ul>
+          </nav>
 
-        <div class="footer_socials socials">
-          <a href="#" class="footer_socials__icon socials__icon"><img src="./src/assets/img/socials_icons/youtube_icon.svg" alt="Youtube icon" /></a>
-          <a href="#" class="footer_socials__icon socials__icon"><img src="./src/assets/img/socials_icons/inst_icon.svg" alt="Instagram icon" /></a>
-          <a href="#" class="footer_socials__icon socials__icon"><img src="./src/assets/img/socials_icons/facebook_icon.svg" alt="Facebook icon" /></a>
-          <a href="#" class="footer_socials__icon socials__icon"><img src="./src/assets/img/socials_icons/twitter_icon.png" alt="Twitter icon" /></a>
-          <a href="#" class="footer_socials__icon socials__icon"><img src="./src/assets/img/socials_icons/pinterest_icon.svg" alt="Pinterest icon" /></a>
+          <div class="footer_socials socials">
+            <a href="#" class="footer_socials__icon socials__icon"><img src="./src/assets/img/socials_icons/youtube_icon.svg" alt="Youtube icon" /></a>
+            <a href="#" class="footer_socials__icon socials__icon"><img src="./src/assets/img/socials_icons/inst_icon.svg" alt="Instagram icon" /></a>
+            <a href="#" class="footer_socials__icon socials__icon"><img src="./src/assets/img/socials_icons/facebook_icon.svg" alt="Facebook icon" /></a>
+            <a href="#" class="footer_socials__icon socials__icon"><img src="./src/assets/img/socials_icons/twitter_icon.png" alt="Twitter icon" /></a>
+            <a href="#" class="footer_socials__icon socials__icon"><img src="./src/assets/img/socials_icons/pinterest_icon.svg" alt="Pinterest icon" /></a>
+          </div>
         </div>
       </div>
 
@@ -504,6 +532,7 @@
       <div class="container">
         <div class="footer_credits">
           <p class="footer_credits__year">© 2025</p>
+          <p class="footer_credits__slogan">InDev Internship</p>
           <a href="https://github.com/necoss/" class="footer_credits__username" target="_blank">github: necoss</a>
         </div>
       </div>
