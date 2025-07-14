@@ -491,11 +491,6 @@ header .hero-section .embla .embla__viewport {
     left: 200px;
   }
 }
-@media only screen and (min-width: 1920px) {
-  header .hero-section .embla .embla__viewport {
-    left: 360px;
-  }
-}
 header .hero-section .embla .embla__viewport .embla__container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -506,6 +501,7 @@ header .hero-section .embla .embla__viewport .embla__container .embla__slide {
       -ms-flex: 0 0 100%;
           flex: 0 0 100%;
   min-width: 0;
+  max-width: 1200px;
 }
 @media only screen and (min-width: 1024px) {
   header .hero-section .embla .embla__viewport .embla__container .embla__slide {

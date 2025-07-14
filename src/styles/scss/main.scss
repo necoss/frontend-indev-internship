@@ -446,7 +446,7 @@ header {
         }
 
         @media only screen and (min-width: 1920px) {
-          left: 360px;
+          // left: 360px;
         }
 
         .embla__container {
@@ -456,6 +456,7 @@ header {
           .embla__slide {
             flex: 0 0 100%;
             min-width: 0;
+            max-width: 1200px;
 
             @media only screen and (min-width: 1024px) {
               width: 180px;
