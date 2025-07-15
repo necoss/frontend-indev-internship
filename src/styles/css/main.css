@@ -55,7 +55,6 @@ body:has(#navigation_burger_menu__toggle:checked) {
   width: 100%;
   height: 3px;
   background-color: var(--color-dark-red);
-  border: 0;
   margin-top: 20px;
   margin-bottom: 40px;
 }
@@ -64,7 +63,6 @@ body:has(#navigation_burger_menu__toggle:checked) {
   width: 150px;
   height: 2px;
   background-color: var(--color-dark-red);
-  border: 0;
   margin: 10px 0;
 }
 @media only screen and (min-width: 1920px) {
@@ -368,19 +366,19 @@ header .hero-section {
 }
 @media only screen and (min-width: 768px) {
   header .hero-section {
-    height: 1100px;
+    height: 900px;
   }
 }
 @media only screen and (min-width: 1024px) {
   header .hero-section {
     position: relative;
-    height: 600px;
+    height: 900px;
   }
 }
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 1920px) {
   header .hero-section {
     position: relative;
-    min-height: 800px;
+    min-height: 900px;
   }
 }
 @media only screen and (min-width: 1024px) {
@@ -458,36 +456,184 @@ header .hero-section .hero_section__article .hero__button {
     padding: 20px 45px;
   }
 }
-header .hero-section .hero_slider {
-  padding-top: 50px;
-  padding-bottom: 20px;
+header .hero-section .embla {
+  overflow: hidden;
+  color: var(--color-font-white);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  margin-top: 50px;
+  height: 380px;
 }
-header .hero-section .hero_slider .hero_slider__image {
-  margin: 0 auto;
-  width: 100%;
-  aspect-ratio: 4/3;
-  max-width: 1000px;
+@media only screen and (min-width: 768px) {
+  header .hero-section .embla {
+    height: 700px;
+  }
+}
+@media only screen and (min-width: 1920px) {
+  header .hero-section .embla {
+    margin-top: 0px;
+    height: 800px;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+}
+header .hero-section .embla .embla__viewport {
+  position: relative;
 }
 @media only screen and (min-width: 1024px) {
-  header .hero-section .hero_slider .hero_slider__image {
+  header .hero-section .embla .embla__viewport {
+    left: 200px;
+  }
+}
+header .hero-section .embla .embla__viewport .embla__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+header .hero-section .embla .embla__viewport .embla__container .embla__slide {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+  min-width: 0;
+  max-width: 1200px;
+}
+@media only screen and (min-width: 1024px) {
+  header .hero-section .embla .embla__viewport .embla__container .embla__slide {
+    width: 180px;
+    height: 285px;
+  }
+}
+@media only screen and (min-width: 1920px) {
+  header .hero-section .embla .embla__viewport .embla__container .embla__slide {
+    width: 270px;
+    height: 750px;
+  }
+}
+header .hero-section .embla .embla__viewport .embla__container .embla__slide img {
+  width: 100%;
+  height: 285px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media only screen and (min-width: 768px) {
+  header .hero-section .embla .embla__viewport .embla__container .embla__slide img {
+    height: 546px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  header .hero-section .embla .embla__viewport .embla__container .embla__slide img {
     -webkit-mask-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0)), color-stop(20%, #000));
     -webkit-mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, #000 20%);
             mask-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0)), color-stop(20%, #000));
             mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, #000 20%);
-    width: 700px;
-    position: absolute;
-    right: 0;
-    top: 0;
-    -o-object-fit: cover;
-       object-fit: cover;
   }
 }
 @media only screen and (min-width: 1920px) {
-  header .hero-section .hero_slider .hero_slider__image {
-    width: 1000px;
+  header .hero-section .embla .embla__viewport .embla__container .embla__slide img {
+    height: 750px;
+    -webkit-mask-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0)), color-stop(20%, #000));
+    -webkit-mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, #000 20%);
+            mask-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0)), color-stop(20%, #000));
+            mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, #000 20%);
   }
 }
-header .hero-section .hero_slider .hero_slider__controls {
+header .hero-section .embla .embla__controls {
+  margin: 0 auto;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  bottom: 0;
+  padding: 0;
+  -webkit-column-gap: 30px;
+     -moz-column-gap: 30px;
+          column-gap: 30px;
+  background-color: transparent;
+}
+@media only screen and (min-width: 768px) {
+  header .hero-section .embla .embla__controls {
+    -webkit-column-gap: 35px;
+       -moz-column-gap: 35px;
+            column-gap: 35px;
+    bottom: 70px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  header .hero-section .embla .embla__controls {
+    -webkit-column-gap: 40px;
+       -moz-column-gap: 40px;
+            column-gap: 40px;
+    bottom: 70px;
+    right: 140px;
+  }
+}
+@media only screen and (min-width: 1920px) {
+  header .hero-section .embla .embla__controls {
+    right: 0;
+    left: 800px;
+    max-width: 640px;
+    -webkit-column-gap: 55px;
+       -moz-column-gap: 55px;
+            column-gap: 55px;
+    bottom: -30px;
+    padding: 52px 74px;
+    background-color: var(--color-bg-dark);
+  }
+}
+header .hero-section .embla .embla__controls .embla__selected-snap-display {
+  font-size: 16px;
+  line-height: 40px;
+}
+@media only screen and (min-width: 1024px) {
+  header .hero-section .embla .embla__controls .embla__selected-snap-display {
+    font-size: 20px;
+  }
+}
+@media only screen and (min-width: 1920px) {
+  header .hero-section .embla .embla__controls .embla__selected-snap-display {
+    font-size: 22px;
+  }
+}
+header .hero-section .embla .embla__controls .embla__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+header .hero-section .embla .embla__controls .embla__button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  background-color: transparent;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  text-decoration: none;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  width: 3.6rem;
+  height: 3.6rem;
+  z-index: 1;
+  border-radius: 50%;
+  color: var(--text-body);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -497,32 +643,104 @@ header .hero-section .hero_slider .hero_slider__controls {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding-top: 20px;
+}
+header .hero-section .embla .embla__controls .embla__button:disabled {
+  color: var(--color-dark-red);
+}
+header .hero-section .embla .embla__controls .embla__button svg {
+  width: 55px;
+  height: 8px;
+}
+header .hero-section .embla .embla__controls .embla__dots {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+header .hero-section .embla .embla__controls .embla__dots .embla__dot {
+  -webkit-tap-highlight-color: var(--color-font-white);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  background-color: transparent;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  text-decoration: none;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  width: 1.4rem;
+  height: 1.4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 50%;
+}
+@media only screen and (min-width: 768px) {
+  header .hero-section .embla .embla__controls .embla__dots .embla__dot {
+    width: 1.6rem;
+  }
 }
 @media only screen and (min-width: 1024px) {
-  header .hero-section .hero_slider .hero_slider__controls {
-    position: absolute;
-    right: 24%;
-    bottom: 20px;
+  header .hero-section .embla .embla__controls .embla__dots .embla__dot {
+    width: 2rem;
   }
 }
 @media only screen and (min-width: 1920px) {
-  header .hero-section .hero_slider .hero_slider__controls {
-    background-color: var(--color-bg-dark);
-    padding: 40px 110px;
-    width: 600px;
-    right: 0;
-    bottom: 0;
+  header .hero-section .embla .embla__controls .embla__dots .embla__dot {
+    width: 2.6rem;
+    height: 2.6rem;
   }
 }
-header .hero-section .hero_slider .hero_slider__controls .hero_slider__controls__slide_num p {
-  color: var(--color-font-white);
-  font-weight: 400;
-  line-height: 40px;
+header .hero-section .embla .embla__controls .embla__dots .embla__dot:after {
+  background: var(--color-font-white);
+  width: 7px;
+  height: 7px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  content: "";
 }
-header .hero-section .hero_slider .hero_slider__controls .hero_slider__controls__pagination {
-  margin-left: 25px;
-  margin-right: 25px;
+@media only screen and (min-width: 768px) {
+  header .hero-section .embla .embla__controls .embla__dots .embla__dot:after {
+    width: 12px;
+    height: 12px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  header .hero-section .embla .embla__controls .embla__dots .embla__dot:after {
+    width: 16px;
+    height: 16px;
+  }
+}
+@media only screen and (min-width: 1920px) {
+  header .hero-section .embla .embla__controls .embla__dots .embla__dot:after {
+    width: 16px;
+    height: 16px;
+  }
+}
+header .hero-section .embla .embla__controls .embla__dots .embla__dot--selected:after {
+  background-color: var(--button-hover-color);
 }
 
 main .virtual-tour {
@@ -722,7 +940,7 @@ main .video_journey .video_journey__video {
 main .video_journey .video_journey__video img {
   width: 100%;
   aspect-ratio: 190/113;
-  max-width: 1440px;
+  max-width: 1920px;
 }
 main .video_journey .video_journey__video_slider {
   padding-top: 40px;
