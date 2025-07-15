@@ -492,11 +492,9 @@ header {
       }
 
       .embla__controls {
+        @include flex-center-center();
         margin: 0 auto;
         position: absolute;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         bottom: 0;
         padding: 0;
         column-gap: 30px;
