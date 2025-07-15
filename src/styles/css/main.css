@@ -10,6 +10,7 @@
   --button-hover-color: #9d8665;
   font-family: Roboto, sans-serif;
   font-size: 16px;
+  scroll-behavior: smooth;
 }
 
 .counter_wrapper {
