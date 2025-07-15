@@ -23,9 +23,8 @@
     <script type="module" src="./src/js/carousel/carouselHero.js" defer></script>
 
     <!-- SCRIPTS -->
-    <script src="./src/js/openModal.js" defer></script>
-    <script src="./src/js/changeInputType.js" defer></script>
-    <script src="./src/js/modalInputValidation.js" defer></script>
+    <script src="./src/js/bookingModal.js" defer></script>
+    <script src='./src/js/bookingModalInputs.js' defer></script>
 
     <title>Louvre - Welcome to the Louvre!</title>
   </head>
@@ -36,12 +35,12 @@
           <a href="/" class="navigation-logo logo_primary"><img src="./src/assets/img/logo.png" alt="Logo img" /> LOUVRE</a>
 
           <ul class="navigation-list">
-            <li><a href="#">Visiting</a></li>
-            <li><a href="#">Explore</a></li>
-            <li><a href="#">Video</a></li>
-            <li><a href="#">Gallery</a></li>
-            <li><a href="#">Tickets</a></li>
-            <li><a href="#">Contacts</a></li>
+            <li><a href="#virtual_tour">Visiting</a></li>
+            <li><a href="#explore">Explore</a></li>
+            <li><a href="#video_journey">Video</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#tickets">Tickets</a></li>
+            <li><a href="#contacts">Contacts</a></li>
           </ul>
 
           <div class="navigation_burger_menu">
@@ -52,22 +51,22 @@
 
             <ul class="navigation_burger_menu__list">
               <li>
-                <a class="navigation_burger_menu__item" href="#">Visiting<img src="./src/assets/img/arrow.png" alt="To Visiting Arrow" /></a>
+                <a class="navigation_burger_menu__item" href="#virtual_tour">Visiting<img src="./src/assets/img/arrow.png" alt="To Visiting Arrow" /></a>
               </li>
               <li>
-                <a class="navigation_burger_menu__item" href="#">Explore<img src="./src/assets/img/arrow.png" alt="To Explore Arrow" /></a>
+                <a class="navigation_burger_menu__item" href="#explore">Explore<img src="./src/assets/img/arrow.png" alt="To Explore Arrow" /></a>
               </li>
               <li>
-                <a class="navigation_burger_menu__item" href="#">Video<img src="./src/assets/img/arrow.png" alt="To Video Arrow" /></a>
+                <a class="navigation_burger_menu__item" href="#video_journey">Video<img src="./src/assets/img/arrow.png" alt="To Video Arrow" /></a>
               </li>
               <li>
-                <a class="navigation_burger_menu__item" href="#">Gallery<img src="./src/assets/img/arrow.png" alt="To Gallery Arrow" /></a>
+                <a class="navigation_burger_menu__item" href="#gallery">Gallery<img src="./src/assets/img/arrow.png" alt="To Gallery Arrow" /></a>
               </li>
               <li>
-                <a class="navigation_burger_menu__item" href="#">Tickets<img src="./src/assets/img/arrow.png" alt="To Tickets Arrow" /></a>
+                <a class="navigation_burger_menu__item" href="#tickets">Tickets<img src="./src/assets/img/arrow.png" alt="To Tickets Arrow" /></a>
               </li>
               <li>
-                <a class="navigation_burger_menu__item" href="#">Contacts<img src="./src/assets/img/arrow.png" alt="To Contacts Arrow" /></a>
+                <a class="navigation_burger_menu__item" href="#contacts">Contacts<img src="./src/assets/img/arrow.png" alt="To Contacts Arrow" /></a>
               </li>
 
               <div class="navigation_burger_menu__gallery">
@@ -79,11 +78,11 @@
               <hr class="navigation_burger_menu__divider" />
 
               <div class="navigation_burger_menu__socials socials">
-                <a href="#" class="footer_socials__icon socials__icon"><img src="./src/assets/img/socials_icons/youtube_icon.svg" alt="Youtube icon" /></a>
-                <a href="#" class="footer_socials__icon socials__icon"><img src="./src/assets/img/socials_icons/inst_icon.svg" alt="Instagram icon" /></a>
-                <a href="#" class="footer_socials__icon socials__icon"><img src="./src/assets/img/socials_icons/facebook_icon.svg" alt="Facebook icon" /></a>
-                <a href="#" class="footer_socials__icon socials__icon"><img src="./src/assets/img/socials_icons/twitter_icon.png" alt="Twitter icon" /></a>
-                <a href="#" class="footer_socials__icon socials__icon"><img src="./src/assets/img/socials_icons/pinterest_icon.svg" alt="Pinterest icon" /></a>
+                <a href="https://www.youtube.com/@MuseeLouvre" class="footer_socials__icon socials__icon" target="_blank"><img src="./src/assets/img/socials_icons/youtube_icon.svg" alt="Youtube icon" /></a>
+                <a href="https://www.instagram.com/museelouvre/" class="footer_socials__icon socials__icon" target="_blank"><img src="./src/assets/img/socials_icons/inst_icon.svg" alt="Instagram icon" /></a>
+                <a href="https://www.facebook.com/museedulouvre/?locale=ru_RU" class="footer_socials__icon socials__icon" target="_blank"><img src="./src/assets/img/socials_icons/facebook_icon.svg" alt="Facebook icon" /></a>
+                <a href="https://x.com/museelouvre" class="footer_socials__icon socials__icon" target="_blank"><img src="./src/assets/img/socials_icons/twitter_icon.png" alt="Twitter icon" /></a>
+                <a href="https://www.pinterest.com/ideas/the-louvre/936817086051/" class="footer_socials__icon socials__icon" target="_blank"><img src="./src/assets/img/socials_icons/pinterest_icon.svg" alt="Pinterest icon" /></a>
               </div>
             </ul>
           </div>
@@ -96,30 +95,30 @@
               TO THE LOUVRE
             </h1>
             <h2 class="hero__subtitle">From the castle to the museum</h2>
-            <a href="#" class="hero__button">Discover the Louvre</a>
+            <a href="#virtual_tour" class="hero__button">Discover the Louvre</a>
           </article>
 
           <section class="embla">
             <div class="embla__viewport">
               <div class="embla__container">
                 <div class="embla__slide">
-                  <img src="./src/assets/img/louvre_slider_img/mona-lisa.png" alt="Hero_Slider_1" />
+                  <img src="./src/assets/img/louvre_slider_img/mona-lisa.png" alt="Hero slide with painting 1" />
                 </div>
 
                 <div class="embla__slide">
-                  <img src="./src/assets/img/louvre_slider_img/slide_2.webp" alt="Hero_Slider_2" />
+                  <img src="./src/assets/img/louvre_slider_img/slide_2.webp" alt="Hero slide with painting 2" />
                 </div>
 
                 <div class="embla__slide">
-                  <img src="./src/assets/img/louvre_slider_img/slide_3.webp" alt="Hero_Slider_3" />
+                  <img src="./src/assets/img/louvre_slider_img/slide_3.webp" alt="Hero slide with painting 3" />
                 </div>
 
                 <div class="embla__slide">
-                  <img src="./src/assets/img/louvre_slider_img/slide_4_new.jpg" alt="Hero_Slider_4" />
+                  <img src="./src/assets/img/louvre_slider_img/slide_4_new.jpg" alt="Hero slide with painting 4" />
                 </div>
 
                 <div class="embla__slide">
-                  <img src="./src/assets/img/louvre_slider_img/slide_5.webp" alt="Hero_Slider_5" />
+                  <img src="./src/assets/img/louvre_slider_img/slide_5.webp" alt="Hero slide with painting 5" />
                 </div>
               </div>
             </div>
@@ -146,43 +145,13 @@
               </div>
             </div>
           </section>
-
-          <!-- <div class="hero_slider">
-            <img class="hero_slider__image" src="./src/assets/img/hero-mona-lisa-cleaned.png" alt="Mona Lisa Hero" />
-
-            <div class="hero_slider__controls">
-              <div class="hero_slider__controls__slide_num">
-                <p class=""><span class="hero_slider__controls__slide__current">01</span> | <span class="hero_slider__controls__slide__all">05</span></p>
-              </div>
-
-              <div class="hero_slider__controls__pagination">
-                <svg xmlns="http://www.w3.org/2000/svg" width="75" height="7" viewBox="0 0 75 7" fill="none">
-                  <path d="M0 7V0H7V7H0Z" fill="#D2B183" />
-                  <path d="M17 7V0H24V7H17Z" fill="white" />
-                  <path d="M34 7V0H41V7H34Z" fill="white" />
-                  <path d="M51 7V0H58V7H51Z" fill="white" />
-                  <path d="M68 7V0H75V7H68Z" fill="white" />
-                </svg>
-              </div>
-
-              <div class="hero_slider__controls__controls">
-                <svg xmlns="http://www.w3.org/2000/svg" width="55" height="8" viewBox="0 0 55 8" fill="none">
-                  <path
-                    d="M49.659 -4.15048e-07C51.3584 1.68661 53.1387 2.91738 55 3.69231L55 4.30769C53.1387 5.10541 51.3584 6.33618 49.659 8L48.2428 8C49.052 6.5641 49.8343 5.47009 50.5896 4.71795L35 4.71795L35 3.28205L50.5896 3.28205C49.8343 2.52991 49.052 1.4359 48.2428 -5.25098e-07L49.659 -4.15048e-07Z"
-                    fill="white"
-                  />
-                  <path d="M5.34104 8C3.64162 6.31339 1.86127 5.08262 0 4.30769V3.69231C1.86127 2.89459 3.64162 1.66382 5.34104 0H6.75723C5.94798 1.4359 5.1657 2.52991 4.4104 3.28205H20V4.71795H4.4104C5.1657 5.47009 5.94798 6.5641 6.75723 8H5.34104Z" fill="white" />
-                </svg>
-              </div>
-            </div>
-          </div> -->
         </section>
       </div>
     </header>
 
     <main>
       <div class="container">
-        <section class="virtual-tour">
+        <section class="virtual-tour" id="virtual_tour">
           <article class="virtual-tour__article">
             <h2 class="virtual-tour__article__title title_primary">VIRTUAL TOUR</h2>
             <hr class="hr_divider_long" />
@@ -190,7 +159,7 @@
 
           <div class="virtual_tour__places">
             <div class="virtual-tour__item">
-              <img class="virtual-tour__item__img" src="./src/assets/img/virtual-tour/pic1.jpg" alt="Virtual_Tour_Picture_1" />
+              <img class="virtual-tour__item__img" src="./src/assets/img/virtual-tour/pic1.jpg" alt="Virtual_Tour_Picture_1"/>
               <h3 class="virtual-tour__item__title">ROYAL PALACE</h3>
               <hr class="hr_divider_short" />
               <p class="virtual-tour__item__info">
@@ -200,7 +169,7 @@
             </div>
 
             <div class="virtual-tour__item">
-              <img class="virtual-tour__item__img" src="./src/assets/img/virtual-tour/pic2.jpg" alt="Virtual_Tour_Picture_2" />
+              <img class="virtual-tour__item__img" src="./src/assets/img/virtual-tour/pic2.jpg" alt="Virtual_Tour_Picture_2"/>
               <h3 class="virtual-tour__item__title">DEMON WING</h3>
               <hr class="hr_divider_short" />
               <p class="virtual-tour__item__info">
@@ -210,7 +179,7 @@
             </div>
 
             <div class="virtual-tour__item">
-              <img class="virtual-tour__item__img" src="./src/assets/img/virtual-tour/pic3.jpg" alt="Virtual_Tour_Picture_3" />
+              <img class="virtual-tour__item__img" src="./src/assets/img/virtual-tour/pic3.jpg" alt="Virtual_Tour_Picture_3"/>
               <h3 class="virtual-tour__item__title">COLONNADE PERRAULT</h3>
               <hr class="hr_divider_short" />
               <p class="virtual-tour__item__info">
@@ -220,7 +189,7 @@
             </div>
 
             <div class="virtual-tour__item">
-              <img class="virtual-tour__item__img" src="./src/assets/img/virtual-tour/pic4.jpg" alt="Virtual_Tour_Picture_4" />
+              <img class="virtual-tour__item__img" src="./src/assets/img/virtual-tour/pic4.jpg" alt="Virtual_Tour_Picture_4"/>
               <h3 class="virtual-tour__item__title">GREEK HALL</h3>
               <hr class="hr_divider_short" />
               <p class="virtual-tour__item__info">
@@ -230,7 +199,7 @@
             </div>
 
             <div class="virtual-tour__item">
-              <img class="virtual-tour__item__img" src="./src/assets/img/virtual-tour/pic5.jpg" alt="Virtual_Tour_Picture_5" />
+              <img class="virtual-tour__item__img" src="./src/assets/img/virtual-tour/pic5.jpg" alt="Virtual_Tour_Picture_5"/>
               <h3 class="virtual-tour__item__title">MONA LISA</h3>
               <hr class="hr_divider_short" />
               <p class="virtual-tour__item__info">
@@ -240,7 +209,7 @@
             </div>
 
             <div class="virtual-tour__item">
-              <img class="virtual-tour__item__img" src="./src/assets/img/virtual-tour/pic6.jpg" alt="Virtual_Tour_Picture_6" />
+              <img class="virtual-tour__item__img" src="./src/assets/img/virtual-tour/pic6.jpg" alt="Virtual_Tour_Picture_6"/>
               <h3 class="virtual-tour__item__title">NIGHT PALACE</h3>
               <hr class="hr_divider_short" />
               <p class="virtual-tour__item__info">
@@ -252,14 +221,14 @@
         </section>
       </div>
 
-      <section class="explore">
+      <section class="explore" id="explore">
         <div class="container explore_container">
           <article class="explore_article">
             <h4 class="explore_article__title title_primary">PICTURE EXPLORE</h4>
             <hr class="hr_divider_long" />
             <p class="explore_article__info">
               Las Meninas is a 1656 painting by Diego Velázquez, the leading artist of the Spanish Golden Age. <br />
-              It was cleaned in 1984 to remove a <span style="color: #caaa7d">"yellow veil"</span> of dust that had gathered since the previous restoration in the 19th century.
+              It was cleaned in 1984 to remove a <span>"yellow veil"</span> of dust that had gathered since the previous restoration in the 19th century.
             </p>
           </article>
 
@@ -270,19 +239,19 @@
         </div>
       </section>
 
-      <section class="video_journey">
+      <section class="video_journey" id="video_journey">
         <div class="container">
           <h5 class="video_journey_title title_primary">VIDEO JOURNEY</h5>
 
           <div class="video_journey__video">
-            <img src="./src/assets/img/video-journey-preview/main-video-preview.png" alt="Video preview" />
+            <img src="./src/assets/img/video-journey-preview/main-video-preview.png" alt="Video preview" loading="lazy"/>
           </div>
 
           <div class="video_journey__video_slider">
             <div class="video_journey__video_slider__preview">
-              <iframe width="180" height="101" src="2https://www.youtube.com/embed/lQG3NcJ9vT8?si=0l0LZbQDVf2gdoFe" frameborder="0" allowfullscreen></iframe>
-              <iframe width="180" height="101" src="2https://www.youtube.com/embed/zwoYIi5RXjY?si=D1cckt9B8OMaNB8z" frameborder="0" allowfullscreen></iframe>
-              <iframe class="video_journey__large_screens" width="180" height="101" src="2https://www.youtube.com/embed/zwoYIi5RXjY?si=D1cckt9B8OMaNB8z" frameborder="0" allowfullscreen></iframe>
+              <iframe width="180" height="101" src="2https://www.youtube.com/embed/lQG3NcJ9vT8?si=0l0LZbQDVf2gdoFe" frameborder="0" allowfullscreen loading="lazy"></iframe>
+              <iframe width="180" height="101" src="2https://www.youtube.com/embed/zwoYIi5RXjY?si=D1cckt9B8OMaNB8z" frameborder="0" allowfullscreen loading="lazy"></iframe>
+              <iframe class="video_journey__large_screens" width="180" height="101" src="2https://www.youtube.com/embed/zwoYIi5RXjY?si=D1cckt9B8OMaNB8z" frameborder="0" allowfullscreen loading="lazy"></iframe>
             </div>
 
             <div class="video_journey__video_slider__controls">
@@ -310,39 +279,39 @@
         </div>
       </section>
 
-      <section class="gallery">
+      <section class="gallery" id="gallery">
         <div class="container">
           <h6 class="gallery__title title_primary">ART GALLERY</h6>
 
           <div class="gallery__items">
             <div class="gallery__items__column">
-              <img src="./src/assets/img/art-gallery/pic3.png" alt="Picture 3" />
-              <img src="./src/assets/img/art-gallery/pic1.png" alt="Picture 1" />
-              <img src="./src/assets/img/art-gallery/pic7.png" alt="Picture 7" />
-              <img src="./src/assets/img/art-gallery/pic8.png" alt="Picture 8" />
-              <img src="./src/assets/img/art-gallery/pic10.png" alt="Picture 10" />
+              <img src="./src/assets/img/art-gallery/pic3.png" alt="Art gallery image 3" loading="lazy"/>
+              <img src="./src/assets/img/art-gallery/pic1.png" alt="Art gallery image 1" loading="lazy"/>
+              <img src="./src/assets/img/art-gallery/pic7.png" alt="Art gallery image 7" loading="lazy"/>
+              <img src="./src/assets/img/art-gallery/pic8.png" alt="Art gallery image 8" loading="lazy"/>
+              <img src="./src/assets/img/art-gallery/pic10.png" alt="Art gallery image 10" loading="lazy"/>
             </div>
 
             <div class="gallery__items__column">
-              <img src="./src/assets/img/art-gallery/pic4.png" alt="Picture 4" />
-              <img src="./src/assets/img/art-gallery/pic6.png" alt="Picture 6" />
-              <img src="./src/assets/img/art-gallery/pic5.png" alt="Picture 5" />
-              <img src="./src/assets/img/art-gallery/pic9.png" alt="Picture 9" />
-              <img src="./src/assets/img/art-gallery/pic2.png" alt="Picture 2" />
+              <img src="./src/assets/img/art-gallery/pic4.png" alt="Art gallery image 4" loading="lazy"/>
+              <img src="./src/assets/img/art-gallery/pic6.png" alt="Art gallery image 6" loading="lazy"/>
+              <img src="./src/assets/img/art-gallery/pic5.png" alt="Art gallery image 5" loading="lazy"/>
+              <img src="./src/assets/img/art-gallery/pic9.png" alt="Art gallery image 9" loading="lazy"/>
+              <img src="./src/assets/img/art-gallery/pic2.png" alt="Art gallery image 2" loading="lazy"/>
             </div>
 
             <div class="gallery__items__column">
-              <img src="./src/assets/img/art-gallery/pic2.png" alt="Picture 2" />
-              <img src="./src/assets/img/art-gallery/pic4.png" alt="Picture 4" />
-              <img src="./src/assets/img/art-gallery/pic5.png" alt="Picture 5" />
-              <img src="./src/assets/img/art-gallery/pic6.png" alt="Picture 6" />
-              <img src="./src/assets/img/art-gallery/pic9.png" alt="Picture 9" />
+              <img src="./src/assets/img/art-gallery/pic2.png" alt="Art gallery image 2" loading="lazy"/>
+              <img src="./src/assets/img/art-gallery/pic4.png" alt="Art gallery image 4" loading="lazy"/>
+              <img src="./src/assets/img/art-gallery/pic5.png" alt="Art gallery image 5" loading="lazy"/>
+              <img src="./src/assets/img/art-gallery/pic6.png" alt="Art gallery image 6" loading="lazy"/>
+              <img src="./src/assets/img/art-gallery/pic9.png" alt="Art gallery image 9" loading="lazy"/>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="tickets">
+      <section class="tickets" id="tickets">
         <div class="container">
           <article class="tickets_article">
             <h6 class="tickets_article__title title_primary">BUY TICKETS</h6>
@@ -350,7 +319,7 @@
           </article>
 
           <div class="tickets_order">
-            <img class="tickets_order__image" src="./src/assets/img/buy-tickets/prevew-pic-1.png" alt="Preview Tickets Image" />
+            <img class="tickets_order__image" src="./src/assets/img/buy-tickets/prevew-pic-1.png" alt="Preview Tickets Image" loading="lazy"/>
 
             <fieldset class="tickets_order__ticket_type">
               <h6 class="tickets_order__ticket_type__title">Ticket Type</h6>
@@ -402,10 +371,10 @@
       </section>
 
       <div class="tickets_modal" id="tickets_modal">
-        <div class="fucking_wrapper">
-          <div class="h">
+        <div class="ticket_wrapper_gen">
+          <div class="ticket_wrapper_gen__wrapper">
             <div class="tickets_modal__logo">
-              <img class="tickets_modal__logo__image" src="./src/assets/img/logo_colored.png" alt="Logo colored" />
+              <img class="tickets_modal__logo__image" src="./src/assets/img/logo_colored.png" alt="Logo colored" loading="lazy"/>
               <h6 class="tickets_modal__logo__title title_primary">BOOKING TICKETS</h6>
             </div>
 
@@ -413,14 +382,24 @@
             <hr class="hr_divider_long tickets_modal__divider" />
 
             <form action="#" class="tickets_modal__form">
+              <label for="type_date">Select Date</label>
               <input class="tickets_modal_input tickets_modal_input__date dynamic_type" type="text" placeholder="Date" id="type_date" />
+
+              <label for="type_time">Select Time</label>
               <input class="tickets_modal_input tickets_modal_input__time dynamic_type" type="text" placeholder="Time" id="type_time" />
-              <input class="tickets_modal_input tickets_modal_input__name" type="text" placeholder="Name" />
-              <input class="tickets_modal_input tickets_modal_input__email" type="email" placeholder="E-mail" />
-              <input class="tickets_modal_input tickets_modal_input__phone" type="tel" placeholder="Phone" />
+
+              <label for="input_name">Enter your name</label>
+              <input class="tickets_modal_input tickets_modal_input__name" type="text" placeholder="Name" id="input_name" />
+
+              <label for="input_email">Enter your Email</label>
+              <input class="tickets_modal_input tickets_modal_input__email" type="email" placeholder="E-mail" id="input_email" />
+
+              <label for="input_phone">Input your phone number</label>
+              <input class="tickets_modal_input tickets_modal_input__phone" type="tel" placeholder="Phone" id="input_phone" />
 
               <!-- ! Recreate this for js  -->
-              <select name="Ticket Type" id="">
+              <label for="ticketTypeSelection">Ticket Type</label>
+              <select name="ticketType" id="ticketTypeSelection">
                 <option value="default" disabled selected>Ticket Type</option>
                 <option value="firstType">Permanent exhibition</option>
                 <option value="secondType">Temporary exhibition</option>
@@ -456,23 +435,23 @@
 
           <div class="tickets_modal__overview">
             <h6 class="tickets_modal__overview_name">Overview</h6>
-            <img class="tickets_modal__overview_img" src="./src/assets/img/modal_icons/overview_preview_img.png" alt="Preview image of selected tour" />
+            <img class="tickets_modal__overview_img" src="./src/assets/img/modal_icons/overview_preview_img.png" alt="Preview image of selected tour" loading="lazy"/>
 
             <article class="tickets_modal__overview_info">
               <h6 class="overview_info__tour_name">Tour to Louvre</h6>
 
               <div class="overview_info__date overview_info__item">
-                <img src="./src/assets/img/modal_icons/date.png" alt="Date icon" />
+                <img src="./src/assets/img/modal_icons/date.png" alt="Date icon" loading="lazy"/>
                 <p>Friday, August 19</p>
               </div>
 
               <div class="overview_info__time overview_info__item">
-                <img src="./src/assets/img/modal_icons/time.svg" alt="Time icon" />
+                <img src="./src/assets/img/modal_icons/time.svg" alt="Time icon" loading="lazy"/>
                 <p>16 : 30</p>
               </div>
 
               <div class="overview_info__type overview_info__item">
-                <img src="./src/assets/img/modal_icons/tick_ticket_type.svg" alt="Ticket type icon" />
+                <img src="./src/assets/img/modal_icons/tick_ticket_type.svg" alt="Ticket type icon" loading="lazy"/>
                 <p>Temporary exhibition</p>
               </div>
             </article>
@@ -500,19 +479,24 @@
 
             <form>
               <div class="overview_card_mockup_front overview_card_mockup">
-                <img class="overview_card_mockup__card_types_img" src="./src/assets/img/modal_icons/card_types.png" alt="Visa and mastercard types image" />
+                <img class="overview_card_mockup__card_types_img" src="./src/assets/img/modal_icons/card_types.png" alt="Visa and mastercard types image" loading="lazy"/>
 
                 <p class="overview_card_mockup__title">Card number</p>
-                <input class="mockup__card_number mockup__card_input validation_check" type="text" name="numbers" maxlength="16" pattern="\d+" required />
+                <input class="mockup__card_number mockup__card_input validation_check" id="valid_card_num" type="text" name="numbers" maxlength="16" pattern="\d+" required />
+                <label for="valid_card_num">Enter your card number</label>
 
                 <p class="overview_card_mockup__title">Expiration date</p>
                 <div class="overview_card_mockup__date">
-                  <input class="mockup__card_date mockup__card_input validation_check" type="text" ame="numbers" maxlength="2" pattern="\d+" required />
-                  <input class="mockup__card_date mockup__card_input validation_check" type="text" ame="numbers" maxlength="4" pattern="\d+" required />
+                  <input class="mockup__card_date mockup__card_input validation_check" id="valid_exp_day" type="text" ame="numbers" maxlength="2" pattern="\d+" required />
+                  <label for="valid_exp_day">Expiration Day</label>
+
+                  <input class="mockup__card_date mockup__card_input validation_check" id="valid_exp_month" type="text" ame="numbers" maxlength="4" pattern="\d+" required />
+                  <label for="valid_exp_month">Expiration Month</label>
                 </div>
 
                 <p class="overview_card_mockup__title">Cardholder name</p>
-                <input class="mockup__card_name mockup__card_input validation_check" type="text" required />
+                <input class="mockup__card_name mockup__card_input validation_check" id='valid_cardholder_name' type="text" required />
+                <label for="valid_cardholder_name">Enter Cardholders Name</label>
               </div>
 
               <div class="overview_card_mockup_back overview_card_mockup">
@@ -521,7 +505,8 @@
                 <div class="overview_wrapper">
                   <p class="overview_card_mockup__title overview_card_mockup__cvc_title">CVC/CVV</p>
 
-                  <input class="mockup__card_cvc mockup__card_input validation_check" type="text" name="numbers" maxlength="3" pattern="\d+" required />
+                  <input class="mockup__card_cvc mockup__card_input validation_check" id='valid_cvc' input type="text" name="numbers" maxlength="3" pattern="\d+" required />
+                  <label for="valid_cvc">Enter your CVC</label>
 
                   <p class="overview_card_mockup__cvc_description">The last 3 or 4 digits on back of the card</p>
                 </div>
@@ -542,8 +527,8 @@
         </button>
       </div>
 
-      <section class="contacts">
-        <img src="./src/assets/img/contacts/wide-pic.png" alt="Contacts Parallax Image" class="contacts_parallax_image" />
+      <section class="contacts" id="contacts">
+        <img src="./src/assets/img/contacts/wide-pic.png" alt="Contacts Parallax Image" class="contacts_parallax_image" loading="lazy"/>
 
         <div class="container">
           <article class="contacts_article">
@@ -566,7 +551,7 @@
             </div>
 
             <div class="contacts_map">
-              <img src="./src/assets/img/contacts/map-preview.png" alt="Map with location of Louvre" />
+              <img src="./src/assets/img/contacts/map-preview.png" alt="Map with location of Louvre" loading="lazy"/>
             </div>
           </div>
         </div>
@@ -580,21 +565,21 @@
         <div class="footer_wrapper">
           <nav class="footer_navigation">
             <ul>
-              <li><a href="#">Visiting</a></li>
-              <li><a href="#">Explore</a></li>
-              <li><a href="#">Video</a></li>
-              <li><a href="#">Gallery</a></li>
-              <li><a href="#">Tickets</a></li>
-              <li><a href="#">Contacts</a></li>
+              <li><a href="#virtual_tour">Visiting</a></li>
+              <li><a href="#explore">Explore</a></li>
+              <li><a href="#video_journey">Video</a></li>
+              <li><a href="#gallery">Gallery</a></li>
+              <li><a href="#tickets">Tickets</a></li>
+              <li><a href="#contacts">Contacts</a></li>
             </ul>
           </nav>
 
           <div class="footer_socials socials">
-            <a href="#" class="footer_socials__icon socials__icon"><img src="./src/assets/img/socials_icons/youtube_icon.svg" alt="Youtube icon" /></a>
-            <a href="#" class="footer_socials__icon socials__icon"><img src="./src/assets/img/socials_icons/inst_icon.svg" alt="Instagram icon" /></a>
-            <a href="#" class="footer_socials__icon socials__icon"><img src="./src/assets/img/socials_icons/facebook_icon.svg" alt="Facebook icon" /></a>
-            <a href="#" class="footer_socials__icon socials__icon"><img src="./src/assets/img/socials_icons/twitter_icon.png" alt="Twitter icon" /></a>
-            <a href="#" class="footer_socials__icon socials__icon"><img src="./src/assets/img/socials_icons/pinterest_icon.svg" alt="Pinterest icon" /></a>
+            <a href="https://www.youtube.com/@MuseeLouvre" class="footer_socials__icon socials__icon" target="_blank"><img src="./src/assets/img/socials_icons/youtube_icon.svg" alt="Youtube icon" /></a>
+            <a href="https://www.instagram.com/museelouvre/" class="footer_socials__icon socials__icon" target="_blank"><img src="./src/assets/img/socials_icons/inst_icon.svg" alt="Instagram icon" /></a>
+            <a href="https://www.facebook.com/museedulouvre/?locale=ru_RU" class="footer_socials__icon socials__icon" target="_blank"><img src="./src/assets/img/socials_icons/facebook_icon.svg" alt="Facebook icon" /></a>
+            <a href="https://x.com/museelouvre" class="footer_socials__icon socials__icon" target="_blank"><img src="./src/assets/img/socials_icons/twitter_icon.png" alt="Twitter icon" /></a>
+            <a href="https://www.pinterest.com/ideas/the-louvre/936817086051/" class="footer_socials__icon socials__icon" target="_blank"><img src="./src/assets/img/socials_icons/pinterest_icon.svg" alt="Pinterest icon" /></a>
           </div>
         </div>
       </div>

@@ -26,18 +26,20 @@ const onNavButtonClick = (emblaApi) => {
   resetOrStop()
 }
 
-const removePrevNextBtnsClickHandlers = addPrevNextBtnsClickHandlers(
-  emblaApi,
-  prevBtnNode,
-  nextBtnNode,
-  onNavButtonClick
-)
-const removeDotBtnsAndClickHandlers = addDotBtnsAndClickHandlers(
-  emblaApi,
-  dotsNode
-)
+const removeClickHandlers = () => {
+
+  const removePrevNextBtnsClickHandlers = addPrevNextBtnsClickHandlers(
+    emblaApi,
+    prevBtnNode,
+    nextBtnNode,
+    onNavButtonClick
+  )
+  const removeDotBtnsAndClickHandlers = addDotBtnsAndClickHandlers(
+    emblaApi,
+    dotsNode
+  )
+}
 
 updateSelectedSnapDisplay(emblaApi, snapDisplayNode)
 
-emblaApi.on('destroy', removePrevNextBtnsClickHandlers)
-emblaApi.on('destroy', removeDotBtnsAndClickHandlers)
+emblaApi.on('destroy', removeClickHandlers())
