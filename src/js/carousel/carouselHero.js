@@ -38,7 +38,6 @@ const removeClickHandlers = () => {
     emblaApi,
     dotsNode
   )
-  console.log(1)
 }
 
 updateSelectedSnapDisplay(emblaApi, snapDisplayNode)
