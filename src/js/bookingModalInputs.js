@@ -1,4 +1,5 @@
 const dynamicInputs = document.querySelectorAll('.dynamic_type')
+const validationInputs = document.querySelectorAll('.validation_check')
 
 dynamicInputs.forEach((el) => {
   el.addEventListener('focus', () => {
@@ -10,4 +11,14 @@ dynamicInputs.forEach((el) => {
       el.type = 'time'
     }
   })
+})
+
+validationInputs.forEach((el) => {
+	el.addEventListener('invalid', () => {
+		el.setCustomValidity('Required Field')
+	})
+
+	el.addEventListener('input', () => {
+		el.setCustomValidity('')
+	})
 })
