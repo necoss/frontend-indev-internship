@@ -21,10 +21,11 @@
     <script src="https://unpkg.com/embla-carousel-autoplay/embla-carousel-autoplay.umd.js" defer></script>
     <script src="https://unpkg.com/embla-carousel-fade/embla-carousel-fade.umd.js" defer></script>
     <script type="module" src="./src/js/carousel/carouselHero.js" defer></script>
+    <script type="module" src="./src/js/carousel/carouselVideoJourney.js" defer></script>
 
     <!-- SCRIPTS -->
     <script src="./src/js/bookingModal.js" defer></script>
-    <script src='./src/js/bookingModalInputs.js' defer></script>
+    <script src="./src/js/bookingModalInputs.js" defer></script>
 
     <title>Louvre - Welcome to the Louvre!</title>
   </head>
@@ -159,7 +160,7 @@
 
           <div class="virtual_tour__places">
             <div class="virtual-tour__item">
-              <img class="virtual-tour__item__img" src="./src/assets/img/virtual-tour/pic1.jpg" alt="Virtual_Tour_Picture_1"/>
+              <img class="virtual-tour__item__img" src="./src/assets/img/virtual-tour/pic1.jpg" alt="Virtual_Tour_Picture_1" />
               <h3 class="virtual-tour__item__title">ROYAL PALACE</h3>
               <hr class="hr_divider_short" />
               <p class="virtual-tour__item__info">
@@ -169,7 +170,7 @@
             </div>
 
             <div class="virtual-tour__item">
-              <img class="virtual-tour__item__img" src="./src/assets/img/virtual-tour/pic2.jpg" alt="Virtual_Tour_Picture_2"/>
+              <img class="virtual-tour__item__img" src="./src/assets/img/virtual-tour/pic2.jpg" alt="Virtual_Tour_Picture_2" />
               <h3 class="virtual-tour__item__title">DEMON WING</h3>
               <hr class="hr_divider_short" />
               <p class="virtual-tour__item__info">
@@ -179,7 +180,7 @@
             </div>
 
             <div class="virtual-tour__item">
-              <img class="virtual-tour__item__img" src="./src/assets/img/virtual-tour/pic3.jpg" alt="Virtual_Tour_Picture_3"/>
+              <img class="virtual-tour__item__img" src="./src/assets/img/virtual-tour/pic3.jpg" alt="Virtual_Tour_Picture_3" />
               <h3 class="virtual-tour__item__title">COLONNADE PERRAULT</h3>
               <hr class="hr_divider_short" />
               <p class="virtual-tour__item__info">
@@ -189,7 +190,7 @@
             </div>
 
             <div class="virtual-tour__item">
-              <img class="virtual-tour__item__img" src="./src/assets/img/virtual-tour/pic4.jpg" alt="Virtual_Tour_Picture_4"/>
+              <img class="virtual-tour__item__img" src="./src/assets/img/virtual-tour/pic4.jpg" alt="Virtual_Tour_Picture_4" />
               <h3 class="virtual-tour__item__title">GREEK HALL</h3>
               <hr class="hr_divider_short" />
               <p class="virtual-tour__item__info">
@@ -199,7 +200,7 @@
             </div>
 
             <div class="virtual-tour__item">
-              <img class="virtual-tour__item__img" src="./src/assets/img/virtual-tour/pic5.jpg" alt="Virtual_Tour_Picture_5"/>
+              <img class="virtual-tour__item__img" src="./src/assets/img/virtual-tour/pic5.jpg" alt="Virtual_Tour_Picture_5" />
               <h3 class="virtual-tour__item__title">MONA LISA</h3>
               <hr class="hr_divider_short" />
               <p class="virtual-tour__item__info">
@@ -209,7 +210,7 @@
             </div>
 
             <div class="virtual-tour__item">
-              <img class="virtual-tour__item__img" src="./src/assets/img/virtual-tour/pic6.jpg" alt="Virtual_Tour_Picture_6"/>
+              <img class="virtual-tour__item__img" src="./src/assets/img/virtual-tour/pic6.jpg" alt="Virtual_Tour_Picture_6" />
               <h3 class="virtual-tour__item__title">NIGHT PALACE</h3>
               <hr class="hr_divider_short" />
               <p class="virtual-tour__item__info">
@@ -244,38 +245,67 @@
           <h5 class="video_journey_title title_primary">VIDEO JOURNEY</h5>
 
           <div class="video_journey__video">
-            <img src="./src/assets/img/video-journey-preview/main-video-preview.png" alt="Video preview" loading="lazy"/>
+            <img src="./src/assets/img/video-journey-preview/main-video-preview.png" alt="Video preview" loading="lazy" />
           </div>
 
-          <div class="video_journey__video_slider">
-            <div class="video_journey__video_slider__preview">
-              <iframe width="180" height="101" src="2https://www.youtube.com/embed/lQG3NcJ9vT8?si=0l0LZbQDVf2gdoFe" allowfullscreen loading="lazy"></iframe>
-              <iframe width="180" height="101" src="2https://www.youtube.com/embed/zwoYIi5RXjY?si=D1cckt9B8OMaNB8z" allowfullscreen loading="lazy"></iframe>
-              <iframe class="video_journey__large_screens" width="180" height="101" src="2https://www.youtube.com/embed/zwoYIi5RXjY?si=D1cckt9B8OMaNB8z" allowfullscreen loading="lazy"></iframe>
+          <section class="embla embla_vj">
+            <div class="embla_vj__viewport">
+              <div class="embla_vj__container">
+                <div class="embla_vj__slide">
+                  <iframe width="180" height="101" src="2https://www.youtube.com/embed/lQG3NcJ9vT8?si=0l0LZbQDVf2gdoFe" allowfullscreen loading="lazy"></iframe>
+                </div>
+
+                <div class="embla_vj__slide">
+                  <iframe width="180" height="101" src="2https://www.youtube.com/embed/zwoYIi5RXjY?si=D1cckt9B8OMaNB8z" allowfullscreen loading="lazy"></iframe>
+                </div>
+
+                <div class="embla_vj__slide">
+                  <iframe width="180" height="101" src="2https://www.youtube.com/embed/lQG3NcJ9vT8?si=0l0LZbQDVf2gdoFe" allowfullscreen loading="lazy"></iframe>
+                </div>
+
+                <div class="embla_vj__slide">
+                  <iframe width="180" height="101" src="2https://www.youtube.com/embed/zwoYIi5RXjY?si=D1cckt9B8OMaNB8z" allowfullscreen loading="lazy"></iframe>
+                </div>
+
+                <div class="embla_vj__slide">
+                  <iframe width="180" height="101" src="2https://www.youtube.com/embed/lQG3NcJ9vT8?si=0l0LZbQDVf2gdoFe" allowfullscreen loading="lazy"></iframe>
+                </div>
+
+                <div class="embla_vj__slide">
+                  <iframe width="180" height="101" src="2https://www.youtube.com/embed/zwoYIi5RXjY?si=D1cckt9B8OMaNB8z" allowfullscreen loading="lazy"></iframe>
+                </div>
+              </div>
             </div>
 
-            <div class="video_journey__video_slider__controls">
-              <svg xmlns="http://www.w3.org/2000/svg" width="174" height="8" viewBox="0 0 174 8" fill="none">
-                <circle cx="31" cy="4" r="4" fill="#333333" />
-                <circle cx="59" cy="4" r="4" fill="#999999" />
-                <circle cx="87" cy="4" r="4" fill="#999999" />
-                <circle cx="115" cy="4" r="4" fill="#999999" />
-                <circle cx="143" cy="4" r="4" fill="#999999" />
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M3.83439 0.146111C4.11441 0.376116 4.15981 0.795642 3.93579 1.08315L1.66305 4L3.93579 6.91685C4.15981 7.20436 4.11441 7.62388 3.83439 7.85389C3.55437 8.08389 3.14576 8.03728 2.92174 7.74977L0 4L2.92174 0.250226C3.14576 -0.0372799 3.55437 -0.0838938 3.83439 0.146111ZM6.75629 0.146111C7.03631 0.376116 7.08171 0.795642 6.85769 1.08315L4.58495 4L6.85769 6.91685C7.08171 7.20436 7.03631 7.62388 6.75629 7.85389C6.47626 8.08389 6.06766 8.03728 5.84364 7.74977L2.9219 4L5.84364 0.250226C6.06766 -0.0372799 6.47626 -0.0838938 6.75629 0.146111Z"
-                  fill="#999999"
-                />
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M167.244 0.146111C167.524 -0.0838938 167.932 -0.0372798 168.156 0.250226L171.078 4L168.156 7.74977C167.932 8.03728 167.524 8.08389 167.244 7.85389C166.964 7.62388 166.918 7.20436 167.142 6.91685L169.415 4L167.142 1.08315C166.918 0.795642 166.964 0.376116 167.244 0.146111ZM170.166 0.146111C170.446 -0.0838936 170.854 -0.0372795 171.078 0.250227L174 4L171.078 7.74977C170.854 8.03728 170.446 8.08389 170.166 7.85389C169.886 7.62388 169.84 7.20436 170.064 6.91685L172.337 4L170.064 1.08315C169.84 0.795642 169.886 0.376116 170.166 0.146111Z"
-                  fill="#999999"
-                />
-              </svg>
+            <div class="embla_vj__controls">
+              <div class="embla_vj__buttons">
+                <button class="embla_vj__button embla_vj__button--prev" type="button">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="12" viewBox="0 0 10 12" fill="none">
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M5.4777 0.219168C5.87773 0.564178 5.94259 1.19347 5.62256 1.62473L2.37578 6.00004L5.62256 10.3753C5.94259 10.8066 5.87773 11.4359 5.4777 11.7809C5.07766 12.1259 4.49394 12.056 4.17391 11.6247L0 6.00004L4.17391 0.375342C4.49394 -0.0559202 5.07766 -0.125842 5.4777 0.219168ZM9.65184 0.219168C10.0519 0.564178 10.1167 1.19347 9.7967 1.62473L6.54992 6.00004L9.7967 10.3753C10.1167 10.8066 10.0519 11.4359 9.65184 11.7809C9.2518 12.1259 8.66808 12.056 8.34805 11.6247L4.17414 6.00004L8.34805 0.375342C8.66808 -0.0559202 9.2518 -0.125842 9.65184 0.219168Z"
+                      fill="#999999"
+                    />
+                  </svg>
+                </button>
+
+                <div class="embla_vj__dots"></div>
+
+                <button class="embla_vj__button embla_vj__button--next" type="button">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="12" viewBox="0 0 10 12" fill="none">
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M0.348163 0.219168C0.748196 -0.125842 1.33192 -0.0559202 1.65195 0.375342L5.82586 6.00004L1.65194 11.6247C1.33192 12.056 0.748195 12.1259 0.348162 11.7809C-0.0518709 11.4359 -0.116729 10.8066 0.203297 10.3753L3.45008 6.00004L0.203298 1.62473C-0.116728 1.19347 -0.05187 0.564177 0.348163 0.219168ZM4.5223 0.219168C4.92234 -0.125841 5.50606 -0.0559197 5.82609 0.375342L10 6.00004L5.82609 11.6247C5.50606 12.056 4.92234 12.1259 4.5223 11.7809C4.12227 11.4359 4.05741 10.8066 4.37744 10.3753L7.62422 6.00004L4.37744 1.62473C4.05741 1.19347 4.12227 0.564178 4.5223 0.219168Z"
+                      fill="#999999"
+                    />
+                  </svg>
+                </button>
+              </div>
             </div>
-          </div>
+          </section>
+
         </div>
       </section>
 
@@ -285,27 +315,27 @@
 
           <div class="gallery__items">
             <div class="gallery__items__column">
-              <img src="./src/assets/img/art-gallery/pic3.png" alt="Art gallery image 3" loading="lazy"/>
-              <img src="./src/assets/img/art-gallery/pic1.png" alt="Art gallery image 1" loading="lazy"/>
-              <img src="./src/assets/img/art-gallery/pic7.png" alt="Art gallery image 7" loading="lazy"/>
-              <img src="./src/assets/img/art-gallery/pic8.png" alt="Art gallery image 8" loading="lazy"/>
-              <img src="./src/assets/img/art-gallery/pic10.png" alt="Art gallery image 10" loading="lazy"/>
+              <img src="./src/assets/img/art-gallery/pic3.png" alt="Art gallery image 3" loading="lazy" />
+              <img src="./src/assets/img/art-gallery/pic1.png" alt="Art gallery image 1" loading="lazy" />
+              <img src="./src/assets/img/art-gallery/pic7.png" alt="Art gallery image 7" loading="lazy" />
+              <img src="./src/assets/img/art-gallery/pic8.png" alt="Art gallery image 8" loading="lazy" />
+              <img src="./src/assets/img/art-gallery/pic10.png" alt="Art gallery image 10" loading="lazy" />
             </div>
 
             <div class="gallery__items__column">
-              <img src="./src/assets/img/art-gallery/pic4.png" alt="Art gallery image 4" loading="lazy"/>
-              <img src="./src/assets/img/art-gallery/pic6.png" alt="Art gallery image 6" loading="lazy"/>
-              <img src="./src/assets/img/art-gallery/pic5.png" alt="Art gallery image 5" loading="lazy"/>
-              <img src="./src/assets/img/art-gallery/pic9.png" alt="Art gallery image 9" loading="lazy"/>
-              <img src="./src/assets/img/art-gallery/pic2.png" alt="Art gallery image 2" loading="lazy"/>
+              <img src="./src/assets/img/art-gallery/pic4.png" alt="Art gallery image 4" loading="lazy" />
+              <img src="./src/assets/img/art-gallery/pic6.png" alt="Art gallery image 6" loading="lazy" />
+              <img src="./src/assets/img/art-gallery/pic5.png" alt="Art gallery image 5" loading="lazy" />
+              <img src="./src/assets/img/art-gallery/pic9.png" alt="Art gallery image 9" loading="lazy" />
+              <img src="./src/assets/img/art-gallery/pic2.png" alt="Art gallery image 2" loading="lazy" />
             </div>
 
             <div class="gallery__items__column">
-              <img src="./src/assets/img/art-gallery/pic2.png" alt="Art gallery image 2" loading="lazy"/>
-              <img src="./src/assets/img/art-gallery/pic4.png" alt="Art gallery image 4" loading="lazy"/>
-              <img src="./src/assets/img/art-gallery/pic5.png" alt="Art gallery image 5" loading="lazy"/>
-              <img src="./src/assets/img/art-gallery/pic6.png" alt="Art gallery image 6" loading="lazy"/>
-              <img src="./src/assets/img/art-gallery/pic9.png" alt="Art gallery image 9" loading="lazy"/>
+              <img src="./src/assets/img/art-gallery/pic2.png" alt="Art gallery image 2" loading="lazy" />
+              <img src="./src/assets/img/art-gallery/pic4.png" alt="Art gallery image 4" loading="lazy" />
+              <img src="./src/assets/img/art-gallery/pic5.png" alt="Art gallery image 5" loading="lazy" />
+              <img src="./src/assets/img/art-gallery/pic6.png" alt="Art gallery image 6" loading="lazy" />
+              <img src="./src/assets/img/art-gallery/pic9.png" alt="Art gallery image 9" loading="lazy" />
             </div>
           </div>
         </div>
@@ -319,7 +349,7 @@
           </article>
 
           <div class="tickets_order">
-            <img class="tickets_order__image" src="./src/assets/img/buy-tickets/prevew-pic-1.png" alt="Preview Tickets Image" loading="lazy"/>
+            <img class="tickets_order__image" src="./src/assets/img/buy-tickets/prevew-pic-1.png" alt="Preview Tickets Image" loading="lazy" />
 
             <fieldset class="tickets_order__ticket_type">
               <h6 class="tickets_order__ticket_type__title">Ticket Type</h6>
@@ -374,7 +404,7 @@
         <div class="ticket_wrapper_gen">
           <div class="ticket_wrapper_gen__wrapper">
             <div class="tickets_modal__logo">
-              <img class="tickets_modal__logo__image" src="./src/assets/img/logo_colored.png" alt="Logo colored" loading="lazy"/>
+              <img class="tickets_modal__logo__image" src="./src/assets/img/logo_colored.png" alt="Logo colored" loading="lazy" />
               <h6 class="tickets_modal__logo__title title_primary">BOOKING TICKETS</h6>
             </div>
 
@@ -435,23 +465,23 @@
 
           <div class="tickets_modal__overview">
             <h6 class="tickets_modal__overview_name">Overview</h6>
-            <img class="tickets_modal__overview_img" src="./src/assets/img/modal_icons/overview_preview_img.png" alt="Preview image of selected tour" loading="lazy"/>
+            <img class="tickets_modal__overview_img" src="./src/assets/img/modal_icons/overview_preview_img.png" alt="Preview image of selected tour" loading="lazy" />
 
             <article class="tickets_modal__overview_info">
               <h6 class="overview_info__tour_name">Tour to Louvre</h6>
 
               <div class="overview_info__date overview_info__item">
-                <img src="./src/assets/img/modal_icons/date.png" alt="Date icon" loading="lazy"/>
+                <img src="./src/assets/img/modal_icons/date.png" alt="Date icon" loading="lazy" />
                 <p>Friday, August 19</p>
               </div>
 
               <div class="overview_info__time overview_info__item">
-                <img src="./src/assets/img/modal_icons/time.svg" alt="Time icon" loading="lazy"/>
+                <img src="./src/assets/img/modal_icons/time.svg" alt="Time icon" loading="lazy" />
                 <p>16 : 30</p>
               </div>
 
               <div class="overview_info__type overview_info__item">
-                <img src="./src/assets/img/modal_icons/tick_ticket_type.svg" alt="Ticket type icon" loading="lazy"/>
+                <img src="./src/assets/img/modal_icons/tick_ticket_type.svg" alt="Ticket type icon" loading="lazy" />
                 <p>Temporary exhibition</p>
               </div>
             </article>
@@ -479,7 +509,7 @@
 
             <form>
               <div class="overview_card_mockup_front overview_card_mockup">
-                <img class="overview_card_mockup__card_types_img" src="./src/assets/img/modal_icons/card_types.png" alt="Visa and mastercard types image" loading="lazy"/>
+                <img class="overview_card_mockup__card_types_img" src="./src/assets/img/modal_icons/card_types.png" alt="Visa and mastercard types image" loading="lazy" />
 
                 <p class="overview_card_mockup__title">Card number</p>
                 <input class="mockup__card_number mockup__card_input validation_check" id="valid_card_num" type="text" name="numbers" maxlength="16" pattern="\d+" required />
@@ -495,7 +525,7 @@
                 </div>
 
                 <p class="overview_card_mockup__title">Cardholder name</p>
-                <input class="mockup__card_name mockup__card_input validation_check" id='valid_cardholder_name' type="text" required />
+                <input class="mockup__card_name mockup__card_input validation_check" id="valid_cardholder_name" type="text" required />
                 <label for="valid_cardholder_name">Enter Cardholders Name</label>
               </div>
 
@@ -505,7 +535,7 @@
                 <div class="overview_wrapper">
                   <p class="overview_card_mockup__title overview_card_mockup__cvc_title">CVC/CVV</p>
 
-                  <input class="mockup__card_cvc mockup__card_input validation_check" id='valid_cvc' type="text" name="numbers" maxlength="3" pattern="\d+" required />
+                  <input class="mockup__card_cvc mockup__card_input validation_check" id="valid_cvc" type="text" name="numbers" maxlength="3" pattern="\d+" required />
                   <label for="valid_cvc">Enter your CVC</label>
 
                   <p class="overview_card_mockup__cvc_description">The last 3 or 4 digits on back of the card</p>
@@ -528,7 +558,7 @@
       </div>
 
       <section class="contacts" id="contacts">
-        <img src="./src/assets/img/contacts/wide-pic.png" alt="Contacts Parallax Image" class="contacts_parallax_image" loading="lazy"/>
+        <img src="./src/assets/img/contacts/wide-pic.png" alt="Contacts Parallax Image" class="contacts_parallax_image" loading="lazy" />
 
         <div class="container">
           <article class="contacts_article">
@@ -551,7 +581,7 @@
             </div>
 
             <div class="contacts_map">
-              <img src="./src/assets/img/contacts/map-preview.png" alt="Map with location of Louvre" loading="lazy"/>
+              <img src="./src/assets/img/contacts/map-preview.png" alt="Map with location of Louvre" loading="lazy" />
             </div>
           </div>
         </div>
