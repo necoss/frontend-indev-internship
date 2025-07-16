@@ -2052,21 +2052,21 @@ main .contacts .contacts_info .contacts_info__phone {
 main .contacts .contacts_info .contacts_info__mail {
   margin-top: 15px;
 }
-main .contacts .contacts_map img {
+main .contacts .contacts_map {
   margin-top: 40px;
   width: 100%;
   max-width: 960px;
   aspect-ratio: 57/37;
 }
 @media only screen and (min-width: 1024px) {
-  main .contacts .contacts_map img {
+  main .contacts .contacts_map {
     width: 694px;
     height: 454px;
     margin-top: 0;
   }
 }
 @media only screen and (min-width: 1920px) {
-  main .contacts .contacts_map img {
+  main .contacts .contacts_map {
     width: 960px;
     height: 620px;
   }
