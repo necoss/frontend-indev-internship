@@ -18,6 +18,11 @@
 
     <!-- LEAFLET MAP -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo" crossorigin="anonymous" defer></script>
+
+    <!-- IMAGE COMPARE -->
+    <link rel='stylesheet' href="https://unpkg.com/image-compare-viewer/dist/image-compare-viewer.min.css" />
+    <script src="https://unpkg.com/image-compare-viewer/dist/image-compare-viewer.min.js" defer></script>
 
     <!-- EMBLA CAROUSEL -->
     <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js" defer></script>
@@ -30,6 +35,7 @@
     <script src="./src/js/bookingModal.js" defer></script>
     <script src="./src/js/bookingModalInputs.js" defer></script>
     <script src="./src/js/contactsMap.js" defer></script>
+    <script src='./src/js/imageComparison.js' defer></script>
 
     <title>Louvre - Welcome to the Louvre!</title>
   </head>
@@ -237,9 +243,25 @@
             </p>
           </article>
 
-          <div class="explore_picture_reveal">
-            <!-- ! possible copypaste -->
-            <img src="./src/assets/img/picture-explore/before-after.png" alt="Before and after picture" />
+          <div class="explore_picture_reveal" id="image-compare">
+            <div id="image-compare">
+              <img src="./src/assets/img/picture-explore/picture-before.jpg" alt="Picture showing image before filter" />
+              <img src="./src/assets/img/picture-explore/picture-after.jpg" alt="Picture showing image after filter" />
+            </div>
+
+            <!-- <div class="wrapper">
+              <div class="images">
+                <div class="img-1"></div>
+                <div class="img-2"></div>
+              </div>
+              <div class="slider">
+                <div class="drag-line">
+                  <span></span>
+                </div>
+                <input type="range" min="0" max="100" value="50" />
+              </div>
+            </div> -->
+            <!-- <img src="./src/assets/img/picture-explore/before-after.png" alt="Before and after picture" /> -->
           </div>
         </div>
       </section>
@@ -583,7 +605,7 @@
               </div>
             </div>
 
-            <div class="contacts_map" id='map'></div>
+            <div class="contacts_map" id="map"></div>
           </div>
         </div>
       </section>
@@ -625,8 +647,5 @@
         </div>
       </div>
     </footer>
-
-    <!-- LEAFLET MAP -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo" crossorigin="anonymous"></script>
   </body>
 </html>

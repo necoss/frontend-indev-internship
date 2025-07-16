@@ -833,27 +833,18 @@ main {
     .explore_picture_reveal {
       margin-top: 40px;
 
-      @media only screen and (min-width: 768px) {
-        @include flex-center-center();
-      }
+      // @media only screen and (min-width: 768px) {
+      //   @include flex-center-center();
+      // }
 
-      @media only screen and (min-width: 1024px) {
-        @include flex-center-center();
-      }
+      // @media only screen and (min-width: 1024px) {
+      //   @include flex-center-center();
+      // }
 
       @media only screen and (min-width: 1920px) {
         margin-top: 0;
       }
 
-      img {
-        width: 100%;
-        aspect-ratio: 36 / 35;
-        max-width: 720px;
-
-        @media only screen and (min-width: 1920px) {
-          height: 700px;
-        }
-      }
     }
   }
 
@@ -1876,7 +1867,7 @@ main {
       width: 100%;
       max-width: 960px;
       aspect-ratio: 57 / 37;
-      
+
       @media only screen and (min-width: 1024px) {
         width: 694px;
         height: 454px;
@@ -1887,7 +1878,7 @@ main {
         width: 960px;
         height: 620px;
       }
-    } 
+    }
   }
 }
 
