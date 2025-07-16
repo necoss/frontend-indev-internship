@@ -11,8 +11,6 @@ const prevBtnNode = emblaNode.querySelector('.embla_vj__button--prev')
 const nextBtnNode = emblaNode.querySelector('.embla_vj__button--next')
 const dotsNode = emblaNode.querySelector('.embla_vj__dots')
 
-console.log(viewportNode)
-
 const emblaApi = EmblaCarousel(viewportNode, OPTIONS)
 
 const removeClickHandlers = () => {
@@ -21,7 +19,6 @@ const removeClickHandlers = () => {
 		emblaApi,
 		prevBtnNode,
 		nextBtnNode,
-		// onNavButtonClick
 	)
 	const removeDotBtnsAndClickHandlers = addDotBtnsAndClickHandlers(
 		emblaApi,

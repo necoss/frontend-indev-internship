@@ -620,8 +620,8 @@ header .hero-section .embla .embla__controls .embla__buttons {
 }
 header .hero-section .embla .embla__controls .embla__button {
   -webkit-appearance: none;
-  -moz-appearance: none;
-       appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   background-color: transparent;
   -ms-touch-action: manipulation;
       touch-action: manipulation;
@@ -669,10 +669,9 @@ header .hero-section .embla .embla__controls .embla__dots {
           align-items: center;
 }
 header .hero-section .embla .embla__controls .embla__dots .embla__dot {
-  -webkit-tap-highlight-color: var(--color-font-white);
   -webkit-appearance: none;
-  -moz-appearance: none;
-       appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   background-color: transparent;
   -ms-touch-action: manipulation;
       touch-action: manipulation;
@@ -1030,8 +1029,8 @@ main .video_journey .embla_vj .embla_vj__controls .embla_vj__buttons .embla_vj__
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-appearance: none;
-  -moz-appearance: none;
-       appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   background-color: transparent;
   -ms-touch-action: manipulation;
       touch-action: manipulation;
@@ -1084,8 +1083,8 @@ main .video_journey .embla_vj .embla_vj__controls .embla_vj__buttons .embla_vj__
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-appearance: none;
-  -moz-appearance: none;
-       appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   background-color: transparent;
   -ms-touch-action: manipulation;
       touch-action: manipulation;
@@ -1102,17 +1101,17 @@ main .video_journey .embla_vj .embla_vj__controls .embla_vj__buttons .embla_vj__
   border-radius: 50%;
 }
 main .video_journey .embla_vj .embla_vj__controls .embla_vj__buttons .embla_vj__dots .embla__dot:after {
-  background-color: var(--carousel-buttons-color);
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
+  content: "";
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  content: "";
+  background-color: var(--carousel-buttons-color);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
 }
 main .video_journey .embla_vj .embla_vj__controls .embla_vj__buttons .embla_vj__dots .embla__dot--selected:after {
   background-color: var(--carousel-active-buttons-color);

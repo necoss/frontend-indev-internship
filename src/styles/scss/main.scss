@@ -545,7 +545,6 @@ header {
         }
 
         .embla__button {
-          -webkit-appearance: none;
           appearance: none;
           background-color: transparent;
           touch-action: manipulation;
@@ -581,8 +580,6 @@ header {
           align-items: center;
 
           .embla__dot {
-            -webkit-tap-highlight-color: var(--color-font-white);
-            -webkit-appearance: none;
             appearance: none;
             background-color: transparent;
             touch-action: manipulation;
@@ -894,7 +891,6 @@ main {
         // height: 180px;
         height: 101px;
 
-
         @media only screen and (min-width: 768px) {
           height: 200px;
         }
@@ -921,7 +917,7 @@ main {
             padding-left: var(--slide-spacing);
 
             @media only screen and (min-width: 1024px) {
-            flex: 0 0 33%;
+              flex: 0 0 33%;
             }
           }
         }
@@ -936,7 +932,6 @@ main {
 
           .embla_vj__button {
             @include flex-center-center();
-            -webkit-appearance: none;
             appearance: none;
             background-color: transparent;
             touch-action: manipulation;
@@ -975,7 +970,6 @@ main {
 
             .embla__dot {
               @include flex-center-center();
-              -webkit-appearance: none;
               appearance: none;
               background-color: transparent;
               touch-action: manipulation;
@@ -990,13 +984,13 @@ main {
               border-radius: 50%;
 
               &:after {
+                content: '';
+                display: flex;
+                align-items: center;
                 background-color: var(--carousel-buttons-color);
                 width: 12px;
                 height: 12px;
                 border-radius: 50%;
-                display: flex;
-                align-items: center;
-                content: '';
               }
             }
 
