@@ -7,8 +7,8 @@ function imageComparator() {
   cursorIc.style.left = sizaDiv + '%'
 }
 
-document.getElementById('slider-ic').addEventListener('click', () => imageComparator())
+document.getElementById('slider-ic').addEventListener('click', imageComparator)
 
-document.getElementById('slider-ic').addEventListener('touchmove', () => imageComparator())
+document.getElementById('slider-ic').addEventListener('touchmove', imageComparator)
 
-document.getElementById('slider-ic').addEventListener('mousemove', () => imageComparator())
+document.getElementById('slider-ic').addEventListener('mousemove', imageComparator)
