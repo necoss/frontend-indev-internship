@@ -1,25 +1,3 @@
-//! REALIZATION USING IMAGE COMPARE VIEWER
-// const element = document.getElementById('image-compare')
-
-// const options = {
-//   controlColor: "#ffffff",
-//   controlShadow: false,
-//   addCircle: true,
-//   addCircleBlur: true,
-// }
-
-// const viewer = new ImageCompare(element, options).mount()
-
-// function imageComparator() {
-//   sizeDiv = $('#slider-ic').val();
-//   $('.image-original').css('width',sizeDiv + '%');
-//   $('#cursor-ic').css('left',sizeDiv + '%');
-// }
-
-// $('#slider-ic').on('mousemove touchmove click', function(){
-//   imageComparator();
-// });
-
 function imageComparator() {
   const sizaDiv = document.getElementById('slider-ic').value
   const imageOriginal = document.querySelector('.image-original')
