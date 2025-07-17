@@ -7,10 +7,6 @@ function imageComparator() {
   cursorIc.style.left = sizaDiv + '%'
 }
 
-const callImageComporatorFunc = () => {
-  imageComparator()
-}
-
 document.getElementById('slider-ic').addEventListener('click', () => imageComparator())
 
 document.getElementById('slider-ic').addEventListener('touchmove', () => imageComparator())
