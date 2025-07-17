@@ -159,6 +159,10 @@ select {
   border-radius: 0;
 }
 
+.leaflet-control-attribution.leaflet-control {
+  display: none;
+}
+
 header {
   background-color: var(--color-bg-dark);
 }
@@ -847,11 +851,23 @@ main .explore {
   background: var(--color-bg-dark);
   padding: 40px 0;
   margin-top: 40px;
+  min-height: 550px;
+}
+@media only screen and (min-width: 768px) {
+  main .explore {
+    min-height: 950px;
+  }
 }
 @media only screen and (min-width: 1024px) {
   main .explore {
     margin-top: 60px;
     padding: 60px 0;
+    min-height: 1150px;
+  }
+}
+@media only screen and (min-width: 1920px) {
+  main .explore {
+    min-height: 850px;
   }
 }
 @media only screen and (min-width: 1920px) {
@@ -890,31 +906,12 @@ main .explore .explore_article__info span {
 }
 main .explore .explore_picture_reveal {
   margin-top: 40px;
+  position: relative;
+  top: 180px;
 }
 @media only screen and (min-width: 768px) {
   main .explore .explore_picture_reveal {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
-}
-@media only screen and (min-width: 1024px) {
-  main .explore .explore_picture_reveal {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    top: 350px;
   }
 }
 @media only screen and (min-width: 1920px) {
@@ -923,14 +920,154 @@ main .explore .explore_picture_reveal {
   }
 }
 main .explore .explore_picture_reveal img {
-  width: 100%;
-  aspect-ratio: 36/35;
+  vertical-align: bottom;
+}
+main .explore .explore_picture_reveal .image-comparator {
+  width: 380px;
+  min-width: 370px;
   max-width: 720px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-box-shadow: 0 0 5vh #000;
+          box-shadow: 0 0 5vh #000;
+}
+@media only screen and (min-width: 768px) {
+  main .explore .explore_picture_reveal .image-comparator {
+    width: 728px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  main .explore .explore_picture_reveal .image-comparator {
+    width: 720px;
+  }
 }
 @media only screen and (min-width: 1920px) {
-  main .explore .explore_picture_reveal img {
-    height: 700px;
+  main .explore .explore_picture_reveal .image-comparator {
+    left: 350px;
+    top: 0;
   }
+}
+main .explore .explore_picture_reveal .image-modified {
+  position: relative;
+}
+main .explore .explore_picture_reveal .image-modified img {
+  display: inline-block;
+  width: 100%;
+  min-width: 370px;
+  max-width: 720px;
+  aspect-ratio: 1/1;
+}
+@media only screen and (min-width: 768px) {
+  main .explore .explore_picture_reveal .image-modified img {
+    width: 728px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  main .explore .explore_picture_reveal .image-modified img {
+    width: 720px;
+  }
+}
+main .explore .explore_picture_reveal .image-modified img:hover {
+  cursor: pointer;
+  vertical-align: bottom;
+}
+main .explore .explore_picture_reveal .image-modified .image-original {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 50%;
+  overflow: hidden;
+}
+main .explore .explore_picture_reveal .image-modified #cursor-ic {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  height: 10%;
+  width: 10%;
+  color: white;
+  z-index: 3;
+}
+main .explore .explore_picture_reveal .image-modified #cursor-ic:before {
+  content: "";
+  display: block;
+  background: rgba(221, 238, 255, 0.973);
+  width: 2px;
+  height: 1000%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  z-index: 2;
+}
+main .explore .explore_picture_reveal .image-modified #cursor-ic:after {
+  content: "";
+  display: block;
+  background: rgba(0, 0, 0, 0.6705882353);
+  background-size: 24px;
+  width: 60px;
+  height: 60px;
+  border: 2px solid #def;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 4;
+}
+main .explore .explore_picture_reveal .image-modified #slider-ic {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  left: -1vw;
+}
+main .explore .explore_picture_reveal input[type=range] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  position: relative;
+  top: 0;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0);
+  width: 102%;
+  z-index: 10;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+main .explore .explore_picture_reveal input[type=range]::-moz-range-track {
+  -moz-appearance: none;
+       appearance: none;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0);
+  position: relative;
+  outline: none;
+}
+main .explore .explore_picture_reveal input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+          appearance: none;
+  width: 100px;
+  height: 100%;
+}
+main .explore .explore_picture_reveal input[type=range]::-webkit-slider-thumb:hover {
+  cursor: w-resize;
+}
+main .explore .explore_picture_reveal input[type=range]::-moz-range-thumb {
+  -moz-appearance: none;
+       appearance: none;
+  position: relative;
+  width: 100px;
+  height: 100%;
+}
+main .explore .explore_picture_reveal input[type=range]::-moz-range-thumb:hover {
+  cursor: w-resize;
 }
 main .video_journey {
   margin: 40px 0;
@@ -2052,21 +2189,21 @@ main .contacts .contacts_info .contacts_info__phone {
 main .contacts .contacts_info .contacts_info__mail {
   margin-top: 15px;
 }
-main .contacts .contacts_map img {
+main .contacts .contacts_map {
   margin-top: 40px;
   width: 100%;
   max-width: 960px;
   aspect-ratio: 57/37;
 }
 @media only screen and (min-width: 1024px) {
-  main .contacts .contacts_map img {
+  main .contacts .contacts_map {
     width: 694px;
     height: 454px;
     margin-top: 0;
   }
 }
 @media only screen and (min-width: 1920px) {
-  main .contacts .contacts_map img {
+  main .contacts .contacts_map {
     width: 960px;
     height: 620px;
   }

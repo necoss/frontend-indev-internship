@@ -100,6 +100,14 @@ button:disabled {
   background: none;
 }
 
+input[type='range']:focus,
+input[type='range']:active {
+  outline: none;
+  background: none;
+  border: none;
+  border-radius: 0;
+}
+
 fieldset {
   border: none;
 }

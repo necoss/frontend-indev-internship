@@ -16,6 +16,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Forum&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
 
+    <!-- LEAFLET MAP -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo" crossorigin="anonymous" defer></script>
+
     <!-- EMBLA CAROUSEL -->
     <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js" defer></script>
     <script src="https://unpkg.com/embla-carousel-autoplay/embla-carousel-autoplay.umd.js" defer></script>
@@ -26,6 +30,8 @@
     <!-- SCRIPTS -->
     <script src="./src/js/bookingModal.js" defer></script>
     <script src="./src/js/bookingModalInputs.js" defer></script>
+    <script src="./src/js/contactsMap.js" defer></script>
+    <script src="./src/js/imageComparison.js" defer></script>
 
     <title>Louvre - Welcome to the Louvre!</title>
   </head>
@@ -233,9 +239,22 @@
             </p>
           </article>
 
-          <div class="explore_picture_reveal">
-            <!-- ! possible copypaste -->
-            <img src="./src/assets/img/picture-explore/before-after.png" alt="Before and after picture" />
+          <div class="explore_picture_reveal" id="image-compare">
+            <div class="image-comparator">
+              <div class="image-modified">
+                <img src="./src/assets/img/picture-explore/picture-before.jpg" alt="Original Image" />
+                <div class="image-original">
+                  <img src="./src/assets/img/picture-explore/picture-after.jpg" alt="Modified Image" />
+                </div>
+                <span id="cursor-ic"></span>
+                <input id="slider-ic" type="range" min="5" max="95" value="50" />
+              </div>
+            </div>
+
+            <!-- <div id="image-compare">
+              <img src="./src/assets/img/picture-explore/picture-before.jpg" alt="Picture showing image before filter" />
+              <img src="./src/assets/img/picture-explore/picture-after.jpg" alt="Picture showing image after filter" />
+            </div> -->
           </div>
         </div>
       </section>
@@ -579,9 +598,7 @@
               </div>
             </div>
 
-            <div class="contacts_map">
-              <img src="./src/assets/img/contacts/map-preview.png" alt="Map with location of Louvre" loading="lazy" />
-            </div>
+            <div class="contacts_map" id="map"></div>
           </div>
         </div>
       </section>
