@@ -966,8 +966,7 @@ main {
       }
 
       input[type='range'] {
-        -webkit-appearance: none;
-        -moz-appearance: none;
+        appearance: none;
         position: relative;
         top: 0;
         height: 100%;
@@ -977,16 +976,8 @@ main {
         transform: translateY(-50%);
       }
 
-      input[type='range']:focus {
-        outline: none;
-      }
-
-      input[type='range']:active {
-        outline: none;
-      }
-
       input[type='range']::-moz-range-track {
-        -moz-appearance: none;
+        appearance: none;
         height: 100%;
         width: 100%;
         background-color: rgba(255, 255, 255, 0);
@@ -994,18 +985,10 @@ main {
         outline: none;
       }
 
-      input[type='range']::active {
-        border: none;
-        outline: none;
-      }
-
       input[type='range']::-webkit-slider-thumb {
-        -webkit-appearance: none;
+        appearance: none;
         width: 100px;
         height: 100%;
-        background: none;
-        border: none;
-        border-radius: 0;
 
         &:hover {
           cursor: w-resize;
@@ -1013,13 +996,10 @@ main {
       }
 
       input[type='range']::-moz-range-thumb {
-        -moz-appearance: none;
+        appearance: none;
         position: relative;
         width: 100px;
         height: 100%;
-        background: none;
-        border: none;
-        border-radius: 0;
 
         &:hover {
           cursor: w-resize;
