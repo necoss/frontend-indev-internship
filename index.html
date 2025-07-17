@@ -16,12 +16,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Forum&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
 
+    <!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
     <!-- LEAFLET MAP -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo" crossorigin="anonymous" defer></script>
 
     <!-- IMAGE COMPARE -->
-    <link rel='stylesheet' href="https://unpkg.com/image-compare-viewer/dist/image-compare-viewer.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/image-compare-viewer/dist/image-compare-viewer.min.css" />
     <script src="https://unpkg.com/image-compare-viewer/dist/image-compare-viewer.min.js" defer></script>
 
     <!-- EMBLA CAROUSEL -->
@@ -35,7 +38,7 @@
     <script src="./src/js/bookingModal.js" defer></script>
     <script src="./src/js/bookingModalInputs.js" defer></script>
     <script src="./src/js/contactsMap.js" defer></script>
-    <script src='./src/js/imageComparison.js' defer></script>
+    <script src="./src/js/imageComparison.js" defer></script>
 
     <title>Louvre - Welcome to the Louvre!</title>
   </head>
@@ -244,10 +247,21 @@
           </article>
 
           <div class="explore_picture_reveal" id="image-compare">
-            <div id="image-compare">
+            <div class="image-comparator">
+              <div class="image-modified">
+                <img src="./src/assets/img/picture-explore/picture-before.jpg" alt="Original Image" />
+                <div class="image-original">
+                  <img src="./src/assets/img/picture-explore/picture-after.jpg" alt="Modified Image" />
+                </div>
+                <span id="cursor-ic"></span>
+                <input id="slider-ic" type="range" min="5" max="95" value="50" />
+              </div>
+            </div>
+
+            <!-- <div id="image-compare">
               <img src="./src/assets/img/picture-explore/picture-before.jpg" alt="Picture showing image before filter" />
               <img src="./src/assets/img/picture-explore/picture-after.jpg" alt="Picture showing image after filter" />
-            </div>
+            </div> -->
           </div>
         </div>
       </section>
