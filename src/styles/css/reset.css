@@ -100,24 +100,14 @@ button:disabled {
   background: none;
 }
 
-input[type='range']:focus {
-  outline: none;
-}
-
+input[type='range']:focus,
 input[type='range']:active {
   outline: none;
-}
-
-input[type='range']::active {
-  border: none;
-  outline: none;
-}
-
-input[type='range']::-moz-range-thumb {
   background: none;
   border: none;
   border-radius: 0;
 }
+
 fieldset {
   border: none;
 }
