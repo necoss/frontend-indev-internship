@@ -852,6 +852,10 @@ main .explore {
   padding: 40px 0;
   margin-top: 40px;
   min-height: 550px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 @media only screen and (min-width: 768px) {
   main .explore {
@@ -1077,12 +1081,85 @@ main .video_journey {
     margin: 60px 0;
   }
 }
-main .video_journey .video_journey__video {
-  padding-top: 20px;
+main .video_journey .vjs-poster img {
+  -o-object-fit: cover;
+     object-fit: cover;
 }
-main .video_journey .video_journey__video img {
+main .video_journey .vjs-has-started .vjs-control-bar,
+main .video_journey .vjs-audio-only-mode .vjs-control-bar {
+  background-color: #000;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 85px;
+  padding-inline: 30px;
+}
+main .video_journey .vjs-button > .vjs-icon-placeholder:before {
+  position: static;
+  width: auto;
+  font-size: 30px;
+}
+main .video_journey .vjs-remaining-time {
+  display: none;
+}
+main .video_journey .vjs-picture-in-picture-control {
+  display: none;
+}
+main .video_journey .vjs-progress-control {
+  max-width: 1000px;
+}
+main .video_journey .video-js .vjs-play-progress {
+  background-color: var(--color-dark-red);
+  height: 10px;
+}
+main .video_journey .video-js .vjs-play-progress::before {
+  font-size: 30px;
+}
+main .video_journey .vjs-slider-horizontal {
+  height: 10px;
+}
+main .video_journey .vjs-volume-panel {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+main .video_journey .vjs-volume-control {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+main .video_journey .vjs-volume-level {
+  height: 10px;
+  background-color: var(--color-dark-red);
+}
+main .video_journey .vjs-volume-level::before {
+  line-height: 11px;
+  font-size: 20px;
+}
+main .video_journey .video-js .vjs-slider {
+  background-color: #c4c4c4;
+}
+main .video_journey .vjs-big-play-button {
+  background: transparent;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 5px solid var(--color-font-white);
+}
+main .video_journey .vjs-paused.vjs-has-started .vjs-big-play-button {
+  display: block;
+}
+main .video_journey .video-js .vjs-big-play-button .vjs-icon-placeholder:before {
+  position: static;
+}
+main .video_journey .video_journey__video {
+  margin-top: 20px;
   width: 100%;
-  aspect-ratio: 190/113;
+  height: 50vw;
+  aspect-ratio: 16/9;
   max-width: 1920px;
 }
 main .video_journey .embla_vj {

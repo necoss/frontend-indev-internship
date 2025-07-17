@@ -16,6 +16,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Forum&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
 
+    <!-- VIDEO JS PLAYER -->
+    <link href="https://vjs.zencdn.net/8.23.3/video-js.css" rel="stylesheet" />
+    <script src="https://vjs.zencdn.net/8.23.3/video.min.js" defer></script>
+
     <!-- LEAFLET MAP -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo" crossorigin="anonymous" defer></script>
@@ -32,6 +36,7 @@
     <script src="./src/js/bookingModalInputs.js" defer></script>
     <script src="./src/js/contactsMap.js" defer></script>
     <script src="./src/js/imageComparison.js" defer></script>
+    <script src="./src/js/videoPlayer.js" defer></script>
 
     <title>Louvre - Welcome to the Louvre!</title>
   </head>
@@ -263,9 +268,13 @@
         <div class="container">
           <h5 class="video_journey_title title_primary">VIDEO JOURNEY</h5>
 
-          <div class="video_journey__video">
+          <video id="vid1" class="video-js video_journey__video">
+            <source src="./src/assets/video/louvre_vid.mp4" />
+          </video>
+
+          <!-- <div class="video_journey__video">
             <img src="./src/assets/img/video-journey-preview/main-video-preview.png" alt="Video preview" loading="lazy" />
-          </div>
+          </div> -->
 
           <section class="embla embla_vj">
             <div class="embla_vj__viewport">
