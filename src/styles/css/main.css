@@ -852,6 +852,10 @@ main .explore {
   padding: 40px 0;
   margin-top: 40px;
   min-height: 550px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 @media only screen and (min-width: 768px) {
   main .explore {
@@ -1078,12 +1082,13 @@ main .video_journey {
   }
 }
 main .video_journey .video_journey__video {
-  padding-top: 20px;
-}
-main .video_journey .video_journey__video img {
+  margin-top: 20px;
   width: 100%;
-  aspect-ratio: 190/113;
+  height: 50vw;
+  aspect-ratio: 16/9;
   max-width: 1920px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 main .video_journey .embla_vj {
   margin-top: 40px;
