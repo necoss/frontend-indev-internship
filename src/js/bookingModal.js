@@ -1,5 +1,51 @@
+// BOOKING MODAL
 const bookingModal = document.getElementById('tickets_modal')
 const bookingModalButtons = document.querySelectorAll('.toggle_modal')
+
+// DEFAULT
+const closeModalButton = document.getElementById('close_modal')
+
+const buttonIncreaseCounterBasic = document.getElementById('counter_button__increase_1')
+const buttonDecreaseCounterBasic = document.getElementById('counter_button__decrease_1')
+const counterQuantityBasic = document.getElementById('counter_value_1')
+
+const buttonIncreaseCounterSenior = document.getElementById('counter_button__increase_2')
+const buttonDecreaseCounterSenior = document.getElementById('counter_button__decrease_2')
+const counterQuantitySenior = document.getElementById('counter_value_2')
+
+// OVERVIEW MODAL
+const buttonIncreaseCounterBasicOverview = document.getElementById('overview_incr_1')
+const buttonDecreaseCounterBasicOverview = document.getElementById('overview_decr_1')
+const counterQuantityBasicOverview = document.getElementById('overview_value_1')
+
+const buttonIncreaseCounterSeniorOverview = document.getElementById('overview_incr_2')
+const buttonDecreaseCounterSeniorOverview = document.getElementById('overview_decr_2')
+const counterQuantitySeniorOverview = document.getElementById('overview_value_2')
+
+const basicTicketsQuantity = document.getElementById('tickets_qty_1')
+const seniorTicketsQuantity = document.getElementById('tickets_qty_2')
+
+const basicTicketsTotalPrice = document.getElementById('first_tickets_total')
+const seniorTicketsTotalPrice = document.getElementById('second_tickets_total')
+
+// PRICE & BUTTON
+const ticketsTotalPrice = document.getElementById('tickets_total_value')
+const ticketsTotalPriceModal = document.getElementById('tickets_total')
+const buttonOpenBookingModal = document.getElementById('tickets_buy_now')
+const buttonSubmitOrder = document.getElementById('tickets_book')
+
+// GET OTHER USER DATA
+const ticketInputs = document.querySelectorAll('.update_data')
+
+const ticketDate = document.getElementById('type_date')
+const ticketTime = document.getElementById('type_time')
+const ticketType = document.getElementById('type_select')
+
+const orderDate = document.getElementById('user_data_date')
+const orderTime = document.getElementById('user_data_time')
+const orderTicket = document.getElementById('user_data_ticket')
+
+//! END OF THE CONSTANTS ---------------
 
 bookingModalButtons.forEach((button) => {
   button.addEventListener('click', () => {
@@ -7,122 +53,73 @@ bookingModalButtons.forEach((button) => {
   })
 })
 
-// DEFAULT
-const closeModalButton = document.getElementById('close_modal')
-
-const counterIncreaseButtonFirst = document.getElementById('counter_button__increase_1')
-const counterDecreaseButtonFirst = document.getElementById('counter_button__decrease_1')
-const counterFirstQty = document.getElementById('counter_value_1')
-
-const counterIncreaseButtonSecond = document.getElementById('counter_button__increase_2')
-const counterDecreaseButtonSecond = document.getElementById('counter_button__decrease_2')
-const counterSecondQty = document.getElementById('counter_value_2')
-
-// OVERVIEW MODAL
-const counterIncreaseButtonOverviewFirst = document.getElementById('overview_incr_1')
-const counterDecreaseButtonOverviewFirst = document.getElementById('overview_decr_1')
-const counterOverviewFirstQty = document.getElementById('overview_value_1')
-
-const counterIncreaseButtonOverviewSecond = document.getElementById('overview_incr_2')
-const counterDecreaseButtonOverviewSecond = document.getElementById('overview_decr_2')
-const counterOverviewSecondQty = document.getElementById('overview_value_2')
-
-const firstTicketsQty = document.getElementById('tickets_qty_1')
-const secondTicketsQty = document.getElementById('tickets_qty_2')
-const firstTicketsTotal = document.getElementById('first_tickets_total')
-const secondTicketsTotal = document.getElementById('second_tickets_total')
-const ticketsTotal = document.getElementById('tickets_total')
-
-// TOTAL
-let totalPrice = document.getElementById('tickets_total_value')
-const buyNowButton = document.getElementById('tickets_buy_now')
-
 const calcTotalPrice = () => {
   const firstTicketCost = 20
   const secondTicketCost = 10
 
-  firstTicketsQty.innerHTML = parseInt(localStorage.getItem('First'))
-  secondTicketsQty.innerHTML = parseInt(localStorage.getItem('Second'))
+  basicTicketsQuantity.innerText = localStorage.getItem('First')
+  seniorTicketsQuantity.innerText = localStorage.getItem('Second')
 
-  const calc = firstTicketsQty.innerHTML * firstTicketCost + secondTicketsQty.innerHTML * secondTicketCost
+  const calc = basicTicketsQuantity.innerText * firstTicketCost + seniorTicketsQuantity.innerText * secondTicketCost
 
-  firstTicketsTotal.innerHTML = firstTicketsQty.innerHTML * firstTicketCost
-  secondTicketsTotal.innerHTML = secondTicketsQty.innerHTML * secondTicketCost
+  basicTicketsTotalPrice.innerText = basicTicketsQuantity.innerText * firstTicketCost
+  seniorTicketsTotalPrice.innerText = seniorTicketsQuantity.innerText * secondTicketCost
 
-  totalPrice.innerHTML = calc + ''
-  ticketsTotal.innerHTML = totalPrice.innerHTML
+  ticketsTotalPrice.innerText = calc + ''
+  ticketsTotalPriceModal.innerText = ticketsTotalPrice.innerText
 }
 
-const counterFunc = (button_decr, button_incr, counter_value, key) => {
+counterFunc(buttonDecreaseCounterBasic, buttonIncreaseCounterBasic, counterQuantityBasic, 'First')
+counterFunc(buttonDecreaseCounterSenior, buttonIncreaseCounterSenior, counterQuantitySenior, 'Second')
+counterFunc(buttonDecreaseCounterBasicOverview, buttonIncreaseCounterBasicOverview, counterQuantityBasicOverview, 'First')
+counterFunc(buttonDecreaseCounterSeniorOverview, buttonIncreaseCounterSeniorOverview, counterQuantitySeniorOverview, 'Second')
+
+buttonOpenBookingModal.addEventListener('click', () => {
+  counterQuantityBasicOverview.innerText = localStorage.getItem('First')
+  counterQuantitySeniorOverview.innerText = localStorage.getItem('Second')
+})
+
+closeModalButton.addEventListener('click', () => {
+  counterQuantityBasic.innerText = localStorage.getItem('First')
+  counterQuantitySenior.innerText = localStorage.getItem('Second')
+})
+
+ticketInputs.forEach((e) => {
+  e.addEventListener('keyup', () => {
+    orderTime.innerText = ticketTime.value
+    orderDate.innerText = ticketDate.value
+  })
+})
+
+ticketType.addEventListener('click', () => {
+  orderTicket.innerText = ticketType.options[ticketType.selectedIndex].text
+})
+
+buttonSubmitOrder.addEventListener('click', () => {
+  localStorage.setItem('First', 0)
+  localStorage.setItem('Second', 0)
+})
+
+function counterFunc(buttonDecrease, buttonIncrease, counterValue, key) {
   const increaseCounter = () => {
-    let count = counter_value.innerHTML
+    let count = counterValue.innerText
     count++
-    counter_value.innerHTML = parseInt(count)
+    counterValue.innerText = count
     localStorage.setItem(key, count)
     calcTotalPrice()
   }
 
   const decreseCounter = () => {
-    let count = counter_value.innerHTML
+    let count = counterValue.innerText
 
     if (count >= 1) {
       count--
-      counter_value.innerHTML = parseInt(count)
+      counterValue.innerText = count
       localStorage.setItem(key, count)
       calcTotalPrice()
     }
   }
 
-  button_incr.addEventListener('click', increaseCounter)
-  button_decr.addEventListener('click', decreseCounter)
+  buttonIncrease.addEventListener('click', increaseCounter)
+  buttonDecrease.addEventListener('click', decreseCounter)
 }
-
-counterFunc(counterDecreaseButtonFirst, counterIncreaseButtonFirst, counterFirstQty, 'First')
-counterFunc(counterDecreaseButtonSecond, counterIncreaseButtonSecond, counterSecondQty, 'Second')
-counterFunc(counterDecreaseButtonOverviewFirst, counterIncreaseButtonOverviewFirst, counterOverviewFirstQty, 'First')
-counterFunc(counterDecreaseButtonOverviewSecond, counterIncreaseButtonOverviewSecond, counterOverviewSecondQty, 'Second')
-
-buyNowButton.addEventListener('click', () => {
-  counterOverviewFirstQty.innerHTML = localStorage.getItem('First')
-  counterOverviewSecondQty.innerHTML = localStorage.getItem('Second')
-})
-
-closeModalButton.addEventListener('click', () => {
-  counterFirstQty.innerHTML = localStorage.getItem('First')
-  counterSecondQty.innerHTML = localStorage.getItem('Second')
-})
-
-// GET OTHER USER DATA
-const ticketInputs = document.querySelectorAll('.update_data')
-
-const ticketDate = document.getElementById('type_date')
-const ticketTime = document.getElementById('type_time')
-const ticketType = document.getElementById('ticketTypeSelection')
-
-const orderDataDate = document.getElementById('user_data_date')
-const orderDataTime = document.getElementById('user_data_time')
-const orderDataTicket = document.getElementById('user_data_ticket')
-
-const getOrderData = () => {
-  ticketInputs.forEach((e) => {
-    e.addEventListener('keyup', () => {
-      orderDataTime.innerHTML = ticketTime.value
-      orderDataDate.innerHTML = ticketDate.value
-    })
-  })
-
-  ticketType.addEventListener('click', () => {
-    orderDataTicket.innerHTML = ticketTypeSelection.options[ticketTypeSelection.selectedIndex].text
-  })
-}
-
-getOrderData()
-
-const ticketsBookButton = document.getElementById('tickets_book')
-
-ticketsBookButton.addEventListener('click', () => {
-  localStorage.setItem('First', 0)
-  localStorage.setItem('Second', 0)
-})
-
-
