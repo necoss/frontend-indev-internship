@@ -260,7 +260,7 @@
         <div class="container">
           <h5 class="video_journey_title title_primary">VIDEO JOURNEY</h5>
 
-          <video class='video_journey__video' src="./src/assets/video/louvre_vid.mp4" poster='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEYXbdjMzu_bJurD8D2QGPQ6Fih08Mgo4D4A&s' controls></video>
+          <video class="video_journey__video" src="./src/assets/video/louvre_vid.mp4" poster="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEYXbdjMzu_bJurD8D2QGPQ6Fih08Mgo4D4A&s" controls></video>
 
           <section class="embla embla_vj">
             <div class="embla_vj__viewport">
@@ -390,9 +390,9 @@
                 <p class="tickets_order__plan_name">Basic 18+</p>
 
                 <div class="tickets_order__counter counter_wrapper">
-                  <button class="tickets_order__counter__button counter_button">–</button>
-                  <p class="tickets_order__counter__value counter_value">1</p>
-                  <button class="tickets_order__counter__button counter_button">+</button>
+                  <button class="tickets_order__counter__button counter_button" id="counter_button__decrease_1">–</button>
+                  <p class="tickets_order__counter__value counter_value" id="counter_value_1">0</p>
+                  <button class="tickets_order__counter__button counter_button" id="counter_button__increase_1">+</button>
                 </div>
               </div>
 
@@ -400,14 +400,14 @@
                 <p class="tickets_order__plan_name">Senior 65+</p>
 
                 <div class="tickets_order__counter counter_wrapper">
-                  <button class="tickets_order__counter__button counter_button">–</button>
-                  <p class="tickets_order__counter__value counter_value">1</p>
-                  <button class="tickets_order__counter__button counter_button">+</button>
+                  <button class="tickets_order__counter__button counter_button" id="counter_button__decrease_2">–</button>
+                  <p class="tickets_order__counter__value counter_value" id="counter_value_2">0</p>
+                  <button class="tickets_order__counter__button counter_button" id="counter_button__increase_2">+</button>
                 </div>
               </div>
 
-              <p class="tickets_order__order_price">Total € <span>220</span></p>
-              <button class="tickets_order__order_button toggle_modal">Buy Now</button>
+              <p class="tickets_order__order_price">Total € <span id='tickets_total_value'>0</span></p>
+              <button class="tickets_order__order_button toggle_modal" id='tickets_buy_now'>Buy Now</button>
             </div>
           </div>
         </div>
@@ -426,10 +426,10 @@
 
             <form action="#" class="tickets_modal__form">
               <label for="type_date">Select Date</label>
-              <input class="tickets_modal_input tickets_modal_input__date dynamic_type" type="text" placeholder="Date" id="type_date" />
+              <input class="tickets_modal_input tickets_modal_input__date dynamic_type update_data" type="text" placeholder="Date" id="type_date" />
 
               <label for="type_time">Select Time</label>
-              <input class="tickets_modal_input tickets_modal_input__time dynamic_type" type="text" placeholder="Time" id="type_time" />
+              <input class="tickets_modal_input tickets_modal_input__time dynamic_type update_data" type="text" placeholder="Time" id="type_time" />
 
               <label for="input_name">Enter your name</label>
               <input class="tickets_modal_input tickets_modal_input__name" type="text" placeholder="Name" id="input_name" />
@@ -444,9 +444,9 @@
               <label for="ticketTypeSelection">Ticket Type</label>
               <select name="ticketType" id="ticketTypeSelection">
                 <option value="default" disabled selected>Ticket Type</option>
-                <option value="firstType">Permanent exhibition</option>
-                <option value="secondType">Temporary exhibition</option>
-                <option value="thirdType">Combined Admission</option>
+                <option value="firstType" class='ticket_type_options update_data'>Permanent exhibition</option>
+                <option value="secondType" class='ticket_type_options update_data'>Temporary exhibition</option>
+                <option value="thirdType" class='ticket_type_options update_data'>Combined Admission</option>
               </select>
             </form>
 
@@ -458,18 +458,18 @@
                 <div class="tickets_modal__plan">
                   <h6 class="tickets_modal__plan_name">Basic 18+ (20 €)</h6>
                   <div class="tickets_modal__counter counter_wrapper">
-                    <button class="tickets_modal__counter__button counter_button">–</button>
-                    <p class="tickets_modal__counter__value counter_value">2</p>
-                    <button class="tickets_modal__counter__button counter_button">+</button>
+                    <button class="tickets_modal__counter__button counter_button" id="overview_decr_1">–</button>
+                    <p class="tickets_modal__counter__value counter_value" id="overview_value_1">0</p>
+                    <button class="tickets_modal__counter__button counter_button" id="overview_incr_1">+</button>
                   </div>
                 </div>
 
                 <div class="tickets_modal__plan">
                   <h6 class="tickets_modal__plan_name">Senior 65+ (10 €)</h6>
                   <div class="tickets_modal__counter counter_wrapper">
-                    <button class="tickets_modal__counter__button counter_button">–</button>
-                    <p class="tickets_modal__counter__value counter_value">2</p>
-                    <button class="tickets_modal__counter__button counter_button">+</button>
+                    <button class="tickets_modal__counter__button counter_button" id="overview_decr_2">–</button>
+                    <p class="tickets_modal__counter__value counter_value" id="overview_value_2">0</p>
+                    <button class="tickets_modal__counter__button counter_button" id="overview_incr_2">+</button>
                   </div>
                 </div>
               </div>
@@ -485,30 +485,30 @@
 
               <div class="overview_info__date overview_info__item">
                 <img src="./src/assets/img/modal_icons/date.png" alt="Date icon" loading="lazy" />
-                <p>Friday, August 19</p>
+                <p id='user_data_date'>-</p>
               </div>
 
               <div class="overview_info__time overview_info__item">
                 <img src="./src/assets/img/modal_icons/time.svg" alt="Time icon" loading="lazy" />
-                <p>16 : 30</p>
+                <p id='user_data_time'>-</p>
               </div>
 
               <div class="overview_info__type overview_info__item">
                 <img src="./src/assets/img/modal_icons/tick_ticket_type.svg" alt="Ticket type icon" loading="lazy" />
-                <p>Temporary exhibition</p>
+                <p id='user_data_ticket'>-</p>
               </div>
             </article>
 
             <div class="overview__order_details">
               <div class="overview__order_details__items">
                 <div class="overview_order_details__item">
-                  <p class="overview_order_details__item__name"><span class="overview_order_details__item__qty">2</span> Basic (20 €)</p>
-                  <p class="overview_order_details__item__value">40 €</p>
+                  <p class="overview_order_details__item__name"><span class="overview_order_details__item__qty" id='tickets_qty_1'>0</span> Basic (20 €)</p>
+                  <p class="overview_order_details__item__value"><span id='first_tickets_total'>0</span> €</p>
                 </div>
 
                 <div class="overview_order_details__item">
-                  <p class="overview_order_details__item__name"><span class="overview_order_details__item__qty">2</span> Senior (10 €)</p>
-                  <p class="overview_order_details__item__value">20 €</p>
+                  <p class="overview_order_details__item__name"><span class="overview_order_details__item__qty" id='tickets_qty_2'>0</span> Senior (10 €)</p>
+                  <p class="overview_order_details__item__value"><span id='second_tickets_total'>0</span> €</p>
                 </div>
               </div>
 
@@ -516,7 +516,7 @@
 
               <div class="overview_order_details__total">
                 <p>Total:</p>
-                <p>60 €</p>
+                <p><span id='tickets_total'>0</span> €</p>
               </div>
             </div>
 
@@ -556,13 +556,13 @@
               </div>
 
               <div class="overview__button_wrapper">
-                <button class="overview__submit">Book</button>
+                <button class="overview__submit" id='tickets_book'>Book</button>
               </div>
             </form>
           </div>
         </div>
 
-        <button class="tickets_modal__close_modal toggle_modal">
+        <button class="tickets_modal__close_modal toggle_modal" id='close_modal'>
           <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27" fill="none">
             <path d="M1 1.03418L26 26.0627" stroke="#030303" />
             <path d="M26 1.03418L1 26.0627" stroke="#030303" />
