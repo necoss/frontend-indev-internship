@@ -21,9 +21,9 @@ const ticketInputsOverview = document.querySelectorAll('.update_data')
 const bookingTicketDate = document.getElementById('type_date')
 const bookingTicketTime = document.getElementById('type_time')
 const bookingTicketType = document.getElementById('type_select')
-const orderTypeDate = document.getElementById('user_data_date')
-const orderTypeTime = document.getElementById('user_data_time')
-const orderTypeTicket = document.getElementById('user_data_ticket')
+const orderTypeDate = document.getElementById('orderTypeDate')
+const orderTypeTime = document.getElementById('orderTypeTime')
+const orderTypeTicket = document.getElementById('orderTypeTicket')
 
 //! END OF THE CONSTANTS ---------------
 
@@ -33,7 +33,7 @@ bookingModalButtons.forEach((button) => {
   })
 })
 
-const counterWrapper = document.querySelectorAll('.counter_wrapper *')
+const counterElementsWrappers = document.querySelectorAll('.counter_wrapper *')
 
 const increaseCounter = (counterElement, counterElementOverview) => () => {
   let count = Number(counterElement.innerText)
@@ -55,7 +55,7 @@ const decreaseCounter = (counterElement, counterElementOverview) => () => {
   }
 }
 
-counterWrapper.forEach((element) => {
+counterElementsWrappers.forEach((element) => {
   const elementAttribute = element.getAttribute('data-counter-type')
   const [ticketType, counterAction] = elementAttribute.split('-')
 
