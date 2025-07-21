@@ -42,7 +42,7 @@ const increaseCounter = (counterElement, counterElementOverview) => () => {
   count++
   counterElement.innerText = count
   counterElementOverview.innerText = count
-  calcTotalPrice()
+  calcTotalPrice(20, 10, basicTicketsQuantity, seniorTicketsQuantity)
 }
 
 const decreaseCounter = (counterElement, counterElementOverview) => () => {
@@ -52,7 +52,7 @@ const decreaseCounter = (counterElement, counterElementOverview) => () => {
     count--
     counterElement.innerText = count
     counterElementOverview.innerText = count
-    calcTotalPrice()
+    calcTotalPrice(20, 10, basicTicketsQuantity, seniorTicketsQuantity)
   }
 }
 
@@ -80,17 +80,17 @@ counterWrapperElements.forEach((element) => {
   }
 })
 
-const calcTotalPrice = () => {
-  const basicTicketCost = 20
-  const seniorTicketCost = 10
+const calcTotalPrice = (basicTicketCost, seniorTicketCost, basicOverallQuantity, seniorOverallQuantity) => {
+  basicOverallQuantity.innerText = counterQuantityBasic.innerText
+  seniorOverallQuantity.innerText = counterQuantitySenior.innerText
 
-  basicTicketsQuantity.innerText = counterQuantityBasic.innerText
-  seniorTicketsQuantity.innerText = counterQuantitySenior.innerText
+  const basicPriceOverall = +basicOverallQuantity.innerText
+  const seniorPriceOverall = +seniorOverallQuantity.innerText
 
-  const totalPriceCalculations = basicTicketsQuantity.innerText * basicTicketCost + seniorTicketsQuantity.innerText * seniorTicketCost
+  const totalPriceCalculations = basicPriceOverall * basicTicketCost + seniorPriceOverall * seniorTicketCost
 
-  basicTicketsTotalPrice.innerText = basicTicketsQuantity.innerText * basicTicketCost
-  seniorTicketsTotalPrice.innerText = seniorTicketsQuantity.innerText * seniorTicketCost
+  basicTicketsTotalPrice.innerText = basicOverallQuantity.innerText * basicTicketCost
+  seniorTicketsTotalPrice.innerText = seniorOverallQuantity.innerText * seniorTicketCost
 
   ticketsTotalPrice.innerText = Number(totalPriceCalculations)
   ticketsTotalPriceOverview.innerText = Number(ticketsTotalPrice.innerText)
