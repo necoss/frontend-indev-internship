@@ -2,6 +2,9 @@
 const bookingModal = document.getElementById('tickets_modal')
 const bookingModalButtons = document.querySelectorAll('.toggle_modal')
 
+// ELEMENTS WRAPPERs
+const counterElementsWrappers = document.querySelectorAll('.counter_wrapper *')
+
 // COUNTER QUANTITY
 const counterQuantityBasic = document.getElementById('counter_value_1')
 const counterQuantitySenior = document.getElementById('counter_value_2')
@@ -32,8 +35,6 @@ bookingModalButtons.forEach((button) => {
     bookingModal.classList.toggle('tickets_modal_open')
   })
 })
-
-const counterElementsWrappers = document.querySelectorAll('.counter_wrapper *')
 
 const increaseCounter = (counterElement, counterElementOverview) => () => {
   let count = Number(counterElement.innerText)
@@ -80,19 +81,18 @@ counterElementsWrappers.forEach((element) => {
 })
 
 const calcTotalPrice = () => {
-  const firstTicketCost = 20
-  const secondTicketCost = 10
+  const basicTicketCost = 20
+  const seniorTicketCost = 10
+  const totalPriceCalculations = basicTicketsTotalPrice.innerText + seniorTicketsTotalPrice.innerText
+
+  basicTicketsTotalPrice.innerText = basicTicketsQuantity.innerText * basicTicketCost
+  seniorTicketsTotalPrice.innerText = seniorTicketsQuantity.innerText * seniorTicketCost
 
   basicTicketsQuantity.innerText = counterQuantityBasic.innerText
   seniorTicketsQuantity.innerText = counterQuantitySenior.innerText
 
-  const totalPriceCalculations = basicTicketsQuantity.innerText * firstTicketCost + seniorTicketsQuantity.innerText * secondTicketCost
-
-  basicTicketsTotalPrice.innerText = basicTicketsQuantity.innerText * firstTicketCost
-  seniorTicketsTotalPrice.innerText = seniorTicketsQuantity.innerText * secondTicketCost
-
   ticketsTotalPrice.innerText = Number(totalPriceCalculations)
-  ticketsTotalPriceOverview.innerText = Number(ticketsTotalPrice.innerText)
+  ticketsTotalPriceOverview.innerText = ticketsTotalPrice.innerText
 }
 
 ticketInputsOverview.forEach((e) => {
