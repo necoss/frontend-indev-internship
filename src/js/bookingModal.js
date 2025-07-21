@@ -3,7 +3,7 @@ const bookingModal = document.getElementById('tickets_modal')
 const bookingModalButtons = document.querySelectorAll('.toggle_modal')
 
 // ELEMENTS WRAPPERs
-const counterElementsWrappers = document.querySelectorAll('.counter_wrapper *')
+const counterWrapperElements = document.querySelectorAll('.counter_wrapper *')
 
 // COUNTER QUANTITY
 const counterQuantityBasic = document.getElementById('counter_value_1')
@@ -24,9 +24,9 @@ const ticketInputsOverview = document.querySelectorAll('.update_data')
 const bookingTicketDate = document.getElementById('type_date')
 const bookingTicketTime = document.getElementById('type_time')
 const bookingTicketType = document.getElementById('type_select')
-const orderTypeDate = document.getElementById('orderTypeDate')
-const orderTypeTime = document.getElementById('orderTypeTime')
-const orderTypeTicket = document.getElementById('orderTypeTicket')
+const orderTypeDate = document.getElementById('order_type_date')
+const orderTypeTime = document.getElementById('order_type_time')
+const orderTypeTicket = document.getElementById('order_type_ticket')
 
 //! END OF THE CONSTANTS ---------------
 
@@ -56,7 +56,7 @@ const decreaseCounter = (counterElement, counterElementOverview) => () => {
   }
 }
 
-counterElementsWrappers.forEach((element) => {
+counterWrapperElements.forEach((element) => {
   const elementAttribute = element.getAttribute('data-counter-type')
   const [ticketType, counterAction] = elementAttribute.split('-')
 
@@ -83,16 +83,17 @@ counterElementsWrappers.forEach((element) => {
 const calcTotalPrice = () => {
   const basicTicketCost = 20
   const seniorTicketCost = 10
-  const totalPriceCalculations = basicTicketsTotalPrice.innerText + seniorTicketsTotalPrice.innerText
-
-  basicTicketsTotalPrice.innerText = basicTicketsQuantity.innerText * basicTicketCost
-  seniorTicketsTotalPrice.innerText = seniorTicketsQuantity.innerText * seniorTicketCost
 
   basicTicketsQuantity.innerText = counterQuantityBasic.innerText
   seniorTicketsQuantity.innerText = counterQuantitySenior.innerText
 
+  const totalPriceCalculations = basicTicketsQuantity.innerText * basicTicketCost + seniorTicketsQuantity.innerText * seniorTicketCost
+
+  basicTicketsTotalPrice.innerText = basicTicketsQuantity.innerText * basicTicketCost
+  seniorTicketsTotalPrice.innerText = seniorTicketsQuantity.innerText * seniorTicketCost
+
   ticketsTotalPrice.innerText = Number(totalPriceCalculations)
-  ticketsTotalPriceOverview.innerText = ticketsTotalPrice.innerText
+  ticketsTotalPriceOverview.innerText = Number(ticketsTotalPrice.innerText)
 }
 
 ticketInputsOverview.forEach((e) => {
