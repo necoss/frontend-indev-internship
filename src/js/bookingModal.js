@@ -2,48 +2,28 @@
 const bookingModal = document.getElementById('tickets_modal')
 const bookingModalButtons = document.querySelectorAll('.toggle_modal')
 
-// DEFAULT
-const closeButtonModal = document.getElementById('close_modal')
-
-const buttonIncreaseCounterBasic = document.getElementById('counter_button__increase_1')
-const buttonDecreaseCounterBasic = document.getElementById('counter_button__decrease_1')
+// COUNTER QUANTITY
 const counterQuantityBasic = document.getElementById('counter_value_1')
-
-const buttonIncreaseCounterSenior = document.getElementById('counter_button__increase_2')
-const buttonDecreaseCounterSenior = document.getElementById('counter_button__decrease_2')
 const counterQuantitySenior = document.getElementById('counter_value_2')
-
-// OVERVIEW MODAL
-const buttonIncreaseCounterBasicOverview = document.getElementById('overview_incr_1')
-const buttonDecreaseCounterBasicOverview = document.getElementById('overview_decr_1')
 const counterQuantityBasicOverview = document.getElementById('overview_value_1')
-
-const buttonIncreaseCounterSeniorOverview = document.getElementById('overview_incr_2')
-const buttonDecreaseCounterSeniorOverview = document.getElementById('overview_decr_2')
 const counterQuantitySeniorOverview = document.getElementById('overview_value_2')
-
 const basicTicketsQuantity = document.getElementById('tickets_qty_1')
 const seniorTicketsQuantity = document.getElementById('tickets_qty_2')
 
+// OVERVIEW MODAL
 const basicTicketsTotalPrice = document.getElementById('first_tickets_total')
 const seniorTicketsTotalPrice = document.getElementById('second_tickets_total')
-
-// PRICE & BUTTON
 const ticketsTotalPrice = document.getElementById('tickets_total_value')
-const ticketsTotalPriceModal = document.getElementById('tickets_total') // price overview
-const buttonOpenBookingModal = document.getElementById('tickets_buy_now')
-const buttonSubmitOrder = document.getElementById('tickets_book')
+const ticketsTotalPriceOverview = document.getElementById('tickets_total')
 
-// GET OTHER USER DATA
-const ticketInputs = document.querySelectorAll('.update_data') // + overview
-
-const ticketDate = document.getElementById('type_date') // Boocking ticket date
-const ticketTime = document.getElementById('type_time')
-const ticketType = document.getElementById('type_select')
-
-const orderDate = document.getElementById('user_data_date')
-const orderTime = document.getElementById('user_data_time')
-const orderTicket = document.getElementById('user_data_ticket') // type
+// ORDER DETAILS
+const ticketInputsOverview = document.querySelectorAll('.update_data')
+const bookingTicketDate = document.getElementById('type_date')
+const bookingTicketTime = document.getElementById('type_time')
+const bookingTicketType = document.getElementById('type_select')
+const orderTypeDate = document.getElementById('user_data_date')
+const orderTypeTime = document.getElementById('user_data_time')
+const orderTypeTicket = document.getElementById('user_data_ticket')
 
 //! END OF THE CONSTANTS ---------------
 
@@ -53,166 +33,75 @@ bookingModalButtons.forEach((button) => {
   })
 })
 
-const wrapper = document.querySelectorAll('.counter_wrapper *')
-wrapper.forEach((e) => {
-  console.log(e.hasAttribute('data-basic-counter-value'))
+const counterWrapper = document.querySelectorAll('.counter_wrapper *')
 
-  const increaseCounter = () => {
-    let countBasic = counterQuantityBasic.innerText
-    let countSenior = counterQuantitySenior.innerText
+const increaseCounter = (counterElement, counterElementOverview) => () => {
+  let count = Number(counterElement.innerText)
 
-    if (e.previousElementSibling.dataset.basicCounterValue) {
-      countBasic++
-      counterQuantityBasic.innerText = countBasic
-      counterQuantityBasicOverview.innerText = countBasic
-    }
+  count++
+  counterElement.innerText = count
+  counterElementOverview.innerText = count
+  calcTotalPrice()
+}
 
-    if (e.previousElementSibling.dataset.seniorCounterValue) {
-      countSenior++
-      counterQuantitySenior.innerText = countSenior
-      counterQuantitySeniorOverview.innerText = countSenior
-    }
-    // localStorage.setItem(key, count)
-    // calcTotalPrice()
+const decreaseCounter = (counterElement, counterElementOverview) => () => {
+  let count = Number(counterElement.innerText)
+
+  if (count) {
+    count--
+    counterElement.innerText = count
+    counterElementOverview.innerText = count
+    calcTotalPrice()
   }
+}
 
-  const decreaseCounter = () => {
-    let countBasic = counterQuantityBasic.innerText
-    let countSenior = counterQuantitySenior.innerText
+counterWrapper.forEach((element) => {
+  const elementAttribute = element.getAttribute('data-counter-type')
+  const [ticketType, counterAction] = elementAttribute.split('-')
 
-    if (countBasic >= 1) {
-      if (e.nextElementSibling.dataset.basicCounterValue) {
-        countBasic--
-        counterQuantityBasic.innerText = countBasic
-        counterQuantityBasicOverview.innerText = countBasic
-      }
-      // localStorage.setItem(key, count)
-      // calcTotalPrice()
+  if (ticketType === 'basic') {
+    if (counterAction === 'increase') {
+      element.addEventListener('click', increaseCounter(counterQuantityBasic, counterQuantityBasicOverview))
     }
-
-    if (countSenior >= 1) {
-      if (e.nextElementSibling.dataset.seniorCounterValue) {
-        countSenior--
-        counterQuantitySenior.innerText = countSenior
-        counterQuantitySeniorOverview.innerText = countSenior
-      }
+    if (counterAction === 'decrease') {
+      element.addEventListener('click', decreaseCounter(counterQuantityBasic, counterQuantityBasicOverview))
     }
   }
 
-  console.log(e.dataset)
+  if (ticketType === 'senior') {
+    if (counterAction === 'increase') {
+      element.addEventListener('click', increaseCounter(counterQuantitySenior, counterQuantitySeniorOverview))
+    }
 
-  // console.log((e.dataset.basicCounterValue = counterQuantityBasic.innerText))
-
-  if (e.dataset.basicCounterButton === 'decrease') {
-    e.addEventListener('click', decreaseCounter)
-  }
-
-  if (e.dataset.basicCounterButton === 'increase') {
-    e.addEventListener('click', increaseCounter)
-  }
-
-  if (e.dataset.seniorCounterButton === 'decrease') {
-    e.addEventListener('click', decreaseCounter)
-  }
-
-  if (e.dataset.seniorCounterButton === 'increase') {
-    e.addEventListener('click', increaseCounter)
+    if (counterAction === 'decrease') {
+      element.addEventListener('click', decreaseCounter(counterQuantitySenior, counterQuantitySeniorOverview))
+    }
   }
 })
 
-console.log(wrapper)
+const calcTotalPrice = () => {
+  const firstTicketCost = 20
+  const secondTicketCost = 10
 
-// function counterFunc(buttonDecrease, buttonIncrease, counterValue, key) {
-//   const increaseCounter = () => {
-//     let count = counterValue.innerText
-//     count++
-//     counterValue.innerText = count
-//     localStorage.setItem(key, count)
-//     calcTotalPrice()
-//   }
+  basicTicketsQuantity.innerText = counterQuantityBasic.innerText
+  seniorTicketsQuantity.innerText = counterQuantitySenior.innerText
 
-//   const decreaseCounter = () => {
-//     let count = counterValue.innerText
+  const totalPriceCalculations = basicTicketsQuantity.innerText * firstTicketCost + seniorTicketsQuantity.innerText * secondTicketCost
 
-//     if (count >= 1) {
-//       count--
-//       counterValue.innerText = count
-//       localStorage.setItem(key, count)
-//       calcTotalPrice()
-//     }
-//   }
+  basicTicketsTotalPrice.innerText = basicTicketsQuantity.innerText * firstTicketCost
+  seniorTicketsTotalPrice.innerText = seniorTicketsQuantity.innerText * secondTicketCost
 
-//   buttonIncrease.addEventListener('click', increaseCounter)
-//   buttonDecrease.addEventListener('click', decreaseCounter)
-// }
+  ticketsTotalPrice.innerText = Number(totalPriceCalculations)
+  ticketsTotalPriceOverview.innerText = Number(ticketsTotalPrice.innerText)
+}
 
-// const calcTotalPrice = () => {
-//   const firstTicketCost = 20
-//   const secondTicketCost = 10
+ticketInputsOverview.forEach((e) => {
+  e.addEventListener('keyup', () => {
+    orderTypeTime.innerText = bookingTicketTime.value
+    orderTypeDate.innerText = bookingTicketDate.value
+  })
+})
 
-//   basicTicketsQuantity.innerText = localStorage.getItem('First')
-//   seniorTicketsQuantity.innerText = localStorage.getItem('Second')
-
-//   const calc = basicTicketsQuantity.innerText * firstTicketCost + seniorTicketsQuantity.innerText * secondTicketCost
-
-//   basicTicketsTotalPrice.innerText = basicTicketsQuantity.innerText * firstTicketCost
-//   seniorTicketsTotalPrice.innerText = seniorTicketsQuantity.innerText * secondTicketCost
-
-//   ticketsTotalPrice.innerText = calc + ''
-//   ticketsTotalPriceModal.innerText = ticketsTotalPrice.innerText
-// }
-
-// counterFunc(buttonDecreaseCounterBasic, buttonIncreaseCounterBasic, counterQuantityBasic, 'First')
-// counterFunc(buttonDecreaseCounterSenior, buttonIncreaseCounterSenior, counterQuantitySenior, 'Second')
-// counterFunc(buttonDecreaseCounterBasicOverview, buttonIncreaseCounterBasicOverview, counterQuantityBasicOverview, 'First')
-// counterFunc(buttonDecreaseCounterSeniorOverview, buttonIncreaseCounterSeniorOverview, counterQuantitySeniorOverview, 'Second')
-
-// buttonOpenBookingModal.addEventListener('click', () => {
-//   counterQuantityBasicOverview.innerText = localStorage.getItem('First')
-//   counterQuantitySeniorOverview.innerText = localStorage.getItem('Second')
-// })
-
-// closeButtonModal.addEventListener('click', () => {
-//   counterQuantityBasic.innerText = localStorage.getItem('First')
-//   counterQuantitySenior.innerText = localStorage.getItem('Second')
-// })
-
-// ticketInputs.forEach((e) => {
-//   e.addEventListener('keyup', () => {
-//     orderTime.innerText = ticketTime.value
-//     orderDate.innerText = ticketDate.value
-//   })
-// })
-
-// ticketType.addEventListener('click', () => {
-//   orderTicket.innerText = ticketType.options[ticketType.selectedIndex].text
-// })
-
-// buttonSubmitOrder.addEventListener('click', () => {
-//   localStorage.setItem('First', 0)
-//   localStorage.setItem('Second', 0)
-// })
-
-// function counterFunc(buttonDecrease, buttonIncrease, counterValue, key) {
-//   const increaseCounter = () => {
-//     let count = counterValue.innerText
-//     count++
-//     counterValue.innerText = count
-//     localStorage.setItem(key, count)
-//     calcTotalPrice()
-//   }
-
-//   const decreaseCounter = () => {
-//     let count = counterValue.innerText
-
-//     if (count >= 1) {
-//       count--
-//       counterValue.innerText = count
-//       localStorage.setItem(key, count)
-//       calcTotalPrice()
-//     }
-//   }
-
-//   buttonIncrease.addEventListener('click', increaseCounter)
-//   buttonDecrease.addEventListener('click', decreaseCounter)
-// }
+bookingTicketType.addEventListener('click', () => {
+  orderTypeTicket.innerText = bookingTicketType.options[bookingTicketType.selectedIndex].text
+})
