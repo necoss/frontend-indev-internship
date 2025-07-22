@@ -13,6 +13,9 @@ const counterQuantitySeniorOverview = document.getElementById('overview_value_2'
 const basicTicketsQuantity = document.getElementById('tickets_qty_1')
 const seniorTicketsQuantity = document.getElementById('tickets_qty_2')
 
+const basicTicketPrice = 20
+const seniorTicketPrice = 10
+
 // OVERVIEW MODAL
 const basicTicketsTotalPrice = document.getElementById('first_tickets_total')
 const seniorTicketsTotalPrice = document.getElementById('second_tickets_total')
@@ -20,7 +23,7 @@ const ticketsTotalPrice = document.getElementById('tickets_total_value')
 const ticketsTotalPriceOverview = document.getElementById('tickets_total')
 
 // ORDER DETAILS
-const ticketInputsOverview = document.querySelectorAll('.update_data')
+const ticketOverviewInputs = document.querySelectorAll('.update_data')
 const bookingTicketDate = document.getElementById('type_date')
 const bookingTicketTime = document.getElementById('type_time')
 const bookingTicketType = document.getElementById('type_select')
@@ -42,7 +45,7 @@ const increaseCounter = (counterElement, counterElementOverview) => () => {
   count++
   counterElement.innerText = count
   counterElementOverview.innerText = count
-  calcTotalPrice(20, 10, basicTicketsQuantity, seniorTicketsQuantity)
+  calcTotalPrice(basicTicketPrice, seniorTicketPrice, basicTicketsQuantity, seniorTicketsQuantity)
 }
 
 const decreaseCounter = (counterElement, counterElementOverview) => () => {
@@ -52,7 +55,7 @@ const decreaseCounter = (counterElement, counterElementOverview) => () => {
     count--
     counterElement.innerText = count
     counterElementOverview.innerText = count
-    calcTotalPrice(20, 10, basicTicketsQuantity, seniorTicketsQuantity)
+    calcTotalPrice(basicTicketPrice, seniorTicketPrice, basicTicketsQuantity, seniorTicketsQuantity)
   }
 }
 
@@ -80,29 +83,31 @@ counterWrapperElements.forEach((element) => {
   }
 })
 
-const calcTotalPrice = (basicTicketCost, seniorTicketCost, basicOverallQuantity, seniorOverallQuantity) => {
-  basicOverallQuantity.innerText = counterQuantityBasic.innerText
-  seniorOverallQuantity.innerText = counterQuantitySenior.innerText
+const calcTotalPrice = (basicTicketCost, seniorTicketCost, basicOverallQuantityElement, seniorOverallQuantityElement) => {
+  basicOverallQuantityElement.innerText = counterQuantityBasic.innerText
+  seniorOverallQuantityElement.innerText = counterQuantitySenior.innerText
 
-  const basicPriceOverall = +basicOverallQuantity.innerText
-  const seniorPriceOverall = +seniorOverallQuantity.innerText
+  const basicPriceOverall = +basicOverallQuantityElement.innerText
+  const seniorPriceOverall = +seniorOverallQuantityElement.innerText
 
-  const totalPriceCalculations = basicPriceOverall * basicTicketCost + seniorPriceOverall * seniorTicketCost
+  const totalPrice = basicPriceOverall * basicTicketCost + seniorPriceOverall * seniorTicketCost
 
-  basicTicketsTotalPrice.innerText = basicOverallQuantity.innerText * basicTicketCost
-  seniorTicketsTotalPrice.innerText = seniorOverallQuantity.innerText * seniorTicketCost
+  basicTicketsTotalPrice.innerText = basicPriceOverall * basicTicketCost
+  seniorTicketsTotalPrice.innerText = seniorPriceOverall * seniorTicketCost
 
-  ticketsTotalPrice.innerText = Number(totalPriceCalculations)
-  ticketsTotalPriceOverview.innerText = Number(ticketsTotalPrice.innerText)
+  ticketsTotalPrice.innerText = totalPrice
+  ticketsTotalPriceOverview.innerText = totalPrice
 }
 
-ticketInputsOverview.forEach((e) => {
-  e.addEventListener('keyup', () => {
-    orderTypeTime.innerText = bookingTicketTime.value
-    orderTypeDate.innerText = bookingTicketDate.value
-  })
+bookingTicketDate.addEventListener('keyup', (event) => {
+  orderTypeDate.innerText = event.target.value
 })
 
-bookingTicketType.addEventListener('click', () => {
-  orderTypeTicket.innerText = bookingTicketType.options[bookingTicketType.selectedIndex].text
+bookingTicketTime.addEventListener('keyup', (event) => {
+  orderTypeTime.innerText = event.target.value
+})
+
+bookingTicketType.addEventListener('click', (event) => {
+  const elementEvent = event.currentTarget
+  orderTypeTicket.innerText = elementEvent.options[elementEvent.selectedIndex].text
 })
