@@ -2237,6 +2237,16 @@ main .contacts .contacts_place_name {
 main .contacts .contacts_info {
   color: var(--color-font-black);
   font-weight: 300;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 @media only screen and (min-width: 768px) {
   main .contacts .contacts_info {
