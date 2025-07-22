@@ -499,6 +499,16 @@ header .hero-section .embla .embla__viewport {
     left: 200px;
   }
 }
+@media only screen and (min-width: 1600px) {
+  header .hero-section .embla .embla__viewport {
+    left: 300px;
+  }
+}
+@media only screen and (min-width: 1920px) {
+  header .hero-section .embla .embla__viewport {
+    left: 200px;
+  }
+}
 header .hero-section .embla .embla__viewport .embla__container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -774,6 +784,41 @@ main .virtual-tour .virtual_tour__places {
     gap: 108px;
   }
 }
+@media only screen and (min-width: 1600px) {
+  main .virtual-tour .virtual_tour__places {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 60px 1fr 60px 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    -ms-grid-rows: 1fr 60px 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    gap: 60px;
+  }
+  main .virtual-tour .virtual_tour__places > *:nth-child(1) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+  }
+  main .virtual-tour .virtual_tour__places > *:nth-child(2) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+  }
+  main .virtual-tour .virtual_tour__places > *:nth-child(3) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 5;
+  }
+  main .virtual-tour .virtual_tour__places > *:nth-child(4) {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+  }
+  main .virtual-tour .virtual_tour__places > *:nth-child(5) {
+    -ms-grid-row: 3;
+    -ms-grid-column: 3;
+  }
+  main .virtual-tour .virtual_tour__places > *:nth-child(6) {
+    -ms-grid-row: 3;
+    -ms-grid-column: 5;
+  }
+}
 @media only screen and (min-width: 1920px) {
   main .virtual-tour .virtual_tour__places {
     gap: 52px;
@@ -790,6 +835,11 @@ main .virtual-tour .virtual_tour__places .virtual-tour__item {
 @media only screen and (min-width: 1024px) {
   main .virtual-tour .virtual_tour__places .virtual-tour__item {
     max-width: 330px;
+  }
+}
+@media only screen and (min-width: 1600px) {
+  main .virtual-tour .virtual_tour__places .virtual-tour__item {
+    margin: 0 auto;
   }
 }
 @media only screen and (min-width: 1920px) {
@@ -1546,6 +1596,13 @@ main .tickets_modal {
     display: flex;
   }
 }
+@media only screen and (min-width: 1600px) {
+  main .tickets_modal .ticket_wrapper_gen {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
 @media only screen and (min-width: 1920px) {
   main .tickets_modal .ticket_wrapper_gen {
     -webkit-box-pack: center;
@@ -2126,6 +2183,7 @@ main .tickets_modal .tickets_modal__close_modal svg {
 }
 main .tickets_modal_open {
   display: block;
+  z-index: 1000 !important;
 }
 main .contacts {
   padding-bottom: 40px;
@@ -2179,6 +2237,16 @@ main .contacts .contacts_place_name {
 main .contacts .contacts_info {
   color: var(--color-font-black);
   font-weight: 300;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 @media only screen and (min-width: 768px) {
   main .contacts .contacts_info {

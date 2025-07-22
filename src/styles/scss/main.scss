@@ -454,8 +454,12 @@ header {
           left: 200px;
         }
 
+        @media only screen and (min-width: 1600px) {
+          left: 300px;
+        }
+
         @media only screen and (min-width: 1920px) {
-          // left: 360px;
+          left: 200px;
         }
 
         .embla__container {
@@ -645,67 +649,11 @@ header {
         }
       }
     }
-
-    // .hero_slider {
-    //   padding-top: 50px;
-    //   padding-bottom: 20px;
-
-    //   .hero_slider__image {
-    //     margin: 0 auto;
-    //     width: 100%;
-    //     aspect-ratio: 4 / 3;
-    //     max-width: 1000px;
-
-    //     @media only screen and (min-width: 1024px) {
-    //       mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, #000 20%);
-    //       width: 700px;
-    //       position: absolute;
-    //       right: 0;
-    //       top: 0;
-    //       object-fit: cover;
-    //     }
-
-    //     @media only screen and (min-width: 1920px) {
-    //       width: 1000px;
-    //     }
-    //   }
-
-    //   .hero_slider__controls {
-    //     @include flex-center-center();
-    //     padding-top: 20px;
-
-    //     @media only screen and (min-width: 1024px) {
-    //       position: absolute;
-    //       right: 24%;
-    //       bottom: 20px;
-    //     }
-
-    //     @media only screen and (min-width: 1920px) {
-    //       background-color: var(--color-bg-dark);
-    //       padding: 40px 110px;
-    //       width: 600px;
-    //       right: 0;
-    //       bottom: 0;
-    //     }
-
-    //     .hero_slider__controls__slide_num p {
-    //       color: var(--color-font-white);
-    //       font-weight: 400;
-    //       line-height: 40px;
-    //     }
-
-    //     .hero_slider__controls__pagination {
-    //       margin-left: 25px;
-    //       margin-right: 25px;
-    //     }
-    //   }
-    // }
   }
 }
 
 main {
   .virtual-tour {
-    // display: none;
     padding-top: 40px;
     flex-wrap: wrap;
 
@@ -716,6 +664,13 @@ main {
 
       @media only screen and (min-width: 1024px) {
         gap: 108px;
+      }
+
+      @media only screen and (min-width: 1600px) {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 60px;
       }
 
       @media only screen and (min-width: 1920px) {
@@ -731,6 +686,10 @@ main {
 
         @media only screen and (min-width: 1024px) {
           max-width: 330px;
+        }
+
+        @media only screen and (min-width: 1600px) {
+          margin: 0 auto;
         }
 
         @media only screen and (min-width: 1920px) {
@@ -1415,6 +1374,10 @@ main {
         display: flex;
       }
 
+      @media only screen and (min-width: 1600px) {
+        justify-content: center;
+      }
+
       @media only screen and (min-width: 1920px) {
         justify-content: center;
       }
@@ -1957,6 +1920,7 @@ main {
 
   .tickets_modal_open {
     display: block;
+    z-index: 1000 !important;
   }
 
   .contacts {
@@ -2004,6 +1968,9 @@ main {
     .contacts_info {
       color: var(--color-font-black);
       font-weight: 300;
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: column;
 
       @media only screen and (min-width: 768px) {
         font-size: 18px;
