@@ -6,16 +6,16 @@
   user-select: none;
 }
 
-div {
-  width: 100vw;
-  height: 40vh;
+body {
+  position: relative;
 
   ul {
-    width: 100%;
-    min-height: 50%;
-    height: 100%;
-
+    position: relative;
+    top: 100px;
+    width: 100vw;
+    height: 40vh;
     margin-bottom: 230px;
+    z-index: 5;
 
     li {
       width: 100%;
@@ -24,17 +24,22 @@ div {
       font-size: 16px;
     }
   }
-}
 
-#controls {
-  height: 10vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
+  #controls {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70vw;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 
-  button {
-    max-width: 40vw;
-    cursor: pointer;
+    button {
+      max-width: 40vw;
+      cursor: pointer;
+    }
   }
 }
