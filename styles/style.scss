@@ -8,6 +8,8 @@
 
 body {
   position: relative;
+  width: 100vw;
+  height: 100vh;
 
   ul {
     position: relative;
@@ -41,5 +43,24 @@ body {
       max-width: 40vw;
       cursor: pointer;
     }
+  }
+
+  form {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 5;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+
+    background-color: #00000090;
+    width: 100vw;
+    height: 10vh;
+
+    font-size: 20px;
+    color: white;
   }
 }
