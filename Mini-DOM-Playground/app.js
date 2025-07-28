@@ -1,61 +1,57 @@
-document.addEventListener('DOMContentLoaded', () => {
+window.document.addEventListener('DOMContentLoaded', () => {
   const bodyElements = window.document.getElementsByTagName('body')
   const body = bodyElements[0]
 
-  const ul = window.document.createElement('ul')
-  window.list = ul
-
-  const li = window.document.createElement('li')
+  const list = window.document.createElement('ul')
+  // window.list = ul
 
   const radioButtonOn = window.document.createElement('input')
   const radioButtonOff = window.document.createElement('input')
 
   setupPage()
+  createStylesForPage()
   getUserVisitsCount()
-  addMetaTag()
-  generateDivControls()
+  createAndAddMiniDomMetaTag()
+  createDivControls()
 
   initRedirect()
-  generateRadioButtons()
+  createRadioGroup()
 
   function setupPage() {
-    let createElementsCount = 0
-    let currentEventClicks = 0
-
-    body.append(list)
-    list.className = 'list'
+    let elementsCountForCreate = 0
+    let currentClickEventsCount = 0
 
     list.addEventListener('click', (event) => {
-      changeBackgroungColor(event.target)
-
+      const eventTargetStyle = event.target.style
       const computedStyle = window.getComputedStyle(event.target).fontSize
-      const newFont = parseInt(computedStyle, 10)
+      const currentFontSize = window.Number.parseInt(computedStyle, 10)
 
-      const increaseBy = 4
-      const decreaseBy = 6
+      changeBackgroundColor(event.target)
 
-      if (currentEventClicks % 2 === 0) {
-        event.target.style.fontSize = newFont - decreaseBy + 'px'
+      if (currentClickEventsCount % 2 === 0) {
+        eventTargetStyle.fontSize = currentFontSize - 6 + 'px'
       } else {
-        event.target.style.fontSize = newFont + increaseBy + 'px'
+        eventTargetStyle.fontSize = currentFontSize + 4 + 'px'
       }
 
-      currentEventClicks++
+      currentClickEventsCount++
     })
 
-    while (createElementsCount < 5) {
-      const fillingElement = document.createElement('li')
+    while (elementsCountForCreate < 5) {
+      const li = document.createElement('li')
 
-      fillingElement.style.fontSize = '16px'
-      list.appendChild(fillingElement)
-      fillingElement.textContent = `This is element #${createElementsCount + 1}`
+      li.style.fontSize = '16px'
+      list.append(li)
+      li.textContent = `This is element #${elementsCountForCreate + 1}`
 
-      changeBackgroungColor(fillingElement)
-      createElementsCount++
+      changeBackgroundColor(li)
+      elementsCountForCreate++
     }
+
+    body.append(list)
   }
 
-  function generateDivControls() {
+  function createDivControls() {
     const divControls = document.createElement('div')
     const buttonAdd = document.createElement('button')
     const buttonDelete = document.createElement('button')
@@ -64,7 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const buttonPushState = document.createElement('button')
     const buttonUserAgent = document.createElement('button')
 
-    body.append(divControls)
     divControls.id = 'controls'
 
     buttonAdd.textContent = 'Добавить'
@@ -85,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
     buttonUserAgent.textContent = 'Юзер Агент'
     buttonUserAgent.addEventListener('click', getUserAgent)
 
+    body.append(divControls)
     divControls.append(buttonAdd)
     divControls.append(buttonDelete)
     divControls.append(buttonShuffle)
@@ -93,57 +89,89 @@ document.addEventListener('DOMContentLoaded', () => {
     divControls.append(buttonUserAgent)
   }
 
-  function generateRadioButtons() {
+  function createRadioGroup() {
     const formRadioButtons = document.createElement('form')
-
-    const labelRadionButtonOn = document.createElement('label')
-
-    const labelRadionButtonOff = document.createElement('label')
+    const labelRedirectOn = document.createElement('label')
+    const labelRedirectOff = document.createElement('label')
 
     radioButtonOn.type = 'radio'
-    radioButtonOn.name = 'radionButton'
-    labelRadionButtonOn.htmlFor = 'buttonOn'
-    labelRadionButtonOn.textContent = 'ON'
+    radioButtonOn.name = 'radioButton'
+    radioButtonOn.id = 'buttonOn'
+    labelRedirectOn.htmlFor = 'buttonOn'
+    labelRedirectOn.textContent = 'ON'
 
     radioButtonOff.type = 'radio'
-    radioButtonOff.name = 'radionButton'
-    labelRadionButtonOff.htmlFor = 'buttonOff'
-    labelRadionButtonOff.textContent = 'OFF'
+    radioButtonOff.name = 'radioButton'
+    radioButtonOff.id = 'buttonOff'
+    labelRedirectOff.htmlFor = 'buttonOff'
+    labelRedirectOff.textContent = 'OFF'
 
     body.append(formRadioButtons)
 
     formRadioButtons.append(radioButtonOn)
-    formRadioButtons.append(labelRadionButtonOn)
+    formRadioButtons.append(labelRedirectOn)
 
     formRadioButtons.append(radioButtonOff)
-    formRadioButtons.append(labelRadionButtonOff)
+    formRadioButtons.append(labelRedirectOff)
+  }
+
+  function createStylesForPage() {
+    const allElements = document.querySelectorAll('*')
+    const liList = list.getElementsByTagName('li')
+
+    allElements.forEach((element) => {
+      element.style.padding = 0
+      element.style.margin = 0
+      element.style.boxSizing = 'border-box'
+      element.style.userSelect = 'none'
+    })
+
+    body.style.position = 'relative'
+    body.style.width = '100vw'
+    body.style.height = '100vh'
+
+    list.style.position = 'relative'
+    list.style.top = '100px'
+    list.style.width = '100vw'
+    list.style.height = '40vh'
+    list.style.marginBottom = '230px'
+    list.style.zIndex = 5
+
+    const li = [...liList].forEach((element) => {
+      element.style.top = '100%'
+      element.style.width = '30%'
+      element.style.alignContent = 'center'
+      element.style.fontSize = '16px'
+    })
   }
 
   function initRedirect() {
     const localStorageValue = JSON.parse(localStorage.getItem('redirect'))
+    const head = document.getElementsByTagName('head')[0]
 
     if (localStorageValue === 'on') {
       const meta = document.createElement('meta')
       meta.content = '10;url=https://example.com'
       meta.id = 'metaRefresh'
       meta.httpEquiv = 'refresh'
-      document.getElementsByTagName('head')[0].append(meta)
+      head.append(meta)
       localStorage.setItem('redirect', JSON.stringify('auto'))
     }
 
     if (localStorageValue === 'auto') {
-      encforceRedirectIfLong()
+      setupMetaRedirect()
     }
 
     radioButtonOn.addEventListener('click', () => {
+      const metaTag = document.getElementById('metaRefresh')
       localStorage.setItem('redirect', JSON.stringify('on'))
 
-      if (document.querySelectorAll('meta[id="metaRefresh"]').length <= 0) {
+      if (metaTag.length <= 0) {
         const meta = document.createElement('meta')
         meta.content = '10;url=https://example.com'
         meta.id = 'metaRefresh'
         meta.httpEquiv = 'refresh'
-        document.getElementsByTagName('head')[0].append(meta)
+        head.append(meta)
       }
     })
 
@@ -154,8 +182,9 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
 
-  function encforceRedirectIfLong() {
-    const metaTag = document.querySelector('meta[id="metaRefresh"]')
+  function setupMetaRedirect() {
+    const metaTag = document.getElementById('metaRefresh')
+    const head = document.getElementsByTagName('head')[0]
     const localStorageValue = JSON.parse(localStorage.getItem('redirect'))
 
     if (list.childElementCount >= 13 && metaTag === null) {
@@ -163,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
       meta.content = '10;url=https://example.com'
       meta.id = 'metaRefresh'
       meta.httpEquiv = 'refresh'
-      document.getElementsByTagName('head')[0].append(meta)
+      head.append(meta)
       localStorage.setItem('redirect', JSON.stringify('auto'))
     }
 
@@ -174,8 +203,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function getUserVisitsCount() {
-    const parsedCount = localStorage.getItem('visitCount')
-    let count = Number(JSON.parse(parsedCount)) || 0
+    const parsedCount = JSON.parse(localStorage.getItem('visitCount'))
+    let count = Number(parsedCount) || 0
+
     window.localStorage.setItem('visitCount', JSON.stringify(count + 1))
     // alert(`You visited this webpage ${count + 1} times`)
   }
@@ -183,27 +213,31 @@ document.addEventListener('DOMContentLoaded', () => {
   function addElementToList() {
     const newLi = document.createElement('li')
     newLi.textContent = `This is element #${list.getElementsByTagName('li').length + 1}`
-    changeBackgroungColor(newLi)
+
+    changeBackgroundColor(newLi)
     list.append(newLi)
 
-    encforceRedirectIfLong()
+    setupMetaRedirect()
   }
 
   function deleteElementFromList() {
-    if (list.getElementsByTagName('li').length >= 1) {
+    const li = list.getElementsByTagName('li')
+    if (li.length >= 1) {
       list.lastChild.remove()
-      encforceRedirectIfLong()
+      setupMetaRedirect()
     }
   }
 
   function shuffleList() {
     const array = list.getElementsByTagName('li')
+    let arrayItemsCount = array.length
 
-    for (let i = array.length; i >= 0; i--) {
-      list.appendChild(list.children[(Math.random() * i) | 0])
+    while (arrayItemsCount >= 0) {
+      list.append(list.children[(Math.random() * arrayItemsCount) | 0])
+      arrayItemsCount--
     }
 
-    encforceRedirectIfLong()
+    setupMetaRedirect()
   }
 
   function showCollection() {
@@ -215,8 +249,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function pushState() {
     const randomParameter = (Math.random() + 1).toString(36).substring(7)
-    history.pushState({}, '', `?page=<${randomParameter}>`)
     const currentUrl = window.location.href
+    history.pushState({}, '', `?page=<${randomParameter}>`)
     alert(`Your location: ${currentUrl}`)
   }
 
@@ -224,19 +258,20 @@ document.addEventListener('DOMContentLoaded', () => {
     alert(navigator.userAgent)
   }
 
-  function addMetaTag() {
+  function createAndAddMiniDomMetaTag() {
+    const head = document.getElementsByTagName('head')[0]
     const meta = document.createElement('meta')
     meta.name = 'description'
     meta.content = 'Mini-DOM-Playground training app'
-    document.getElementsByTagName('head')[0].appendChild(meta)
+    head.append(meta)
   }
 
-  function changeBackgroungColor(element) {
+  function changeBackgroundColor(element) {
     const randomBetween = (min, max) => min + Math.floor(Math.random() * (max - min + 1))
     const R = randomBetween(0, 255)
     const G = randomBetween(0, 255)
     const B = randomBetween(0, 255)
-    const elementBackgrounColor = `rgb(${R},${G},${B})`
-    element.style.backgroundColor = elementBackgrounColor
+    const elementBackgroundColor = `rgb(${R},${G},${B})`
+    element.style.backgroundColor = elementBackgroundColor
   }
 })
