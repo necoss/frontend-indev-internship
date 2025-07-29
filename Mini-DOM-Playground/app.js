@@ -1,21 +1,20 @@
 window.document.addEventListener('DOMContentLoaded', () => {
-  const bodyElements = window.document.getElementsByTagName('body')
-  const body = bodyElements[0]
+  const body = document.body
+
+  // https://www.youtube.com/watch?v=azqfPlliWqU&ab_channel=OlegKoschuev
 
   const list = window.document.createElement('ul')
-  // window.list = ul
-
-  const radioButtonOn = window.document.createElement('input')
-  const radioButtonOff = window.document.createElement('input')
+  window.list = list
 
   setupPage()
+  createDivControls()
+  createRadioGroup()
+
   createStylesForPage()
+
   getUserVisitsCount()
   createAndAddMiniDomMetaTag()
-  createDivControls()
-
   initRedirect()
-  createRadioGroup()
 
   function setupPage() {
     let elementsCountForCreate = 0
@@ -38,9 +37,9 @@ window.document.addEventListener('DOMContentLoaded', () => {
     })
 
     while (elementsCountForCreate < 5) {
-      const li = document.createElement('li')
-
+      const li = window.document.createElement('li')
       li.style.fontSize = '16px'
+
       list.append(li)
       li.textContent = `This is element #${elementsCountForCreate + 1}`
 
@@ -52,13 +51,13 @@ window.document.addEventListener('DOMContentLoaded', () => {
   }
 
   function createDivControls() {
-    const divControls = document.createElement('div')
-    const buttonAdd = document.createElement('button')
-    const buttonDelete = document.createElement('button')
-    const buttonShuffle = document.createElement('button')
-    const buttonShowList = document.createElement('button')
-    const buttonPushState = document.createElement('button')
-    const buttonUserAgent = document.createElement('button')
+    const divControls = window.document.createElement('div')
+    const buttonAdd = window.document.createElement('button')
+    const buttonDelete = window.document.createElement('button')
+    const buttonShuffle = window.document.createElement('button')
+    const buttonShowList = window.document.createElement('button')
+    const buttonPushState = window.document.createElement('button')
+    const buttonUserAgent = window.document.createElement('button')
 
     divControls.id = 'controls'
 
@@ -90,9 +89,12 @@ window.document.addEventListener('DOMContentLoaded', () => {
   }
 
   function createRadioGroup() {
-    const formRadioButtons = document.createElement('form')
-    const labelRedirectOn = document.createElement('label')
-    const labelRedirectOff = document.createElement('label')
+    const formRadioButtons = window.document.createElement('form')
+    const radioButtonOn = window.document.createElement('input')
+    const radioButtonOff = window.document.createElement('input')
+
+    const labelRedirectOn = window.document.createElement('label')
+    const labelRedirectOff = window.document.createElement('label')
 
     radioButtonOn.type = 'radio'
     radioButtonOn.name = 'radioButton'
@@ -116,8 +118,11 @@ window.document.addEventListener('DOMContentLoaded', () => {
   }
 
   function createStylesForPage() {
-    const allElements = document.querySelectorAll('*')
+    const allElements = window.document.querySelectorAll('*')
     const liList = list.getElementsByTagName('li')
+    const controls = window.document.getElementById('controls')
+    const controlsButtonsList = window.document.getElementsByTagName('button')
+    const form = window.document.querySelector('form')
 
     allElements.forEach((element) => {
       element.style.padding = 0
@@ -138,19 +143,51 @@ window.document.addEventListener('DOMContentLoaded', () => {
     list.style.zIndex = 5
 
     const li = [...liList].forEach((element) => {
-      element.style.top = '100%'
-      element.style.width = '30%'
+      element.style.width = '100%'
+      element.style.height = '30%'
       element.style.alignContent = 'center'
       element.style.fontSize = '16px'
     })
+
+    controls.style.position = 'absolute'
+    controls.style.top = 0
+    controls.style.left = '50%'
+    controls.style.transform = 'translateX(-50%)'
+    controls.style.width = '70vw'
+    controls.style.height = '10vh'
+    controls.style.display = 'flex'
+    controls.style.justifyContent = 'center'
+    controls.style.alignItems = 'center'
+    controls.style.gap = '20px'
+
+    const controlsButtons = [...controlsButtonsList].forEach((element) => {
+      element.style.maxWidth = '40vw'
+      element.style.cursor = 'pointer'
+    })
+
+    form.style.position = 'fixed'
+    form.style.bottom = 0
+    form.style.left = 0
+    form.style.zIndex = 5
+    form.style.display = 'flex'
+    form.style.justifyContent = 'center'
+    form.style.alignItems = 'center'
+    form.style.gap = '30px'
+    form.style.backgroundColor = '#00000090'
+    form.style.width = '100vw'
+    form.style.height = '10vh'
+    form.style.fontSize = '20px'
+    form.style.color = 'white'
   }
 
   function initRedirect() {
     const localStorageValue = JSON.parse(localStorage.getItem('redirect'))
-    const head = document.getElementsByTagName('head')[0]
+    const head = window.document.getElementsByTagName('head')[0]
+    const radioButtonOn = window.document.getElementById('buttonOn')
+    const radioButtonOff = window.document.getElementById('buttonOff')
 
     if (localStorageValue === 'on') {
-      const meta = document.createElement('meta')
+      const meta = window.document.createElement('meta')
       meta.content = '10;url=https://example.com'
       meta.id = 'metaRefresh'
       meta.httpEquiv = 'refresh'
@@ -163,11 +200,11 @@ window.document.addEventListener('DOMContentLoaded', () => {
     }
 
     radioButtonOn.addEventListener('click', () => {
-      const metaTag = document.getElementById('metaRefresh')
+      const metaTag = window.document.getElementById('metaRefresh')
       localStorage.setItem('redirect', JSON.stringify('on'))
 
       if (metaTag.length <= 0) {
-        const meta = document.createElement('meta')
+        const meta = window.document.createElement('meta')
         meta.content = '10;url=https://example.com'
         meta.id = 'metaRefresh'
         meta.httpEquiv = 'refresh'
@@ -178,17 +215,17 @@ window.document.addEventListener('DOMContentLoaded', () => {
     radioButtonOff.addEventListener('click', () => {
       localStorage.setItem('redirect', JSON.stringify('off'))
 
-      document.querySelector('meta[id="metaRefresh"]').remove()
+      window.document.querySelector('meta[id="metaRefresh"]').remove()
     })
   }
 
   function setupMetaRedirect() {
-    const metaTag = document.getElementById('metaRefresh')
-    const head = document.getElementsByTagName('head')[0]
+    const metaTag = window.document.getElementById('metaRefresh')
+    const head = window.document.getElementsByTagName('head')[0]
     const localStorageValue = JSON.parse(localStorage.getItem('redirect'))
 
     if (list.childElementCount >= 13 && metaTag === null) {
-      const meta = document.createElement('meta')
+      const meta = window.document.createElement('meta')
       meta.content = '10;url=https://example.com'
       meta.id = 'metaRefresh'
       meta.httpEquiv = 'refresh'
@@ -211,8 +248,12 @@ window.document.addEventListener('DOMContentLoaded', () => {
   }
 
   function addElementToList() {
-    const newLi = document.createElement('li')
+    const newLi = window.document.createElement('li')
     newLi.textContent = `This is element #${list.getElementsByTagName('li').length + 1}`
+
+    newLi.style.width = '100%'
+    newLi.style.height = '30%'
+    newLi.style.alignContent = 'center'
 
     changeBackgroundColor(newLi)
     list.append(newLi)
@@ -259,8 +300,8 @@ window.document.addEventListener('DOMContentLoaded', () => {
   }
 
   function createAndAddMiniDomMetaTag() {
-    const head = document.getElementsByTagName('head')[0]
-    const meta = document.createElement('meta')
+    const head = window.document.getElementsByTagName('head')[0]
+    const meta = window.document.createElement('meta')
     meta.name = 'description'
     meta.content = 'Mini-DOM-Playground training app'
     head.append(meta)
