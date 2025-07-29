@@ -1,10 +1,7 @@
 window.document.addEventListener('DOMContentLoaded', () => {
-  const body = document.body
-
-  // https://www.youtube.com/watch?v=azqfPlliWqU&ab_channel=OlegKoschuev
+  const body = window.document.body
 
   const list = window.document.createElement('ul')
-  window.list = list
 
   setupPage()
   createDivControls()
@@ -181,27 +178,27 @@ window.document.addEventListener('DOMContentLoaded', () => {
   }
 
   function initRedirect() {
-    const localStorageValue = JSON.parse(localStorage.getItem('redirect'))
-    const head = window.document.getElementsByTagName('head')[0]
+    const redirectValue = window.JSON.parse(window.localStorage.getItem('redirect'))
+    const head = window.document.head
     const radioButtonOn = window.document.getElementById('buttonOn')
     const radioButtonOff = window.document.getElementById('buttonOff')
 
-    if (localStorageValue === 'on') {
+    if (redirectValue === 'on') {
       const meta = window.document.createElement('meta')
       meta.content = '10;url=https://example.com'
       meta.id = 'metaRefresh'
       meta.httpEquiv = 'refresh'
       head.append(meta)
-      localStorage.setItem('redirect', JSON.stringify('auto'))
+      window.localStorage.setItem('redirect', window.JSON.stringify('auto'))
     }
 
-    if (localStorageValue === 'auto') {
+    if (redirectValue === 'auto') {
       setupMetaRedirect()
     }
 
     radioButtonOn.addEventListener('click', () => {
       const metaTag = window.document.getElementById('metaRefresh')
-      localStorage.setItem('redirect', JSON.stringify('on'))
+      window.localStorage.setItem('redirect', window.JSON.stringify('on'))
 
       if (metaTag.length <= 0) {
         const meta = window.document.createElement('meta')
@@ -213,7 +210,7 @@ window.document.addEventListener('DOMContentLoaded', () => {
     })
 
     radioButtonOff.addEventListener('click', () => {
-      localStorage.setItem('redirect', JSON.stringify('off'))
+      window.localStorage.setItem('redirect', window.JSON.stringify('off'))
 
       window.document.querySelector('meta[id="metaRefresh"]').remove()
     })
@@ -221,8 +218,8 @@ window.document.addEventListener('DOMContentLoaded', () => {
 
   function setupMetaRedirect() {
     const metaTag = window.document.getElementById('metaRefresh')
-    const head = window.document.getElementsByTagName('head')[0]
-    const localStorageValue = JSON.parse(localStorage.getItem('redirect'))
+    const head = window.document.head
+    const redirectValue = window.JSON.parse(window.localStorage.getItem('redirect'))
 
     if (list.childElementCount >= 13 && metaTag === null) {
       const meta = window.document.createElement('meta')
@@ -230,21 +227,21 @@ window.document.addEventListener('DOMContentLoaded', () => {
       meta.id = 'metaRefresh'
       meta.httpEquiv = 'refresh'
       head.append(meta)
-      localStorage.setItem('redirect', JSON.stringify('auto'))
+      window.localStorage.setItem('redirect', window.JSON.stringify('auto'))
     }
 
-    if (list.childElementCount < 13 && localStorageValue === 'auto' && metaTag != null) {
+    if (list.childElementCount < 13 && redirectValue === 'auto' && metaTag != null) {
       metaTag.remove()
-      localStorage.setItem('redirect', JSON.stringify('off'))
+      window.localStorage.setItem('redirect', window.JSON.stringify('off'))
     }
   }
 
   function getUserVisitsCount() {
-    const parsedCount = JSON.parse(localStorage.getItem('visitCount'))
-    let count = Number(parsedCount) || 0
+    const parsedCount = window.JSON.parse(window.localStorage.getItem('visitCount'))
+    let count = window.Number(parsedCount) || 0
 
-    window.localStorage.setItem('visitCount', JSON.stringify(count + 1))
-    // alert(`You visited this webpage ${count + 1} times`)
+    window.window.localStorage.setItem('visitCount', window.JSON.stringify(count + 1))
+    // window.alert(`You visited this webpage ${count + 1} times`)
   }
 
   function addElementToList() {
@@ -285,22 +282,22 @@ window.document.addEventListener('DOMContentLoaded', () => {
     const elementsCount = list.childElementCount
     const elementsText = [...list.children].map((element) => element.innerText)
 
-    alert(`There are ${elementsCount} elements: ${elementsText.join(', ')}`)
+    window.alert(`There are ${elementsCount} elements: ${elementsText.join(', ')}`)
   }
 
   function pushState() {
     const randomParameter = (Math.random() + 1).toString(36).substring(7)
     const currentUrl = window.location.href
     history.pushState({}, '', `?page=<${randomParameter}>`)
-    alert(`Your location: ${currentUrl}`)
+    window.alert(`Your location: ${currentUrl}`)
   }
 
   function getUserAgent() {
-    alert(navigator.userAgent)
+    window.alert(window.navigator.userAgent)
   }
 
   function createAndAddMiniDomMetaTag() {
-    const head = window.document.getElementsByTagName('head')[0]
+    const head = window.document.head
     const meta = window.document.createElement('meta')
     meta.name = 'description'
     meta.content = 'Mini-DOM-Playground training app'
