@@ -272,7 +272,7 @@ window.document.addEventListener('DOMContentLoaded', () => {
     const randomElementPosition = window.Math.random() * arrayItemsCount
 
     while (arrayItemsCount >= 0) {
-      list.append(list.children[randomElementPosition | 0])
+      list.append(list.children[randomElementPosition || 0])
       arrayItemsCount--
     }
 
