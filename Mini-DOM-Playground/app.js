@@ -269,9 +269,10 @@ window.document.addEventListener('DOMContentLoaded', () => {
   function shuffleList() {
     const array = list.getElementsByTagName('li')
     let arrayItemsCount = array.length
+    const randomElementPosition = window.Math.random() * arrayItemsCount
 
     while (arrayItemsCount >= 0) {
-      list.append(list.children[(Math.random() * arrayItemsCount) | 0])
+      list.append(list.children[randomElementPosition | 0])
       arrayItemsCount--
     }
 
@@ -286,9 +287,9 @@ window.document.addEventListener('DOMContentLoaded', () => {
   }
 
   function pushState() {
-    const randomParameter = (Math.random() + 1).toString(36).substring(7)
+    const randomParameter = (window.Math.random() + 1).toString(36).substring(7)
     const currentUrl = window.location.href
-    history.pushState({}, '', `?page=<${randomParameter}>`)
+    window.history.pushState({}, '', `?page=<${randomParameter}>`)
     window.alert(`Your location: ${currentUrl}`)
   }
 
@@ -305,7 +306,7 @@ window.document.addEventListener('DOMContentLoaded', () => {
   }
 
   function changeBackgroundColor(element) {
-    const randomBetween = (min, max) => min + Math.floor(Math.random() * (max - min + 1))
+    const randomBetween = (min, max) => min + window.Math.floor(window.Math.random() * (max - min + 1))
     const R = randomBetween(0, 255)
     const G = randomBetween(0, 255)
     const B = randomBetween(0, 255)
