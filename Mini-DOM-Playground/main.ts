@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let elementsCountForCreate: number = 0
     let currentClickEventsCount: number = 0
 
-    list.addEventListener('click', (event) => {
+    list.addEventListener('click', (event: Event) => {
       if (event.target instanceof HTMLElement) {
         const eventTargetStyle: CSSStyleDeclaration = event.target.style
 
