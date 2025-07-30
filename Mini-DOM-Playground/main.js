@@ -4,11 +4,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const list = window.document.createElement('ul');
     setupPage();
     createDivControls();
-    // createRadioGroup()
-    // createStylesForPage()
+    createRadioGroup();
+    createStylesForPage();
     getUserVisitsCount();
-    // createAndAddMiniDomMetaTag()
-    // initRedirect()
+    createAndAddMiniDomMetaTag();
+    initRedirect();
     function setupPage() {
         let elementsCountForCreate = 0;
         let currentClickEventsCount = 0;
@@ -66,6 +66,61 @@ document.addEventListener('DOMContentLoaded', () => {
         divControls.append(buttonPushState);
         divControls.append(buttonUserAgent);
     }
+    function createRadioGroup() {
+        const formRadioButtons = window.document.createElement('form');
+        const radioButtonOn = window.document.createElement('input');
+        const radioButtonOff = window.document.createElement('input');
+        const labelRedirectOn = window.document.createElement('label');
+        const labelRedirectOff = window.document.createElement('label');
+        radioButtonOn.type = 'radio';
+        radioButtonOn.name = 'radioButton';
+        radioButtonOn.id = 'buttonOn';
+        labelRedirectOn.htmlFor = 'buttonOn';
+        labelRedirectOn.textContent = 'ON';
+        radioButtonOff.type = 'radio';
+        radioButtonOff.name = 'radioButton';
+        radioButtonOff.id = 'buttonOff';
+        labelRedirectOff.htmlFor = 'buttonOff';
+        labelRedirectOff.textContent = 'OFF';
+        body.append(formRadioButtons);
+        formRadioButtons.append(radioButtonOn);
+        formRadioButtons.append(labelRedirectOn);
+        formRadioButtons.append(radioButtonOff);
+        formRadioButtons.append(labelRedirectOff);
+    }
+    function initRedirect() {
+        const redirectValue = window.JSON.parse(window.localStorage.getItem('redirect') || '{}');
+        const head = window.document.head;
+        const radioButtonOn = window.document.getElementById('buttonOn');
+        const radioButtonOff = window.document.getElementById('buttonOff');
+        if (redirectValue === 'on') {
+            const meta = window.document.createElement('meta');
+            meta.content = '10;url=https://example.com';
+            meta.id = 'metaRefresh';
+            meta.httpEquiv = 'refresh';
+            head.append(meta);
+            window.localStorage.setItem('redirect', window.JSON.stringify('auto'));
+        }
+        if (redirectValue === 'auto') {
+            setupMetaRedirect();
+        }
+        radioButtonOn === null || radioButtonOn === void 0 ? void 0 : radioButtonOn.addEventListener('click', () => {
+            const metaTag = window.document.getElementById('metaRefresh');
+            window.localStorage.setItem('redirect', window.JSON.stringify('on'));
+            if (!metaTag) {
+                const meta = window.document.createElement('meta');
+                meta.content = '10;url=https://example.com';
+                meta.id = 'metaRefresh';
+                meta.httpEquiv = 'refresh';
+                head.append(meta);
+            }
+        });
+        radioButtonOff === null || radioButtonOff === void 0 ? void 0 : radioButtonOff.addEventListener('click', () => {
+            var _a;
+            window.localStorage.setItem('redirect', window.JSON.stringify('off'));
+            (_a = window.document.querySelector('meta[id="metaRefresh"]')) === null || _a === void 0 ? void 0 : _a.remove();
+        });
+    }
     function setupMetaRedirect() {
         const metaTag = window.document.getElementById('metaRefresh');
         const head = window.document.head;
@@ -108,10 +163,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     function shuffleList() {
-        //!UNDEFINED
         const array = list.getElementsByTagName('li');
         let arrayItemsCount = array.length;
-        const randomElementPosition = window.Math.random() * arrayItemsCount;
+        const randomElementPosition = window.Math.floor(window.Math.random()) * arrayItemsCount;
+        console.log('position', randomElementPosition, 'count: ', arrayItemsCount);
         while (arrayItemsCount >= 0) {
             list.append(list.children[randomElementPosition || 0]);
             arrayItemsCount--;
@@ -146,5 +201,60 @@ document.addEventListener('DOMContentLoaded', () => {
         const B = randomBetween(0, 255);
         const elementBackgroundColor = `rgb(${R},${G},${B})`;
         element.style.backgroundColor = elementBackgroundColor;
+    }
+    function createStylesForPage() {
+        const allElements = window.document.querySelectorAll('*');
+        const liList = list.getElementsByTagName('li');
+        const controls = window.document.getElementById('controls');
+        const controlsButtonsList = window.document.getElementsByTagName('button');
+        const form = window.document.querySelector('form');
+        allElements.forEach((element) => {
+            element.style.padding = '0';
+            element.style.margin = '0';
+            element.style.boxSizing = 'border-box';
+            element.style.userSelect = 'none';
+        });
+        body.style.position = 'relative';
+        body.style.width = '100vw';
+        body.style.height = '100vh';
+        list.style.position = 'relative';
+        list.style.top = '100px';
+        list.style.width = '100vw';
+        list.style.height = '40vh';
+        list.style.marginBottom = '230px';
+        list.style.zIndex = '5';
+        const li = [...liList].forEach((element) => {
+            element.style.width = '100%';
+            element.style.height = '30%';
+            element.style.alignContent = 'center';
+            element.style.fontSize = '16px';
+        });
+        controls.style.position = 'absolute';
+        controls.style.top = '0';
+        controls.style.left = '50%';
+        controls.style.transform = 'translateX(-50%)';
+        controls.style.width = '70vw';
+        controls.style.height = '10vh';
+        controls.style.display = 'flex';
+        controls.style.justifyContent = 'center';
+        controls.style.alignItems = 'center';
+        controls.style.gap = '20px';
+        const controlsButtons = [...controlsButtonsList].forEach((element) => {
+            element.style.maxWidth = '40vw';
+            element.style.cursor = 'pointer';
+        });
+        form.style.position = 'fixed';
+        form.style.bottom = '0';
+        form.style.left = '0';
+        form.style.zIndex = '5';
+        form.style.display = 'flex';
+        form.style.justifyContent = 'center';
+        form.style.alignItems = 'center';
+        form.style.gap = '30px';
+        form.style.backgroundColor = '#00000090';
+        form.style.width = '100vw';
+        form.style.height = '10vh';
+        form.style.fontSize = '20px';
+        form.style.color = 'white';
     }
 });
