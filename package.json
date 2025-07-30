@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "start": "concurrently \"tsc -w\" \"lite-server\""
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "concurrently": "^9.2.0",
+    "liteserver": "^0.3.0"
+  }
+}
