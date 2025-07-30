@@ -222,7 +222,7 @@ window.document.addEventListener('DOMContentLoaded', () => {
 
   function showCollection() {
     const elementsCount: number = list.childElementCount
-    const elementsText: string[] = [...list.children].map((element) => (<HTMLLIElement>element).innerText)
+    const elementsText: string[] = [...list.children].map((element) => (element as HTMLLIElement).innerText)
 
     window.alert(`There are ${elementsCount} elements: ${elementsText.join(', ')}`)
   }
