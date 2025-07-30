@@ -1,5 +1,5 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const body: HTMLElement = window.document.body
+window.document.addEventListener('DOMContentLoaded', () => {
+  const body = window.document.body as HTMLBodyElement
   const list: HTMLUListElement = window.document.createElement('ul')
 
   setupPage()
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let elementsCountForCreate: number = 0
     let currentClickEventsCount: number = 0
 
-    list.addEventListener('click', (event: Event) => {
+    list.addEventListener('click', (event: MouseEvent) => {
       if (event.target instanceof HTMLElement) {
         const eventTargetStyle: CSSStyleDeclaration = event.target.style
 
@@ -117,10 +117,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function initRedirect() {
-    const redirectValue: any = window.JSON.parse(window.localStorage.getItem('redirect') || '{}')
+    const redirectValue: string = window.JSON.parse(window.localStorage.getItem('redirect') || '""')
     const head: HTMLHeadElement = window.document.head
-    const radioButtonOn: HTMLElement | null = window.document.getElementById('buttonOn')
-    const radioButtonOff: HTMLElement | null = window.document.getElementById('buttonOff')
+    const radioButtonOn = window.document.getElementById('buttonOn') as HTMLInputElement | null
+    const radioButtonOff = window.document.getElementById('buttonOff') as HTMLInputElement | null
 
     if (redirectValue === 'on') {
       const meta: HTMLMetaElement = window.document.createElement('meta')
@@ -136,11 +136,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     radioButtonOn?.addEventListener('click', () => {
-      const metaTag = window.document.getElementById('metaRefresh') as HTMLElement
+      const metaTag = window.document.getElementById('metaRefresh') as HTMLMetaElement | null
       window.localStorage.setItem('redirect', window.JSON.stringify('on'))
 
       if (!metaTag) {
-        const meta = window.document.createElement('meta')
+        const meta: HTMLMetaElement = window.document.createElement('meta')
         meta.content = '10;url=https://example.com'
         meta.id = 'metaRefresh'
         meta.httpEquiv = 'refresh'
@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function setupMetaRedirect() {
     const metaTag: HTMLElement | null = window.document.getElementById('metaRefresh')
     const head: HTMLHeadElement = window.document.head
-    const redirectValue: any = window.JSON.parse(window.localStorage.getItem('redirect') || '{}')
+    const redirectValue: string = window.JSON.parse(window.localStorage.getItem('redirect') || '""')
 
     if (list.childElementCount >= 13 && metaTag === null) {
       const meta: HTMLMetaElement = window.document.createElement('meta')
@@ -176,10 +176,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function getUserVisitsCount() {
-    const parsedCount: any = window.JSON.parse(window.localStorage.getItem('visitCount') || '{}')
+    const parsedCount: string = window.JSON.parse(window.localStorage.getItem('visitCount') || '""')
     let count: number = window.Number(parsedCount) || 0
 
-    window.window.localStorage.setItem('visitCount', window.JSON.stringify(count + 1))
+    window.localStorage.setItem('visitCount', window.JSON.stringify(count + 1))
     // window.alert(`You visited this webpage ${count + 1} times`)
   }
 
@@ -222,7 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function showCollection() {
     const elementsCount: number = list.childElementCount
-    const elementsText: any[] = [...list.children].map((element) => (element as HTMLElement).innerText)
+    const elementsText: string[] = [...list.children].map((element) => (<HTMLLIElement>element).innerText)
 
     window.alert(`There are ${elementsCount} elements: ${elementsText.join(', ')}`)
   }
@@ -247,7 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function changeBackgroundColor(element: HTMLElement) {
-    const randomBetween = (min: number, max: number) => min + window.Math.floor(window.Math.random() * (max - min + 1))
+    const randomBetween = (min: number, max: number): number => min + window.Math.floor(window.Math.random() * (max - min + 1))
     const R = randomBetween(0, 255)
     const G = randomBetween(0, 255)
     const B = randomBetween(0, 255)
@@ -258,7 +258,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function createStylesForPage() {
     const allElements: NodeListOf<HTMLElement> = window.document.querySelectorAll<HTMLElement>('*')
     const liList: HTMLCollectionOf<HTMLLIElement> = list.getElementsByTagName('li')
-    const controls: HTMLElement | null = window.document.getElementById('controls')
+    const controls = window.document.getElementById('controls') as HTMLDivElement | null
     const controlsButtonsList: HTMLCollectionOf<HTMLButtonElement> = window.document.getElementsByTagName('button')
     const form: HTMLFormElement | null = window.document.querySelector('form')
 
@@ -287,34 +287,38 @@ document.addEventListener('DOMContentLoaded', () => {
       element.style.fontSize = '16px'
     })
 
-    controls!.style.position = 'absolute'
-    controls!.style.top = '0'
-    controls!.style.left = '50%'
-    controls!.style.transform = 'translateX(-50%)'
-    controls!.style.width = '70vw'
-    controls!.style.height = '10vh'
-    controls!.style.display = 'flex'
-    controls!.style.justifyContent = 'center'
-    controls!.style.alignItems = 'center'
-    controls!.style.gap = '20px'
+    if (controls) {
+      controls.style.position = 'absolute'
+      controls.style.top = '0'
+      controls.style.left = '50%'
+      controls.style.transform = 'translateX(-50%)'
+      controls.style.width = '70vw'
+      controls.style.height = '10vh'
+      controls.style.display = 'flex'
+      controls.style.justifyContent = 'center'
+      controls.style.alignItems = 'center'
+      controls.style.gap = '20px'
+    }
 
     const controlsButtons = [...controlsButtonsList].forEach((element) => {
       element.style.maxWidth = '40vw'
       element.style.cursor = 'pointer'
     })
 
-    form!.style.position = 'fixed'
-    form!.style.bottom = '0'
-    form!.style.left = '0'
-    form!.style.zIndex = '5'
-    form!.style.display = 'flex'
-    form!.style.justifyContent = 'center'
-    form!.style.alignItems = 'center'
-    form!.style.gap = '30px'
-    form!.style.backgroundColor = '#00000090'
-    form!.style.width = '100vw'
-    form!.style.height = '10vh'
-    form!.style.fontSize = '20px'
-    form!.style.color = 'white'
+    if (form) {
+      form.style.position = 'fixed'
+      form.style.bottom = '0'
+      form.style.left = '0'
+      form.style.zIndex = '5'
+      form.style.display = 'flex'
+      form.style.justifyContent = 'center'
+      form.style.alignItems = 'center'
+      form.style.gap = '30px'
+      form.style.backgroundColor = '#00000090'
+      form.style.width = '100vw'
+      form.style.height = '10vh'
+      form.style.fontSize = '20px'
+      form.style.color = 'white'
+    }
   }
 })
